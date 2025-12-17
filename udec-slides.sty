@@ -1,0 +1,112 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{udec-slides}
+
+% Paquetes básicos
+\RequirePackage{udec-core}
+
+\mode<presentation>
+
+% ========== COLORES ==========
+\setbeamercolor*{structure}{fg=UdeCPrincipal,bg=white}
+\setbeamercolor*{palette primary}{fg=white,bg=UdeCPrincipal}
+\setbeamercolor*{palette secondary}{fg=UdeCPrincipal,bg=UdeCSecundario}
+\setbeamercolor*{palette tertiary}{fg=white,bg=UdeCAcento}
+
+% ---------- BLOQUES ----------
+\useinnertheme[shadow=true]{rounded}
+
+% Bloque normal
+\setbeamercolor{block title}{fg=white,bg=UdeCPrincipal}
+\setbeamercolor{block body}{fg=black,bg=UdeCPrincipal!10}
+
+% --- CORRECCIÓN AQUÍ ---
+\setbeamercolor{block title alerted}{fg=white,bg=UdeCAlerta}
+\setbeamercolor{block body alerted}{fg=black,bg=UdeCAlerta!10}
+
+% Bloque de ejemplo
+\setbeamercolor{block title example}{fg=white,bg=UdeCAcento!85!black}
+\setbeamercolor{block body example}{fg=black,bg=UdeCAcento!85!black!10}
+
+% ---------- Footer/Header ----------
+\useoutertheme{infolines}
+\setbeamertemplate{navigation symbols}{}
+
+% ---------- TITULOS/SUBTITULOS ----------
+\setbeamercolor{author in head/foot}{bg=UdeCPrincipal,fg=white}
+\setbeamercolor{title in head/foot}{bg=UdeCSecundario,fg=black}
+
+% Títulos
+\setbeamercolor{title}{bg=UdeCPrincipal, fg=white}
+\setbeamerfont{title}{series=\bfseries, size=\LARGE}
+
+% Subtítulos
+\setbeamercolor{subtitle}{fg=white}
+\setbeamerfont{subtitle}{series=\mdseries, size=\normalsize}
+
+
+% ========== EXTRACCIÓN DE DATOS ==========
+\InputIfFileExists{infoAsignatura.tex}{}{}
+
+% ========== FOOTER ==========
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.20\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\nombreAsignatura
+        \end{beamercolorbox}%
+
+        \begin{beamercolorbox}[wd=.12\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertsubtitle
+        \end{beamercolorbox}%
+
+        \begin{beamercolorbox}[wd=.41\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+
+        \begin{beamercolorbox}[wd=.20\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\nombreAyudante
+        \end{beamercolorbox}%
+
+        \begin{beamercolorbox}[wd=.07\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+            \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+        \end{beamercolorbox}}%
+    \vskip0pt%
+}
+
+
+% ========== DIAPO DE TÍTULO ==========
+% Fuentes de Texto
+\usefonttheme{professionalfonts}
+\usefonttheme[onlymath]{serif}
+
+% Diapo
+\author{\nombreAyudante}
+\institute{{\nombreAsignatura} - \codigoAsignatura \\[5pt] Universidad de Concepción}
+\date{\infoSemestre}
+
+\addtobeamertemplate{title page}
+{
+    \centering
+    \vspace{1em}
+    \IfFileExists{logo.png}{\includegraphics[height=2.5cm]{logo.png}}{}
+    \vspace{0.5em}
+}
+
+% Generador
+\newcommand{\primeraDiapo}{
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+}
+
+
+% ========== COMANDOS DE USUARIO ==========
+% Configurar título de la ayudantía
+\newcommand{\ayud}[2]{
+    \title{#2}
+    \subtitle{Ayudantía #1}
+}
+
+
+\mode<all>

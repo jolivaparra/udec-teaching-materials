@@ -1,0 +1,72 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{udec-core}
+
+% ========== PAQUETES ==========
+
+% Lógica/Programación
+\RequirePackage{xparse}
+\RequirePackage{etoolbox}
+
+% Configuración Base
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[spanish,es-tabla]{babel}
+
+% Matemáticas y Ciencia
+\let\Bbbk\relax
+\RequirePackage{mathtools}
+\RequirePackage{amssymb} % Si newtxmath da error "already defined", comenta esta línea
+\RequirePackage{esint}
+\RequirePackage{siunitx}
+\RequirePackage{cancel}
+
+% Figuras
+\RequirePackage{graphicx}
+\RequirePackage{listings}
+\RequirePackage{tikz}
+\RequirePackage[american]{circuitikz}
+
+% Tablas
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+\RequirePackage{makecell}
+\RequirePackage{array}
+
+% ========== COLORES ==========
+% Principales
+\definecolor{UdeCPrincipal}{HTML}{003972}
+\definecolor{UdeCSecundario}{HTML}{ffffff}
+\definecolor{UdeCAcento}{HTML}{f2ab00}
+\definecolor{UdeCAlerta}{HTML}{E74C3C}
+
+% ========== VARIABLES DE DATOS ==========
+\newcommand{\nombreAsignatura}{Nombre Asignatura}
+\newcommand{\codigoAsignatura}{000000}
+\newcommand{\infoSemestre}{20XX - X}
+\newcommand{\nombreAyudante}{Nombre Ayudante}
+\newcommand{\contactoAyudante}{example@email.com}
+
+
+\newcommand{\asignatura}[2]{
+    \renewcommand{\nombreAsignatura}{#1}
+    \renewcommand{\codigoAsignatura}{#2}
+}
+\newcommand{\semestre}[1]{\renewcommand{\infoSemestre}{#1}}
+\newcommand{\ayudante}[2]{
+    \renewcommand{\nombreAyudante}{#1}
+    \renewcommand{\contactoAyudante}{#2}
+}
+
+% ========== COMANDOS/MACROS ==========
+% Vectores
+\newcommand{\vect}[1]{\vec{#1}}
+% \newcommand{\vect}[1]{\mathbf{#1}}
+
+% Divergencia / Divergence
+\newcommand{\diver}[1]{\nabla\cdot\vect{#1}}
+
+% Rotacional / Curl
+\newcommand{\rot}[1]{\nabla\times\vect{#1}}
+
+% Gradiente / Gradient
+\newcommand{\grad}[1]{\nabla #1}

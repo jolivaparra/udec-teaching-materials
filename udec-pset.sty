@@ -1,0 +1,182 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{udec-pset}
+\RequirePackage{udec-core}
+
+% Geometría
+\RequirePackage[a4paper,
+    left=2cm,
+    right=2cm,
+    top=1.5cm,
+    bottom=2.5cm,
+    headheight=40pt,
+    includehead
+]{geometry}
+
+% Tipografía y Estilo de Texto
+\RequirePackage{newtxtext, newtxmath} % Times New Roman
+\RequirePackage{setspace}
+\onehalfspacing
+\RequirePackage{microtype}
+
+% Elementos Flotantes
+\RequirePackage{float}
+\RequirePackage{subcaption}
+\RequirePackage[shortlabels]{enumitem} % *
+
+% ---------- Redacción/Presentación ----------
+% Creación de Entornos
+\RequirePackage{environ}
+% Gestión de Pendientes
+\RequirePackage[textsize=footnotesize, obeyFinal]{todonotes}
+% Manejo de Contenido
+\RequirePackage[most]{tcolorbox}
+
+% Referencias y Links
+\RequirePackage[
+    hidelinks,
+    pdfusetitle,
+    linktoc=all
+]{hyperref}
+
+% Cleveref SIEMPRE al final de todo
+\RequirePackage{cleveref}
+
+% Configuración de idioma Cleveref
+\AtBeginDocument{%
+    \crefname{table}{tabla}{tablas}%
+    \Crefname{table}{Tabla}{Tablas}%
+    \crefname{figure}{figura}{figuras}%
+    \Crefname{figure}{Figura}{Figuras}%
+    \crefname{equation}{ec.}{ecs.}%
+    \Crefname{equation}{Ecuación}{Ecuaciones}%
+}
+
+
+% ========== VARIABLES ESPECÍFICAS ==========
+\newcommand{\numeroGuia}{00}
+\newcommand{\temaGuia}{Tema General}
+
+
+\newcommand{\guia}[2]{
+    \renewcommand{\numeroGuia}{#1}
+    \renewcommand{\temaGuia}{#2}
+}
+
+
+% ========== EXTRACCIÓN DE DATOS ==========
+\InputIfFileExists{infoAsignatura.tex}{}{}
+
+% ========== ENCABEZADO ==========
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\lhead{
+    \normalsize \scshape
+    Universidad de Concepción \\
+    Facultad de Ingeniería \\
+    Depto. de Ingeniería Eléctrica
+}
+\chead{{\bfseries \codigoAsignatura\ -- \nombreAsignatura} \\
+    \infoSemestre
+}
+\rhead{\includegraphics[height=2.5\baselineskip]{logo-header.png}}
+
+\lfoot{\footnotesize \scshape \nombreAyudante}
+\cfoot{\small \thepage}
+\rfoot{\footnotesize \contactoAyudante}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+% ========== TITULO ==========
+\newcommand{\crearEncabezado}{
+    \begin{center}
+
+        {\LARGE Guía de Problemas N$^\circ$\numeroGuia} \\[0.2cm]
+        {\large \temaGuia} \\[0.4cm]
+        \vspace{0.5cm}
+    \end{center}
+}
+
+% ========== CAJA DE RESUMEN ==========
+\newtcolorbox{resumen}[1][]{
+    enhanced, breakable,
+    colback=UdeCPrincipal!5!white, % Usando tu variable
+    colframe=UdeCPrincipal,        % Usando tu variable
+    title=\textbf{Resumen de Conceptos},
+    coltitle=white,
+    attach boxed title to top left={xshift=5mm, yshift*=-3mm},
+    boxed title style={colback=UdeCPrincipal, sharp corners, rounded corners=northeast, arc=3mm},
+    separator sign=none, sharp corners=downhill, top=12pt,
+    #1
+}
+
+% ========== CAJA DE ALERTA ==========
+\newtcolorbox{alerta}[1][\i \ Cuidado]{
+    enhanced, breakable,
+    colback=UdeCAlerta!5!white,
+    colframe=UdeCAlerta,
+    title=\textbf{#1},             % <--- AQUÍ ESTABA EL CAMBIO CLAVE
+    coltitle=white,
+    attach boxed title to top left={xshift=5mm, yshift*=-3mm},
+    boxed title style={
+            colback=UdeCAlerta,
+            sharp corners,
+            rounded corners=northeast,
+            arc=3mm
+        },
+    separator sign=none, sharp corners=downhill, top=12pt
+}
+
+% ========== Lógica Escritura de Problemas ==========
+
+% ---------- Entorno de Problemas ----------
+% Contador
+\newcounter{problemaNum}
+
+% Problema numerado como NGuia.NProblema
+\renewcommand{\theproblemaNum}{\numeroGuia.\arabic{problemaNum}}
+
+% Entorno
+% Uso: \begin{problema}[Título Opcional] ... \end{problema}
+\newenvironment{problema}[1][]{
+    \refstepcounter{problemaNum}
+
+    \par \vspace{1.5em}
+    \noindent\ignorespaces%
+
+    {\bfseries Problema \theproblemaNum}%
+    \ifstrempty{#1}%
+    {\textbf{.}}
+    {~\textbf{[#1].}} % En caso de que se inserte Info del Problema 
+    \enskip\ignorespaces
+}{
+    \par \vspace{1em}
+}
+
+\newif\if@soluciones
+
+% Comando Global
+\newcommand{\mostrarSoluciones}{\@solucionestrue}
+
+\NewEnviron{solucion}{
+    \if@soluciones
+        \vspace{5pt}
+        \begin{tcolorbox}[
+                breakable,
+                colback=UdeCAcento!10!white,
+                colframe=UdeCAcento!80!black,
+                title=\textbf{Respuesta:},
+                coltitle=white,     % Ahora el blanco SÍ contrasta bien sobre el bronce
+                arc=0mm,            % Esquinas rectas (más serio)
+                leftrule=3pt,       % Borde izquierdo grueso
+                boxrule=0.5pt       % Borde resto fino
+            ]
+            \BODY
+        \end{tcolorbox}
+        \vspace{5pt}
+    \else
+    \fi
+}
