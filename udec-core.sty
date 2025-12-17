@@ -57,6 +57,13 @@
     \renewcommand{\contactoAyudante}{#2}
 }
 
+% ========== EXTRACCIÓN DE DATOS ==========
+\IfFileExists{../infoAsignatura.tex}{%
+    \input{../infoAsignatura.tex}%
+}{%
+    \PackageError{udec-core}{No se encontro 'infoAsignatura.tex' en la carpeta superior.}{Asegurate de que el archivo .tex este dentro de una subcarpeta (ej: psets/) y que infoAsignatura.tex este en la carpeta del ramo.}%
+}
+
 % ========== COMANDOS/MACROS ==========
 % Vectores
 \newcommand{\vect}[1]{\vec{#1}}
