@@ -2,12 +2,188 @@
 \usepackage{udec-slides}
 \ayud{1}{Ley de Coulomb}
 
-
 \begin{document}
 \primeraDiapo
 
-\begin{frame}{Inicio}
-    
+\begin{frame}{Operaciones Vectoriales}{Repaso}
+    Dado dos vectores: $\vect{r}_1$, $\vect{r}_2$ se tiene lo siguiente.
+    \begin{boxTeoria}{Vector Posición}
+        El vector $\vect{r}_{12}$, corresponde al vector que va desde $\vect{r}_1$ hasta $\vect{r}_2$ está dado por:
+        \begin{equation*}
+            \vect{r}_{12} = \vect{r}_2 - \vect{r}_1
+        \end{equation*}
+    \end{boxTeoria}
+\end{frame}
+
+\begin{frame}{Operaciones Vectoriales}{Repaso}
+    \vspace{-15pt}
+    \begin{boxTeoria}{Norma de un Vector}
+        Dado $\vect{r} = r_x\hat{x} + r_y\hat{y}$ la norma del vector $\vect{r}$ está dada por:
+        \begin{equation*}
+            |\vect{r}| = r = \sqrt{r_x^2 + r_y^2}
+        \end{equation*}
+    \end{boxTeoria}
+
+    \begin{boxTeoria}{Vector Unitario}
+        Un vector unitario es aquel que tiene norma 1. Para normalizar un vector basta dividirlo por su propia norma.
+        \begin{equation*}
+            \hat{r} = \frac{\vect{r}}{|\vect{r}|}
+        \end{equation*}
+    \end{boxTeoria}
+\end{frame}
+
+\begin{frame}{Definiciones}
+
+    \begin{boxTeoria}{Carga Eléctrica}
+        Es una propiedad intrínseca de la materia, al igual que la masa, que determina la capacidad de las partículas para participar en interacciones electromagnéticas.
+    \end{boxTeoria}
+
+    \begin{boxTeoria}{Carga Puntual}
+        Es una idealización física donde se asume que toda la carga eléctrica de un cuerpo está concentrada en un único punto geométrico.
+        \begin{itemize}
+            \item Se suele utilizar cuando la distancia entre los cuerpos cargados es mucho mayor que el tamaño de los cuerpos mismos.
+        \end{itemize}
+    \end{boxTeoria}
+
+\end{frame}
+
+\begin{frame}{Ley de Coulomb}
+    Establece que la fuerza entre dos cargas puntuales en reposo es directamente proporcional al producto de sus cargas e inversamente proporcional al cuadrado de la distancia que las separa.
+    \begin{boxTeoria}{Expresión Vectorial}
+        La fuerza ejercida por la carga $q_1$ ubicada en $\vect{r}_1$ sobre $q_2$ ubicada en $\vect{r_2}$ se define como:
+        \begin{equation*}
+            \vec{F}_{12} = \frac{1}{4\pi\varepsilon_0} \frac{\dotprod{q_1}{q_2}}{|\vect{r}_{12}|^2} \;\hat{r}_{12} \;[\unit{\N}]
+        \end{equation*}
+    \end{boxTeoria}
+
+    \begin{itemize}
+        \item \textbf{Dirección:} Actúa a lo largo de la línea recta que une ambas cargas.
+        \item \textbf{Sentido:} Es atractiva si las cargas son de signo opuesto ($q_1 q_2 < 0$) y repulsiva si son del mismo signo ($q_1 q_2 > 0$).
+        \item \textbf{Constante:} $k_e = \frac{1}{4\pi\varepsilon_0}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Utilidades}
+    \vspace{-15pt}
+    \begin{boxTeoria}{Principio de Superposición}
+        La fuerza neta que actúa sobre una carga puntual es la suma vectorial de las fuerzas ejercidas por cada una de las demás cargas del sistema.
+        \begin{equation*}
+            \vect{F}_{R} = \vect{F}_{1} + \vect{F}_{2} + \dots + \vect{F}_{n}
+        \end{equation*}
+    \end{boxTeoria}
+
+    \begin{boxNota}{Valores de Algunas Constantes}
+        \begin{itemize}
+            \item \textbf{Carga del Electrón ($e$):} \qty{-1.602e-19}{\C}
+            \item \textbf{Permitividad del Vacío ($\epsilon_0$):} \qty{8.854e-12}{\C\squared\per\N\per\meter\squared}
+            \item \textbf{Masa del electrón ($m_e$):} \qty{9.109e-31}{\kg}
+        \end{itemize}
+    \end{boxNota}
+
+\end{frame}
+
+\begin{frame}{Problema 1}
+    Se muestra un arreglo de cargas nucleares (cargas positivas) en una
+    molécula de HCl. Si la magnitud de las cargas nucleares del H y del Cl son $e$ y $17e$, respectivamente, y la distancia entre estas es de \qty{1,28e-10}{\m}. ¿Cuál es la fuerza eléctrica neta que estas cargas ejercen sobre un electrón ubicado a \qty{5,0e-11}{\m} sobre el núcleo de H?
+
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{fig/ayud1-img1.pdf}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}{Problema 2}
+
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+            Dos cargas idénticas $+Q$, están situadas en los dos vértices de un triángulo equilátero de lado $a$, y una tercera carga $-q$ está en el otro vértice. Si una cuarta carga $q_0$ se ubica a una distancia $a/2$, fuera del triángulo, en un punto a lo largo de la bisectriz perpendicular que une la línea entre las cargas $+Q$; y se encuentra que ésta experimenta una fuerza neta cero. ¿Cuál es el valor de la razón $q/Q$?
+
+
+        \end{column}
+        \hfill
+        \begin{column}{0.49\textwidth}
+            \begin{center}
+                \includegraphics[width=0.7\textwidth]{fig/ayud1-img2.pdf}
+            \end{center}
+
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Formas de Distribuciones de Carga}
+
+    \begin{boxTeoria}{Distribución Lineal de Carga}
+        Es la razón entre la cantidad de carga ($\Delta q$) y la longitud ($\Delta l$) de un cuerpo.
+        Define cuanta carga existe por cada unidad de longitud ($dL$).
+        \begin{equation*}
+            \rho_l = \lambda = \lim_{\Delta l\to 0}\frac{\Delta q}{\Delta l} = \frac{dq}{dl} \;[\unit{\C\per\m}]
+        \end{equation*}
+    \end{boxTeoria}
+\end{frame}
+
+\begin{frame}{Formas de Distribuciones de Carga}
+
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+            \begin{boxTeoria}{Distribución de Carga Superficial}
+                Es la razón entre la cantidad de carga ($\Delta q$) y la superficie ($\Delta S$) de un cuerpo.
+                Define cuanta carga existe por cada unidad de superficie ($dS$).
+                \begin{equation*}
+                    \rho_s = \sigma = \lim_{\Delta S\to 0}\frac{\Delta q}{\Delta S} = \frac{dq}{dS} \;[\unit{\C\per\m\squared}]
+                \end{equation*}
+            \end{boxTeoria}
+        \end{column}
+        \hfill
+        \begin{column}{0.49\textwidth}
+            \begin{boxTeoria}{Distribución de Carga Volumétrica}
+                Es la razón entre la cantidad de carga ($\Delta q$) y el volumen ($\Delta V$) de un cuerpo.
+                Define cuanta carga existe por cada unidad de volumen ($dV$).
+                \begin{equation*}
+                    \rho_s = \rho = \lim_{\Delta V\to 0}\frac{\Delta q}{\Delta V} = \frac{dq}{dV} \;[\unit{\C\per\m\cubed}]
+                \end{equation*}
+            \end{boxTeoria}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Integración por Elementos Diferenciales}
+    Las fórmulas básicas (como la de Newton o Coulomb) son puntuales (trabajan punto a punto). Pero en el mundo real, los objetos tienen forma y tamaño. Para estudiar objetos reales, los tratamos como una colección infinita de puntos.
+
+    \begin{boxTeoria}{Proceso}
+        Consiste en 2 pasos principales (no necesariamente fáciles)
+        \begin{enumerate}
+            \item \textbf{Dividir:} Cortar el objeto en trozos infinitesimales llamados \textbf{elementos diferenciales} ($dx$, $dA$, $dV$).
+            \item \textbf{Aproximar:} Cada trozo es tan pequeño que podemos tratarlo como un ``punto'' con una porción de propiedad total ($dq$ para carga, $dm$ para masa).
+        \end{enumerate}
+
+    \end{boxTeoria}
+\end{frame}
+
+\begin{frame}{Integración por Elementos Diferenciales}
+    Para pasar de lo pequeño a lo grande, sumamos los infinitos puntos involucrados a lo largo de toda su extensión mediante la \textbf{Integral}.
+
+    \begin{equation*}
+        \text{Cantidad Total} = \int_\text{objeto}d(\text{Cantidad})
+    \end{equation*}
+
+\end{frame}
+
+\begin{frame}{Problema 3}
+    Una línea corta de largo $L$ está cargada con una densidad de
+    carga lineal $\rho_l$. Calcúlese la intensidad de campo eléctrico en los puntos $P1$ y $P2$.
+
+    \begin{center}
+        \includegraphics[width=0.65\textwidth]{fig/ayud1-img3.pdf}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}{Problema 4}
+
+    Un disco de radio a esta cargado con una densidad de carga no uniforme $\rho_s = \rho_0 r$, donde $r$ es la distancia desde el centro del disco.  Calcular la intensidad de campo eléctrico a una distancia h desde el centro del disco en su eje.
+
 \end{frame}
 
 \end{document}
