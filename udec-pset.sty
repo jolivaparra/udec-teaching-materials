@@ -28,8 +28,6 @@
 \RequirePackage{environ}
 % Gestión de Pendientes
 \RequirePackage[textsize=footnotesize, obeyFinal]{todonotes}
-% Manejo de Contenido
-\RequirePackage[most]{tcolorbox}
 
 % Referencias y Links
 \RequirePackage[
@@ -94,36 +92,6 @@
         {\large \temaGuia} \\[0.4cm]
         \vspace{0.5cm}
     \end{center}
-}
-
-% ========== CAJA DE RESUMEN ==========
-\newtcolorbox{resumen}[1][]{
-    enhanced, breakable,
-    colback=UdeCPrincipal!5!white, % Usando tu variable
-    colframe=UdeCPrincipal,        % Usando tu variable
-    title=\textbf{Resumen de Conceptos},
-    coltitle=white,
-    attach boxed title to top left={xshift=5mm, yshift*=-3mm},
-    boxed title style={colback=UdeCPrincipal, sharp corners, rounded corners=northeast, arc=3mm},
-    separator sign=none, sharp corners=downhill, top=12pt,
-    #1
-}
-
-% ========== CAJA DE ALERTA ==========
-\newtcolorbox{alerta}[1][\i \ Cuidado]{
-    enhanced, breakable,
-    colback=UdeCAlerta!5!white,
-    colframe=UdeCAlerta,
-    title=\textbf{#1},             % <--- AQUÍ ESTABA EL CAMBIO CLAVE
-    coltitle=white,
-    attach boxed title to top left={xshift=5mm, yshift*=-3mm},
-    boxed title style={
-            colback=UdeCAlerta,
-            sharp corners,
-            rounded corners=northeast,
-            arc=3mm
-        },
-    separator sign=none, sharp corners=downhill, top=12pt
 }
 
 % ========== Lógica Escritura de Problemas ==========
