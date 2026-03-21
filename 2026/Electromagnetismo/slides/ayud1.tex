@@ -6,11 +6,11 @@
 \primeraDiapo
 
 \begin{frame}{Operaciones Vectoriales}{Repaso}
-    Dado dos vectores: $\vect{r}_1$, $\vect{r}_2$ se tiene lo siguiente.
-    \begin{boxTeoria}{Vector Posición}
-        El vector $\vect{r}_{12}$, corresponde al vector que va desde $\vect{r}_1$ hasta $\vect{r}_2$ está dado por:
+    Dado dos vectores: $\vec{r}_1$, $\vec{r}_2$ se tiene lo siguiente.
+    \begin{boxTeoria}{Vector de Separación}
+        El vector $\vec{r}_{12}$, corresponde al vector que va desde $\vec{r}_1$ hasta $\vec{r}_2$ está dado por:
         \begin{equation*}
-            \vect{r}_{12} = \vect{r}_2 - \vect{r}_1
+            \vec{r}_{12} = \vec{r}_2 - \vec{r}_1
         \end{equation*}
     \end{boxTeoria}
 \end{frame}
@@ -18,16 +18,16 @@
 \begin{frame}{Operaciones Vectoriales}{Repaso}
     \vspace{-15pt}
     \begin{boxTeoria}{Norma de un Vector}
-        Dado $\vect{r} = r_x\hat{x} + r_y\hat{y}$ la norma del vector $\vect{r}$ está dada por:
+        Dado $\vec{r} = r_x\hat{x} + r_y\hat{y}$ la norma del vector $\vec{r}$ está dada por:
         \begin{equation*}
-            |\vect{r}| = r = \sqrt{r_x^2 + r_y^2}
+            |\vec{r}| = r = \sqrt{r_x^2 + r_y^2}
         \end{equation*}
     \end{boxTeoria}
 
     \begin{boxTeoria}{Vector Unitario}
         Un vector unitario es aquel que tiene norma 1. Para normalizar un vector basta dividirlo por su propia norma.
         \begin{equation*}
-            \hat{r} = \frac{\vect{r}}{|\vect{r}|}
+            \hat{r} = \frac{\vec{r}}{|\vec{r}|}
         \end{equation*}
     \end{boxTeoria}
 \end{frame}
@@ -50,9 +50,9 @@
 \begin{frame}{Ley de Coulomb}
     Establece que la fuerza entre dos cargas puntuales en reposo es directamente proporcional al producto de sus cargas e inversamente proporcional al cuadrado de la distancia que las separa.
     \begin{boxTeoria}{Expresión Vectorial}
-        La fuerza ejercida por la carga $q_1$ ubicada en $\vect{r}_1$ sobre $q_2$ ubicada en $\vect{r_2}$ se define como:
+        La fuerza ejercida por la carga $q_1$ ubicada en $\vec{r}_1$ sobre $q_2$ ubicada en $\vec{r_2}$ se define como:
         \begin{equation*}
-            \vec{F}_{12} = \frac{1}{4\pi\varepsilon_0} \frac{\dotprod{q_1}{q_2}}{|\vect{r}_{12}|^2} \;\hat{r}_{12} \;[\unit{\N}]
+            \vec{F}_{12} = \frac{1}{4\pi\varepsilon_0} \frac{\dotprod{q_1}{q_2}}{|\vec{r}_{12}|^2} \;\hat{r}_{12} \;[\unit{\N}]
         \end{equation*}
     \end{boxTeoria}
 
@@ -68,7 +68,7 @@
     \begin{boxTeoria}{Principio de Superposición}
         La fuerza neta que actúa sobre una carga puntual es la suma vectorial de las fuerzas ejercidas por cada una de las demás cargas del sistema.
         \begin{equation*}
-            \vect{F}_{R} = \vect{F}_{1} + \vect{F}_{2} + \dots + \vect{F}_{n}
+            \vec{F}_{R} = \vec{F}_{1} + \vec{F}_{2} + \dots + \vec{F}_{n}
         \end{equation*}
     \end{boxTeoria}
 
@@ -87,7 +87,7 @@
     molécula de HCl. Si la magnitud de las cargas nucleares del H y del Cl son $e$ y $17e$, respectivamente, y la distancia entre estas es de \qty{1,28e-10}{\m}. ¿Cuál es la fuerza eléctrica neta que estas cargas ejercen sobre un electrón ubicado a \qty{5,0e-11}{\m} sobre el núcleo de H?
 
     \begin{center}
-        \includegraphics[width=0.4\textwidth]{fig/ayud1-img1.pdf}
+        \includegraphics[width=0.4\textwidth]{../fig/ayud1-img-p1.pdf}
     \end{center}
 
 \end{frame}
@@ -98,14 +98,12 @@
         \begin{column}{0.49\textwidth}
             Dos cargas idénticas $+Q$, están situadas en los dos vértices de un triángulo equilátero de lado $a$, y una tercera carga $-q$ está en el otro vértice. Si una cuarta carga $q_0$ se ubica a una distancia $a/2$, fuera del triángulo, en un punto a lo largo de la bisectriz perpendicular que une la línea entre las cargas $+Q$; y se encuentra que ésta experimenta una fuerza neta cero. ¿Cuál es el valor de la razón $q/Q$?
 
-
         \end{column}
         \hfill
         \begin{column}{0.49\textwidth}
             \begin{center}
-                \includegraphics[width=0.7\textwidth]{fig/ayud1-img2.pdf}
+                \includegraphics[width=0.7\textwidth]{../fig/ayud1-img-p2.pdf}
             \end{center}
-
         \end{column}
     \end{columns}
 \end{frame}
@@ -163,7 +161,7 @@
     \begin{boxTeoria}{Proceso}
         Consiste en 2 pasos principales (no necesariamente fáciles)
         \begin{enumerate}
-            \item \textbf{Dividir:} Cortar el objeto en trozos infinitesimales llamados \textbf{elementos diferenciales} ($dx$, $dA$, $dV$).
+            \item \textbf{Dividir:} Cortar el objeto en trozos infinitesimales llamados \textbf{elementos diferenciales} ($dl$, $dS$, $dV$).
             \item \textbf{Aproximar:} Cada trozo es tan pequeño que podemos tratarlo como un ``punto'' con una porción de propiedad total ($dq$ para carga, $dm$ para masa).
         \end{enumerate}
 
@@ -184,14 +182,18 @@
     carga lineal $\rho_l$. Calcúlese la intensidad de campo eléctrico en el punto $P1$.
 
     \begin{center}
-        \includegraphics[width=0.65\textwidth]{fig/ayud1-img3.pdf}
+        \includegraphics[width=0.65\textwidth]{../fig/ayud1-img-p3.pdf}
     \end{center}
 
 \end{frame}
 
 \begin{frame}{Problema 4}
 
-    Un disco de radio a esta cargado con una densidad de carga no uniforme $\rho_s = \rho_0 r$, donde $r$ es la distancia desde el centro del disco.  Calcular la intensidad de campo eléctrico a una distancia h desde el centro del disco en su eje.
+    Un disco de radio $a$ esta cargado con una densidad de carga no uniforme $\rho_s = \rho_0 r$, donde $r$ es la distancia desde el centro del disco.  Calcular la intensidad de campo eléctrico a una distancia $h$ desde el centro del disco en su eje.
+
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{../fig/ayud1-img-p4.pdf}
+    \end{center}
 
 \end{frame}
 
