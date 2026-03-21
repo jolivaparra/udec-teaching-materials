@@ -90,7 +90,7 @@
 
         {\LARGE Guía de Problemas N$^\circ$\numeroGuia} \\[0.2cm]
         {\large \temaGuia} \\[0.4cm]
-        \vspace{0.5cm}
+        % \vspace{0.5cm}
     \end{center}
 }
 
@@ -127,12 +127,17 @@
 
 \NewEnviron{solucion}{
     \if@soluciones
-        \vspace{5pt}
+
+        % Reinicia ecuaciones a 0
+        \setcounter{equation}{0}
+        % Formato: Guia.Problema.Ecuacion (Ej: 3.1.1, 3.1.2)
+        \renewcommand{\theequation}{\theproblemaNum.\arabic{equation}}
+
         \begin{tcolorbox}[
                 breakable,
                 colback=UdeCAcento!10!white,
                 colframe=UdeCAcento!80!black,
-                title=\textbf{Respuesta:},
+                title=\textbf{Solución:},
                 coltitle=white,     % Ahora el blanco SÍ contrasta bien sobre el bronce
                 arc=0mm,            % Esquinas rectas (más serio)
                 leftrule=3pt,       % Borde izquierdo grueso

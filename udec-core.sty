@@ -21,8 +21,10 @@
 \RequirePackage{siunitx}
 
 \sisetup{
-    per-mode = symbol
+    per-mode = symbol,
+    output-decimal-marker = {.}
 }
+\setlength{\jot}{7pt}
 
 % Figuras
 \RequirePackage{graphicx}
@@ -73,9 +75,6 @@
 }
 
 % ========== COMANDOS/MACROS ==========
-% Vectores
-\newcommand{\vect}[1]{\vec{#1}}
-% \newcommand{\vect}[1]{\mathbf{#1}}
 
 % Divergencia / Divergence
 \newcommand{\diver}[1]{\nabla\cdot\vect{#1}}
@@ -89,6 +88,10 @@
 % Producto Interior / Dot Product
 \newcommand{\dotprod}[2]{#1 \cdot #2}
 
+% Notación Científica
+\newcommand{\notcien}[2]{#1 \times 10^{#2}}
+
+
 % ========== Bloques de Contenido ===========
 
 % --- Lógica de compatibilidad Beamer/Article ---
@@ -96,7 +99,7 @@
 \@ifclassloaded{beamer}{\tcbset{beamerMode/.style={beamer}}}{\tcbset{beamerMode/.style={}}}
 \makeatother
 
-% --- Estilo "Modern Outline Precision" ---
+% --- Estilo ---
 \tcbset{
     baseBox/.style={
             enhanced, breakable, beamerMode,
