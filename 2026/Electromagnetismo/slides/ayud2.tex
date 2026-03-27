@@ -1,0 +1,67 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{udec-slides}
+\ayud{2}{Campo Eléctrico}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Campo Eléctrico}{Expresión para una Carga Puntual}
+    \begin{boxTeoria}{Campo Eléctrico debido a Carga Puntual}
+        Si tenemos una carga fuente $Q$, el campo que genera sobre un punto
+        $P$ es:
+        \begin{equation*}
+            \vec{E} = \frac{1}{4\pi\epsilon_0} \frac{Q}{|\vec{R}|^2} \hat{R}
+        \end{equation*}
+
+        Donde:
+        \begin{itemize}
+            \item $\vec{R} = \vec{r}_P - \vec{r}_Q$
+        \end{itemize}
+    \end{boxTeoria}
+\end{frame}
+
+\begin{frame}{Problema 1}{Distribución de Carga Lineal}
+
+    Considere un hilo delgado en forma de semicircunferencia de radio $R$ cargado con una densidad de carga lineal uniforme $\lambda$. Este sitúa su centro el origen. Determine, el vector campo eléctrico $\vec{E}$ generado por esta distribución en el punto $P$ ubicado en el origen.
+
+    \begin{center}
+        \begin{tikzpicture}[scale=2, >=stealth, y=1cm, x=1cm]
+            \draw[->, thin, gray] (-1.3, 0) -- (1.3, 0) node[right, black, scale=0.7] {$x$};
+            \draw[->, thin, gray] (0, -0.2) -- (0, 1.3) node[above, black, scale=0.7] {$y$};
+
+            \draw[ultra thick, UdeCPrincipal] (1,0) arc (0:180:1);
+
+            \filldraw[black] (0,0) circle (1.2pt) node[below left, scale=0.8] {$P$};
+
+            \draw[dashed, red, thick] (0,0) -- (0.707, 0.707) node[midway, above left, scale=0.8, red] {$R$};
+
+            \node[UdeCPrincipal, scale=0.9] at (135:1.3) {$\lambda$};
+
+        \end{tikzpicture}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}{Problema 2}{Distribución de Carga Superficial}
+
+    Una lámina delgada en forma de anillo plano (arandela) tiene un radio interior $R_1$ y un radio exterior $R_2$. El anillo posee una densidad de carga superficial uniforme $\sigma$. Determine el vector campo eléctrico $\vec{E}$ en un punto $P$ situado sobre el eje del anillo, a una altura $h$ del centro.
+
+    \begin{center}
+        \vspace{-15pt}
+        \includegraphics[width=0.35\textwidth]{../fig/ayud2-img-p3.pdf}
+    \end{center}
+
+
+\end{frame}
+
+\begin{frame}{Problema 3}{Distribución de Carga Volumétrica}
+    Una esfera sólida de radio $a$ posee una densidad de carga volumétrica no uniforme definida por:
+
+    \begin{equation*}
+        \rho(r) = \rho_0 \left( \frac{r - a}{a} \right)
+    \end{equation*}
+
+    donde $r$ es la distancia radial desde el centro de la esfera. Encontrar la intensidad del campo eléctrico en un punto situado a una distancia $R$ muy grande ($R \gg a$). ¿Qué cosas deben asumirse?
+\end{frame}
+
+\end{document}

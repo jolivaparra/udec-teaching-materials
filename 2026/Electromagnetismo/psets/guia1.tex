@@ -276,7 +276,7 @@
 \end{solucion}
 
 \begin{problema}
-    Un disco de radio $a$ esta cargado con una densidad de carga no uniforme $\rho_s = \rho_0 r$, donde $r$ es la distancia desde el centro del disco.  Calcular la intensidad de campo eléctrico a una distancia $h$ desde el centro del disco en su eje.
+    Un disco de radio $a$ esta cargado con una densidad de carga uniforme $\rho_s$.  Calcular la intensidad de campo eléctrico a una distancia $h$ desde el centro del disco en su eje.
 
     \begin{figure}[H]
         \centering
@@ -289,11 +289,11 @@
 
 \begin{solucion}
 
-    Mediante coordenadas cilíndricas con origen en el centro del disco, se tiene que el punto de interés está ubicado en $\vec{r}_P= h\hat{z}$, luego un punto cualquiera del disco está dado por: $D: \vec{r}_S(r, \theta) = r\cos(\theta)\hat{x} + r\sin(\theta)\hat{y}, \; r\in[0, a], \theta\in[0, 2\pi]$.
+    Mediante coordenadas rectangulares con origen en el centro del disco, se tiene que el punto de interés está ubicado en $\vec{r}_P= h\hat{z}$, luego un punto cualquiera del disco está dado por: $D: \vec{r}_S(r, \theta) = r\cos(\theta)\hat{x} + r\sin(\theta)\hat{y}, \; r\in[0, a], \theta\in[0, 2\pi]$.
 
     Tomando un elemento diferencial de la superficie del disco, $dS$, la carga asociada a esta correponde a $dq = \rho_s dS$, luego, el vector de separación entre el elemento diferencial del disco y el punto $P$ es:
     \begin{equation}
-        \vec{R} = \vec{r}_P - \vec{r}_S = h\hat{z} + r\cos(\theta)\hat{x} + r\sin(\theta)\hat{y}
+        \vec{R} = \vec{r}_P - \vec{r}_S = h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}
     \end{equation}
 
     Asi, la cantidad diferencial de campo eléctrico ejercida sobre $P$ corresponde a:
@@ -303,37 +303,37 @@
         \\
         d\vec{E}  = \frac{\rho_s dS}{4\pi\epsilon_0}\frac{\vec{R}}{|\vec{R}|^3}
         \\
-        d\vec{E}  = \frac{\rho_0 r dS}{4\pi\epsilon_0}\frac{h\hat{z} + r\cos(\theta)\hat{x} + r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}
+        d\vec{E}  = \frac{\rho_s dS}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}
         \\
-        d\vec{E}  = \frac{\rho_or}{4\pi\epsilon_0}\frac{h\hat{z} + r\cos(\theta)\hat{x} + r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}\,d\theta dr
+        d\vec{E}  = \frac{\rho_s}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}\,rd\theta dr
     \end{gather}
 
     Finalmente, sumando todos estos elementos de campo para todo el disco, se obtiene el campo eléctrico que está siendo ejercido sobre $P$
 
     \begin{equation}
-        \vec{E}_{\text{net}, P} = \iint_D d\vec{E} = \int_{0}^{a}\int_{0}^{2\pi} \frac{\rho_0r}{4\pi\epsilon_0}\frac{h\hat{z} + r\cos(\theta)\hat{x} + r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}\,d\theta dr
+        \vec{E}_{\text{net}, P} = \iint_D d\vec{E} = \int_{0}^{a}\int_{0}^{2\pi} \frac{\rho_s}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}\,rd\theta dr
     \end{equation}
 
     Mediante la identidad pitagórica, notamos que $(r\cos(\theta))^2 + (r\sin(\theta))^2 = r^2$. Luego, separamos la integral sobre los componentes del vector involucrado, así tendremos 3 integrales.
 
     \begin{equation}
-        = \frac{\rho_0}{4\pi\epsilon_0}\left(\int_{0}^{a}\int_{0}^{2\pi} \frac{h}{\sqrt{h^2+ r^2}^3} \,d\theta dr\hat{z} + \int_{0}^{a}\int_{0}^{2\pi} \frac{r\cos(\theta)}{\sqrt{h^2+ r^2}^3}\,d\theta dr\hat{x} + \int_{0}^{a}\int_{0}^{2\pi} \frac{r\sin(\theta)}{\sqrt{h^2+ r^2}^3}\,d\theta dr\hat{y}\right)
+        = \frac{\rho_s}{4\pi\epsilon_0}\left(\int_{0}^{a}\int_{0}^{2\pi} \frac{hr}{\sqrt{h^2+ r^2}^3} \,d\theta dr\hat{z} - \int_{0}^{a}\int_{0}^{2\pi} \frac{r^2\cos(\theta)}{\sqrt{h^2+ r^2}^3}\,d\theta dr\hat{x} - \int_{0}^{a}\int_{0}^{2\pi} \frac{r^2\sin(\theta)}{\sqrt{h^2+ r^2}^3}\,d\theta dr\hat{y}\right)
     \end{equation}
 
     Considerando los últimos 2 términos de la expresión (asociados a las componentes $x$ e $y$) al resolver la integral respecto a la variable $\theta$ está resulta 0, al estar resolviendo la integral $\int_{0}^{2\pi} \cos(\theta) d\theta$ y $\int_{0}^{2\pi} \sin(\theta) d\theta$ en los correspondientes casos, quedando.
 
     \begin{equation}
-        \vec{E}_{\text{net}, P} = \frac{\rho_0}{4\pi\epsilon_0}\int_{0}^{a}\int_{0}^{2\pi} \frac{h}{\sqrt{h^2+ r^2}^3} \,d\theta dr\hat{z}
+        \vec{E}_{\text{net}, P} = \frac{\rho_s}{4\pi\epsilon_0}\int_{0}^{a}\int_{0}^{2\pi} \frac{hr}{\sqrt{h^2+ r^2}^3} \,d\theta dr\hat{z}
     \end{equation}
 
     \begin{align}
-        \vec{E}_{\text{net}, P} = \frac{\rho_0}{4\pi\epsilon_0}\int_{0}^{2\pi}\,d\theta \int_{0}^{a} \frac{h}{\sqrt{h^2+ r^2}^3} \,dr \hat{z}
+        \vec{E}_{\text{net}, P} = \frac{\rho_s}{4\pi\epsilon_0}\int_{0}^{2\pi}\,d\theta \int_{0}^{a} \frac{rh}{\sqrt{h^2+ r^2}^3} \,dr \hat{z}
         \\
-        \vec{E}_{\text{net}, P} = \frac{\rho_0}{4\pi\epsilon_0}2\pi \left.\frac{-h}{\sqrt{h^2 + r^2}}\right|_0^a
+        \vec{E}_{\text{net}, P} = \frac{\rho_s}{4\pi\epsilon_0}2\pi \left.\frac{-h}{\sqrt{h^2 + r^2}}\right|_0^a
         \\
-        \vec{E}_{\text{net}, P} = \frac{\rho_0}{2\epsilon_0} h\left(\frac{1}{h} - \frac{1}{\sqrt{h^2 + a^2}}\right)
+        \vec{E}_{\text{net}, P} = \frac{\rho_s}{2\epsilon_0} h\left(\frac{1}{h} - \frac{1}{\sqrt{h^2 + a^2}}\right)
         \\
-        \vec{E}_{\text{net}, P}= \frac{\rho_0}{2\epsilon_0} \left(1 - \frac{h}{\sqrt{h^2 + a^2}}\right)
+        \vec{E}_{\text{net}, P}= \frac{\rho_s}{2\epsilon_0} \left(1 - \frac{h}{\sqrt{h^2 + a^2}}\right)
     \end{align}
 
 \end{solucion}
