@@ -210,7 +210,7 @@
 
 \newpage
 
-\begin{problema}
+\begin{problema}[Distribución de Carga Lineal]
     Una línea corta de largo $L$ está cargada con una densidad de
     carga lineal $\rho_l$. Calcúlese la intensidad de campo eléctrico en el punto $P1$.
 
@@ -219,10 +219,16 @@
         \includegraphics[width=0.5\textwidth]{../fig/ayud1-img-p3.pdf}
         \caption{Situación problema 3}
         \label{ayud1:fig:pe}
-    \end{figure}
+    \end{figure}    Una esfera sólida de radio $a$ posee una densidad de carga volumétrica no uniforme definida por:
+
+    \begin{equation*}
+        \rho(r) = \rho_0 \left( \frac{r - a}{a} \right)
+    \end{equation*}
+
+    donde $r$ es la distancia radial desde el centro de la esfera. Encontrar la intensidad del campo eléctrico en un punto situado a una distancia $R$ muy grande ($R \gg a$). ¿Qué cosas deben asumirse?
 \end{problema}
 
-\begin{solucion}
+\begin{solucion}[Distribución de Carga Superficial]
     Primero, se utilizará el sistema de coordenadas rectangulares con origen en el centro de la barra, por lo tanto, $\vec{r}_1 = \frac{L}{2}\hat{y}$.
 
 
@@ -275,7 +281,7 @@
 
 \end{solucion}
 
-\begin{problema}
+\begin{problema}[Distribución de Carga Superficial]
     Un disco de radio $a$ esta cargado con una densidad de carga uniforme $\rho_s$.  Calcular la intensidad de campo eléctrico a una distancia $h$ desde el centro del disco en su eje.
 
     \begin{figure}[H]
@@ -304,9 +310,12 @@
         d\vec{E}  = \frac{\rho_s dS}{4\pi\epsilon_0}\frac{\vec{R}}{|\vec{R}|^3}
         \\
         d\vec{E}  = \frac{\rho_s dS}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}
-        \\
-        d\vec{E}  = \frac{\rho_s}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}\,rd\theta dr
     \end{gather}
+
+    Donde $dS$ corresponde a $r\,d\theta dr$.
+    \begin{equation}
+        d\vec{E}  = \frac{\rho_s}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}r\,d\theta dr
+    \end{equation}
 
     Finalmente, sumando todos estos elementos de campo para todo el disco, se obtiene el campo eléctrico que está siendo ejercido sobre $P$
 
