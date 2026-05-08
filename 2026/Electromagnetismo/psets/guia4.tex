@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage{udec-pset}
+\guia{4}{Potencial Eléctrico}
+
+\begin{document}
+\crearEncabezado
+
+\begin{boxTeoria}{Potencial Eléctrico y Diferencia de Potencial}
+    El \textbf{Potencial Eléctrico} ($V$) en un punto del espacio se define como la energía potencial eléctrica por unidad de carga. La \textbf{Diferencia de Potencial} ($\Delta V$), comúnmente llamada voltaje, representa el trabajo externo por unidad de carga necesario para mover una carga de prueba de un punto $A$ a un punto $B$ a velocidad constante:
+    \begin{equation*}
+        \Delta V = V_B - V_A = -\int_{A}^{B} \vec{E} \cdot d\vec{l} = \frac{W_{A \to B}}{q} \quad [\unit{\V}]
+    \end{equation*}
+    Para una carga puntual $q$ en el origen, el potencial a una distancia $r$ (asumiendo que $V \to 0$ cuando $r \to \infty$) es:
+    \begin{equation*}
+        V(r) = \frac{1}{4\pi\varepsilon_0} \frac{q}{r} \quad [\unit{\V}]
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Naturaleza Escalar:} A diferencia del campo eléctrico, el potencial es una magnitud escalar. Esto facilita su cálculo, ya que se evitan las descomposiciones vectoriales.
+        \item \textbf{Superficies Equipotenciales:} Son regiones del espacio donde el potencial es constante. El vector de campo eléctrico $\vec{E}$ siempre es perpendicular a estas superficies, apuntando hacia donde el potencial disminuye.
+    \end{itemize}
+
+    El \textbf{Principio de Superposición} para el potencial dicta que el potencial neto en un punto, debido a una distribución de cargas discretas, es la suma \textit{algebraica} de los potenciales individuales: $V_{R} = V_{1} + V_{2} + \dots + V_{n}$.
+\end{boxTeoria}
+
+\begin{boxNota}{Unidades y Equivalencias Útiles}
+    \begin{itemize}
+        \item \textbf{El Voltio (V):} La unidad del SI para el potencial eléctrico. Equivale a un Joule por Coulomb ($\qty{1}{\V} = \qty{1}{\J\per\C}$).
+        \item \textbf{Unidad equivalente para $\vec{E}$:} A partir de la definición de voltaje, el campo eléctrico suele expresarse comúnmente en Volts por metro (\unit{\V\per\meter}), lo cual es dimensionalmente idéntico a \unit{\N\per\C}.
+        \item \textbf{Electrón-voltio (\unit{\electronvolt}):} Unidad de \textit{energía} (no de potencial) que equivale a la energía cinética adquirida por un electrón al moverse a través de una diferencia de potencial de \qty{1}{\V}. $\qty{1}{\electronvolt} = \qty{1.602e-19}{\J}$.
+    \end{itemize}
+\end{boxNota}
+
+\begin{problema}
+
+    Una carga puntual $q$ es desplazada (por un agente externo) desde el origen $(0,0)$ hasta un punto $P(L, H)$ en una región con un campo eléctrico constante $\vec{E} = E_0 \hat{x}$.
+
+    Calcule
+    \begin{itemize}
+        \item La diferencia de potencial $V_{OP}$.
+        \item El trabajo realizado por el agente externo.
+    \end{itemize}
+
+\end{problema}
+
+\begin{problema}
+    Dos cargas idénticas $+Q$ se ubican en el eje $y$, en las posiciones $y = d$ y $y = -d$. Encuentre el potencial en un punto $P(x, 0)$ sobre el eje $x$.
+
+\end{problema}
+
+\begin{problema}
+    Un anillo de radio $R$ tiene una carga total $Q$ distribuida uniformemente ($\rho_l = \frac{Q}{2\pi R}$). Encuentre el potencial en un punto $P$ a una altura $z$ sobre su centro.
+\end{problema}
+
+\begin{problema}
+
+    Considere dos esferas metálicas aisladas, de radios R y 3R. Si ambas esferas se encuentran al mismo potencial, ¿cuál
+    es la razón entre sus cargas? Si ambas esferas poseen la misma carga, ¿cuál es la razón entre sus potenciales?
+
+\end{problema}
+
+\end{document}
