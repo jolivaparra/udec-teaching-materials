@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage{udec-pset}
+\guia{5}{Condensadores y Capacitancia}
+% \mostrarSoluciones
+
+\begin{document}
+\crearEncabezado
+
+\subsection*{Capacitancia y Condensadores}
+
+\begin{boxTeoria}{Definición de Capacitancia}
+    Un \textbf{condensador} (o capacitor) es un dispositivo formado por dos conductores separados por un aislante (vacío o dieléctrico) capaz de almacenar carga y energía eléctrica.
+
+    La \textbf{capacitancia} ($C$) es la razón entre la magnitud de la carga $Q$ en cualquiera de los conductores y la magnitud de la diferencia de potencial $\Delta V$ entre ellos:
+    \begin{equation*}
+        C = \frac{Q}{|\Delta V|} \quad [\unit{\F}] \text{ (Faradios)}
+    \end{equation*}
+    La capacitancia depende \textbf{exclusivamente de la geometría} de los conductores (área, separación, forma) y del material entre ellos, no de la carga ni del voltaje.
+\end{boxTeoria}
+
+\begin{boxTeoria}{Algoritmo General para Calcular Capacitancia}
+    Para encontrar teóricamente la capacitancia de cualquier arreglo geométrico, se debe seguir un procedimiento estricto de 4 pasos:
+    \begin{enumerate}
+        \item \textbf{Asumir carga:} Suponer que los conductores tienen cargas $+Q$ y $-Q$.
+        \item \textbf{Calcular $\vec{E}$:} Usar la Ley de Gauss ($\oint \vec{E} \cdot d\vec{A} = \frac{Q_{int}}{\epsilon_0}$) para hallar el campo eléctrico entre los conductores.
+        \item \textbf{Calcular $\Delta V$:} Integrar el campo eléctrico desde el conductor negativo al positivo: $\Delta V = -\int_{-}^{+} \vec{E} \cdot d\vec{l}$.
+        \item \textbf{Aplicar definición:} Reemplazar en $C = Q/|\Delta V|$. La carga $Q$ se cancelará.
+    \end{enumerate}
+\end{boxTeoria}
+
+\subsection*{Dieléctricos y Campos en la Materia}
+
+\begin{boxTeoria}{Efecto de un Dieléctrico}
+    Un \textbf{dieléctrico} es un material no conductor. Si se inserta un dieléctrico que llena por completo el espacio entre las placas de un condensador, la capacitancia original $C_0$ aumenta por un factor $\kappa$ (o $\epsilon_r$), llamado \textbf{constante dieléctrica} o permitividad relativa:
+    \begin{equation*}
+        C = \kappa C_0
+    \end{equation*}
+    Si el condensador está \textbf{aislado} (carga constante), el dieléctrico reduce el campo eléctrico interno y el voltaje ($V = V_0/\kappa$). Si está \textbf{conectado a una batería} (voltaje constante), el dieléctrico permite almacenar más carga ($Q = \kappa Q_0$).
+\end{boxTeoria}
+
+\begin{boxTeoria}{Vector Desplazamiento ($\vec{D}$) y Polarización ($\vec{P}$)}
+    Al aplicar un campo externo $\vec{E}_0$, las moléculas del dieléctrico se orientan creando un \textbf{Vector Polarización} $\vec{P}$ y acumulando \textbf{cargas ligadas} ($\sigma_p$) en las superficies.
+
+    Para evitar contabilizar estas cargas microscópicas, usamos el \textbf{Vector Desplazamiento Eléctrico} $\vec{D}$, que depende solo de la carga libre (la que controlamos):
+    \begin{equation*}
+        \vec{D} = \epsilon_0 \vec{E} + \vec{P} = \epsilon \vec{E} \quad \implies \quad \oint \vec{D} \cdot d\vec{A} = Q_{libre}
+    \end{equation*}
+    Donde $\epsilon = \kappa \epsilon_0$ es la permitividad absoluta del material.
+\end{boxTeoria}
+
+\subsection*{Energía y Asociaciones}
+
+\begin{boxTeoria}{Energía Eléctrica Almacenada}
+    El trabajo necesario para cargar un condensador se almacena como energía potencial eléctrica en el campo eléctrico creado.
+    \begin{equation*}
+        U = \frac{1}{2} C (\Delta V)^2 = \frac{Q^2}{2C} = \frac{1}{2} Q \Delta V \quad [\unit{\J}]
+    \end{equation*}
+    La \textbf{densidad de energía} (energía por unidad de volumen) en el campo eléctrico es $u = \frac{1}{2} \epsilon |\vec{E}|^2$.
+\end{boxTeoria}
+
+\begin{boxNota}{Asociación de Condensadores}
+    \begin{itemize}
+        \item \textbf{Serie:} Misma carga $Q$. El voltaje se divide. $\frac{1}{C_{eq}} = \sum \frac{1}{C_i}$
+        \item \textbf{Paralelo:} Mismo voltaje $\Delta V$. La carga se divide. $C_{eq} = \sum C_i$
+    \end{itemize}
+\end{boxNota}
+
+\begin{problema} Un capacitor está conformado por dos cascarones esféricos conductores concéntricos. Si el cascarón interno tiene un radio $a$, y el cascarón externo un radio $b$. ¿Cuál es la capacitancia de este arreglo?
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{fig/ayud5-img-p1}
+    \end{figure}
+
+\end{problema}
+
+\begin{solucion}
+    Para calcular la capacitancia desde los principios del electromagnetismo, aplicamos el algoritmo de 4 pasos:
+
+    1. \textbf{Asumir carga:} Suponemos una carga $+Q$ en el cascarón interno (radio $a$) y $-Q$  en el cascarón externo (radio $b$) (la esfera encierra completamente a la esfera interna).
+
+    2. \textbf{Campo eléctrico (Ley de Gauss):} Tomamos una superficie gaussiana esférica de radio $r$ tal que $a < r < b$.
+    $$\oint \vec{E} \cdot d\vec{A} = \frac{Q_{int}}{\epsilon_0} \implies E(4\pi r^2) = \frac{Q}{\epsilon_0} \implies \vec{E} = \frac{Q}{4\pi\epsilon_0 r^2} \hat{r}$$
+
+    3. \textbf{Diferencia de potencial:} Integramos el campo eléctrico desde el conductor exterior al interior para obtener la diferencia de potencial positiva.
+    $$\Delta V = -\int_{b}^{a} \vec{E} \cdot d\vec{r} = -\int_{b}^{a} \frac{Q}{4\pi\epsilon_0 r^2} dr = \frac{Q}{4\pi\epsilon_0} \left( \frac{1}{a} - \frac{1}{b} \right) = \frac{Q(b-a)}{4\pi\epsilon_0 ab}$$
+
+    4. \textbf{Capacitancia:} Aplicamos la definición general $C = Q / \Delta V$.
+    $$C = \frac{Q}{\frac{Q(b-a)}{4\pi\epsilon_0 ab}} = \frac{4\pi\epsilon_0 ab}{b - a}$$
+\end{solucion}
+
+\begin{problema} Un condensador plano, cuyas armaduras tienen un área de $A [m^2]$ y están separadas por una distancia de $d [m]$, contiene una plancha de material dieléctrico de espesor $d/2 [m]$ y permitividad relativa $\epsilon_r$. Si la diferencia de potencial entre las armaduras es $\Delta V [V]$, Encuentre:
+
+    \begin{enumerate}[label=\alph*)]
+        \item La intensidad de campo eléctrico en la región vacía entre las armaduras.
+        \item La intensidad de campo eléctrico en el dieléctrico.
+    \end{enumerate}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{fig/ayud5-img-p2}
+    \end{figure}
+
+\end{problema}
+
+\begin{problema} Un condensador de placas paralelas tiene capacidad $C_0$ cuando el dieléctrico entre sus placas es vacío. Si tres bloques, cada uno con un área equivalente a la mitad del área de las placas, se insertan entre las placas, tal como se muestra en la figura. ¿Cuál es la capacidad de este dispositivo?  (Considerando las permitividades relativas $\kappa_1$, $\kappa_2$ y $\kappa_3$ ).
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{fig/ayud5-img-p3}
+    \end{figure}
+
+\end{problema}
+
+
+\end{document}

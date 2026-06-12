@@ -1,0 +1,80 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{udec-slides}
+\ayud{5}{Condensadores y Capacitancia}
+
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Capacitancia}{Definición}
+    \begin{boxTeoria}{Capacitancia ($C$)}
+        Mide la capacidad de almacenar carga por unidad de voltaje. Depende solo de la geometría y del medio.
+        \begin{equation*}
+            C = \frac{Q}{|\Delta V|} \quad [\unit{\F}]
+        \end{equation*}
+    \end{boxTeoria}
+\end{frame}
+
+\begin{frame}{Obtención de Capacitancia}
+    \begin{boxTeoria}{Algoritmo de Cálculo (4 Pasos)}
+        \begin{enumerate}
+            \item Asumir carga $+Q$ y $-Q$ en los conductores.
+            \item Hallar $\vec{E}$ con Ley de Gauss: $\oint \vec{E} \cdot d\vec{A} = \frac{Q}{\epsilon_0}$
+            \item Hallar $\Delta V$ integrando $\vec{E}$: $\Delta V = -\int \vec{E} \cdot d\vec{l}$
+            \item Calcular $C = Q / |\Delta V|$ (La $Q$ siempre se cancela).
+        \end{enumerate}
+    \end{boxTeoria}
+\end{frame}
+
+\begin{frame}{Energía y Circuitos}
+    \begin{boxTeoria}{4. Energía ($U$) y Circuitos}
+        \begin{itemize}
+            \item \textbf{Energía almacenada:} $U = \frac{1}{2} C (\Delta V)^2 = \frac{Q^2}{2C}$
+            \item \textbf{Condensadores en Serie:} $\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots$ (Misma $Q$)
+            \item \textbf{Condensadores en Paralelo:} $C_{eq} = C_1 + C_2 + \dots$ (Mismo $V$)
+        \end{itemize}
+    \end{boxTeoria}
+
+\end{frame}
+
+
+\begin{frame}{Problema 1}
+
+    Un capacitor está conformado por dos cascarones esféricos conductores concéntricos. Si el cascarón interno tiene un radio $a$, y el cascarón externo un radio $b$. ¿Cuál es la capacitancia de este arreglo?
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{fig/ayud5-img-p1}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{Problema 2}
+
+    Un condensador plano, cuyas armaduras tienen un área de $A [m^2]$ y están separadas por una distancia de $d [m]$, contiene una plancha de material dieléctrico de espesor $d/2 [m]$ y permitividad relativa $\epsilon_r$. Si la diferencia de potencial entre las armaduras es $\Delta V [V]$, Encuentre:
+
+    \begin{enumerate}[label=\alph*)]
+        \item La intensidad de campo eléctrico en la región vacía entre las armaduras.
+        \item La intensidad de campo eléctrico en el dieléctrico.
+    \end{enumerate}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{fig/ayud5-img-p2}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{Problema 3}
+
+    Un condensador de placas paralelas tiene capacidad $C_0$ cuando el dieléctrico entre sus placas es vacío. Si tres bloques, cada uno con un área equivalente a la mitad del área de las placas, se insertan entre las placas, tal como se muestra en la figura. ¿Cuál es la capacidad de este dispositivo?  (Considerando las permitividades relativas $\kappa_1$, $\kappa_2$ y $\kappa_3$ ).
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{fig/ayud5-img-p3}
+    \end{figure}
+
+\end{frame}
+
+
+\end{document}
