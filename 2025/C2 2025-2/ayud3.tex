@@ -1,0 +1,161 @@
+\documentclass{plantillaPPT}
+
+\titulo{3}{Suma superior e inferior y principios de la integral definida}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{QR Teams}
+\framesubtitle{Promoción}
+\centering
+\includegraphics[width=0.5\textwidth]{C2 2025-2/imagenes/qr_teams.png}
+\end{frame}
+
+\begin{frame}{Definición de partición}
+\framesubtitle{Suma superior e inferior}
+
+\begin{definicion}
+Sean \(a,b \in \mathbb{R}\) con \(a<b\). Una \textit{partición del intervalo} \([a,b]\), es un conjunto \vspace{0.25cm}
+\[P = \{x_0, x_1,..., x_n\}\] \\
+\vspace{0.25cm}
+de \(n+1\) puntos tales que \(a=x_0<x_1<...<x_n=b\)
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Máximos y mínimos de cada sub-intervalo}
+    \framesubtitle{Suma superior e inferior}
+
+\begin{definicion}
+    Sea \([a,b]\) un intervalo real. Sea \(P\) una partición de él, e \(I_k\) los \\ \vspace{0.1cm} subintervalos correspondientes a \(P\). \\ \vspace{0.15cm} Si \(f : [a,b] \to \mathbb{R}\) es una función continua, el teorema de valores \\ \vspace{0.1cm}extremos nos permite fijar
+
+    \[m_k := \inf\{f(x):x\in[x_{k-1},x_k]\}\]
+    \[M_k := \sup\{f(x):x\in[x_{k-1}, x_k]\}\]
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Suma superior e inferior}
+
+    \begin{definicion}
+        Sea \([a,b]\) un intervalo real. Sea P una partición de él y \(f : [a,b] \to \mathbb{R}\) continua.
+        \begin{itemize}
+            \item La \textbf{suma inferior} de \(f\) asociada a la partición \(P\) es:
+            \[\underline{S}(f,P) := \sum_{k=1}^n m_k \cdot \Delta k\]
+            \item La \textbf{suma superior} de \(f\) asociada a la partición \(P\) es:
+            \[\overline{S}(f,P) := \sum_{k=1}^n M_k \cdot \Delta k\] \\ \vspace{0.25cm}
+            Con \(\Delta k = x_k - x_{k-1}\) (longitud de los subintervalos)
+        \end{itemize}
+    \end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Cálculo de suma superior e inferior}
+\framesubtitle{Práctica 3}
+
+1. Sea \(f:[-3,2]\to\mathbb{R}\) la función definida por:
+\[
+f(x) = 
+\begin{cases}
+    1+x \quad ,-3\leq x<-1
+    1-x^2 \quad, -1\leq x \leq 2
+\end{cases}
+\]
+
+Determine el valor de la suma superior e inferior de f en el intervalo \([-3,2]\) con respecto a la partición regular \(\mathcal{P} = \{-3, -2, -1, 0, 1, 2\}\).
+    
+\end{frame}
+
+\begin{frame}{Gráfica de la función 3}
+    \framesubtitle{Problema 3}
+
+La gráfica de la función \(f\) dada en el problema:
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle,
+            xlabel = $x$, ylabel = {$f(x)$},
+            samples=100,
+            domain=-3:2,
+            xtick={-3,-2,-1,0,1,2}, % Marcas en X cada 1 unidad
+            ytick={-3,1,2},
+            ymin=-3.5, ymax=2.5,
+            enlargelimits=true]
+
+            % Primer tramo: f(x) = x+1 para -4 <= x < -1
+            \addplot[blue, thick, domain=-3:-1] {x+1};  
+            \addplot[blue, only marks, mark=o] coordinates {(-1,0)}; % Punto abierto en -1
+            
+            % Agregar puntos en cada x avanzando de 1 en 1
+            \addplot[blue, only marks, mark=*] coordinates {(-3,-2) (-2,-1)}; 
+
+            % Segundo tramo: f(x) = 1 - x^2 para -1 <= x <= 2
+            \addplot[red, thick, domain=-1:2] {1 - x^2};  
+            \addplot[red, only marks, mark=*] coordinates {(-1,0) (0,1) (1,0) (2,-3)}; % Puntos exactos
+
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+    
+\end{frame}
+
+\begin{frame}{Verificar desigualdad}
+\framesubtitle{Práctica 3}
+
+2. Sea \(f(x) = e^{-x^2}\) y \(\mathcal{P} = \{0,1/2, 1\}\) una partición del intervalo \([0,1]\). Calculando \(\overline{S}(f, \mathcal{P})\) y \(\underline{S}(f, \mathcal{P})\), verifique que:\\[10pt]
+
+\[\frac{1}{2}\left(\frac{1}{e^{1/4}}+\frac{1}{e}\right) \leq \int_0^1 f(x)\,dx \leq \frac{1}{2}\left(1+\frac{1}{e^{1/4}}\right)\]
+    
+\end{frame}
+
+\begin{frame}{Suma de Riemann por la derecha}
+\framesubtitle{Práctica 3}
+
+3. Sean \(a,b\in\mathbb{R}\) tales que \(a<b\). Utilizando el hecho de que dada una función \(f\) continua en \([a,b]\) y \(\mathcal{P} = {x_0=a, x_1, ..., x_n=b}\) una partición regular de \([a,b]\), se tiene que:
+\[
+\int_a^b f(x)\,dx = \lim_{n\to\infty} \frac{b-a}{n} \sum_{k=1}^n f\left(a + \frac{b-a}{n}\,k\right)
+\]
+
+verifique que:
+\[
+\int_a^b x^2\,dx = \frac{1}{3}(b^3-a^3)
+\]
+    
+\end{frame}
+
+\begin{frame}{Teorema Fundamental del Cálculo P1}
+\framesubtitle{TFC P1}
+
+\begin{teorema}
+    Sea \(f\) una función continua en un intervalo \([a,b]\) y una función \(F\) definida por:
+    \[
+    F(x) = \int_a^x f(x)\,dx
+    \]
+    Entonces: \(\displaystyle F'(x) = f(x)\)
+\end{teorema}
+    
+\end{frame}
+
+
+\begin{frame}{Regla de Barrow}
+    \framesubtitle{TFC P2}
+
+\begin{teorema}
+    Dada una función integrable en el intervalo \([a,b]\) y \(F'(x)=f(x)\) para alguna función \(F\) entonces:
+    \[\int_{b}^{a}f(t)dt = F(a)-F(b)\]
+\end{teorema}
+    
+\end{frame}
+
+\begin{frame}{Integral Definida}
+\framesubtitle{Práctica 3}
+
+4. Usando la Regla de Barrow y las propiedades de la integral, calcule:
+\[
+\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} |\sin(2x)|\,dx
+\]
+    
+\end{frame}
+
+\end{document}

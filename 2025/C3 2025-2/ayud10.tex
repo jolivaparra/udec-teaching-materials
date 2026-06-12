@@ -1,0 +1,88 @@
+\documentclass{plantillaPPT}
+\titulo{10}{Integrales Dobles y Teo. del Cambio de Variable}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Teorema del cambio de variable}
+\framesubtitle{Para integrales dobles}
+\begin{teorema}
+    Sea $T:E\subseteq\mathbb{R}^2\to D\subseteq\mathbb{R}^2$, $(u, v) \mapsto T(u,v) = (x,y)$ una función biyectiva de clase $C^1$ entre las regiones $E$ y $D$. Si $\det(JT(u,v))\neq0$, entonces
+    \[
+    \iint_Df(x,y)\,d(x,y) = {\color[rgb]{0, 0, 0.8} \iint_Ef(T(u,v))|\,\det(JT(u,v))|\,d(u,v)}
+    \]
+    \vspace{0.5cm}
+    donde $\displaystyle JT(u,v) = \frac{\partial(x,y)}{\partial(u,v)} = \begin{pmatrix}
+        x_u & x_v \\
+        y_u & y_v
+    \end{pmatrix}$
+\end{teorema}
+\end{frame}
+
+\begin{frame}{Cambios de variable}
+\framesubtitle{En integrales triples}
+
+Análogo a lo definido en dos variables. Si tenemos una integral triple sobre una región $E\subseteq\mathbb{R}^3$, $\iiint_E f(x, y, z)\,dV$, podemos realizar la sustitución de variables dada por una transformación
+\[
+T:S\subseteq\mathbb{R}^3 \to E\subseteq\mathbb{R}^3, \quad T(u,v,w) = (x,y,z).
+\]
+Si el jacobiano de esta función no es nulo, es decir,
+\[
+\det\left(\frac{\partial(x,y,z)}{\partial(u,v,w}\right) = \det
+\begin{pmatrix}
+x_u&x_v&x_w \\
+y_u&y_v&y_w\\
+z_u&z_v&z_w
+\end{pmatrix} \neq 0
+\]
+\end{frame}
+
+\begin{frame}
+Entonces
+\begin{equation*}
+\begin{gathered}
+\iint_Ef(x,y,z)\,d(x,y,z) = \\[10pt]
+{\color[rgb]{0,0,0.8} \iint_S f(T(u,v,w))\,|\det(JT(u,v,z))\,d(u,v,w)}
+\end{gathered}
+\end{equation*}
+    
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 10}
+1. Calcule
+\[
+\iint_D e^{\frac{y-x}{x+y}}\,dA
+\]
+donde $D$ es la región limitada por los ejes coordenados y la recta $x+y=2$.
+\textbf{Indicación: }Use el cambio de variable $u=x-y$, $v=x+y$.
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 10}
+Calcule el valor de la integral
+\[
+\iint_D(x^2+y^2)^{-3/2}\,dA
+\]
+donde $D$ es el anillo determinado por la inecuación $1\leq x^2+y^2\leq 4$.
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 10}
+3. EXprese el volumen del sólido acotado por el paraboloide $z=1-x^2-y^2$ y el plano $z=1-y$ como una integral triple, calcule su volumen.
+\end{frame}
+
+\begin{frame}{Problema 4}
+\framesubtitle{Práctica 10}
+4. Se tiene la siguiente integral con su respectiva región de integración
+\[
+I = \int_{-1}^1\int_{x^2}^1\int_0^{1-y}\,dzdydx
+\]
+Replantee la integral como una integral iterada equivalente en los siguientes órdenes:\\[5pt]
+$(a) \quad dzdxdy$\\
+$(b) \quad dxdydz$\\
+$(c) \quad dydxdz$
+\end{frame}
+
+
+
+\end{document}

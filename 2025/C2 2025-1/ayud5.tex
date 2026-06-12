@@ -1,0 +1,77 @@
+\documentclass{plantillaPPT}
+
+\titulo{5}{Aplicaciones del Teorema Fundamental del Cálculo}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Problema 1}
+    \framesubtitle{Práctica 5}
+
+1. Sea \(x>0\) y considere las funciones definidas por:
+
+\[G(x) = \int_{1}^{1/x} \frac{1}{1+t^2}dt \qquad F(x) = \int_{x}^{1} \frac{1}{1+t^2}dt\] \vspace{0.2cm} \\
+\((a)\) Muestre que para todo \(x>0\) se cumple que \(G'(x)=H'(x)\).\\
+\((b)\) Deducir de \((a)\) que para todo \(x>0\) se cumple que \(G(x)=H(x)\).\\
+\((c)\) Usando \((b)\) muestre que para cada \(x>0\) se cumple que:
+\[\operatorname{Arctan}(x) + \operatorname{Arctan}\left(\frac{1}{x}\right) = \frac{\pi}{2}\]
+\end{frame}
+
+\begin{frame}{Regla de Barrow}
+    \framesubtitle{TFC P2}
+
+\begin{definicion}
+    Dada una función integrable en el intervalo \([a,b]\) y \(F'(x)=f(x)\) para alguna función \(F\) entonces:
+    \[\int_{b}^{a}f(t)dt = F(a)-F(b)\]
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Continuidad}
+    \framesubtitle{Práctica 5}
+2. Sean \(a \in \mathbb{R}\), \(f: \mathbb{R} \to ]0,+\infty[\) una función cuya derivada es continua, tal que \(f'(1) = 0\), y \(g: \mathbb{R} \to \mathbb{R}\) la función definida por: \vspace{0.5cm}
+
+\[
+g(x) = \begin{cases}
+    \frac{\int_{1}^{x^2} f(t)dt}{\int_{1}^{x}f(t)dt} \quad &,x\neq1 \\
+    \quad a \quad &,x=1
+\end{cases}
+\] \vspace{0.5cm}
+
+\((a)\) Probar que g es continua para \(x\neq1\).\\
+\((b)\) Determinar el valor de \(a\) de modo que \(g\) sea continua en \(x=1\). \\
+\((c)\) Calcular \(g'(1)\).
+    
+\end{frame}
+
+\begin{frame}{Integrales Definidas}
+    \framesubtitle{Práctica 5}
+
+3. Calcule las siguientes integrales definidas.
+
+\[(a) \int_{\ln(4)}^{0} e^{e^x+x}dx\]
+
+\end{frame}
+
+\begin{frame}{Integrales Definidas}
+    \framesubtitle{Práctica 5}
+
+\[(b) \int_{0}^{1} \sqrt{1+x^2}dx\]
+
+\end{frame}
+
+\begin{frame}{Integral de \(\sec^3(x)\)}
+
+\[\int \sec^3(x)dx = \frac{\sec(x)\tan(x) + \ln|\sec(u)+tan(x)|}{2}+C\]
+    
+\end{frame}
+
+\begin{frame}{Integrales Definidas}
+    \framesubtitle{Práctica 5}
+
+\[(c) \int_{0}^{2\pi} |\sin(x)| + \cos(x) + |\cos(x)| dx\]
+
+\end{frame}
+
+
+\end{document}

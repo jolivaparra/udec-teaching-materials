@@ -1,0 +1,47 @@
+\documentclass{plantillaPPT}
+\usepackage{esint}
+\titulo{13}{Teoremas Importantes y Fin de Cálculo III}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Teorema de Stokes}
+\framesubtitle{Teorema}
+    \begin{teorema}
+        Sea $S$ una superficie suave (o suave por tramos) con borde y orientable, cuyo borde $C=\partial S$ es una curva simple (no se corta a si misma), cerrada y orientada positivamente respecto a $S$.
+        Si $\vec{F}$ es $C^1$ en un abierto $A$ que contiene a $S\cup C$, entonces
+        \[
+        \oint\limits_C \vec{F}\cdot d\vec{r} = \iint\limits_S \nabla\times\vec{F}~d\vec{S}
+        \]
+    \end{teorema}
+    
+\end{frame}
+
+\begin{frame}{Problema 1}
+    \framesubtitle{Práctica 14}
+    1. Verifique el \textbf{Teorema de Stokes} con el campo $\vec{F}:\mathbb{R}^3\to\mathbb{R}^3$ dado por $\vec{F}(x,y,z) = (-y,x,1)$ y sea $S$ el paraboloide $z=x^2+y^2, 0\leq z\leq1$, con sus vectores normales apuntando hacia afuera de él. Evalúe
+    \[
+    \iint\limits_S \nabla\times\vec{F}~d\vec{S}
+    \]
+\end{frame}
+\begin{frame}{Teorema de la Divergencia (de Gauss)}
+    \framesubtitle{Teorema}
+    \begin{teorema}
+        Si $\Omega$ es una región del espacio 3-D acotada por la \textcolor{red}{superficie cerrada} $S=\partial\Omega$, suave (o suave por tramos) y orientada exteriormente y $\vec{F}= (P,Q,R)$ es un campo vectorial de clase $C^1$ en un abierto que contiene a $\Omega\cup S$, entonces
+        \[
+        \oiint\limits_S \vec{F}\cdot d\vec{S} = \iiint\limits_\Omega \nabla\cdot\vec{F}~dV
+        \]
+        donde {\color{blue} $\nabla\cdot\vec{F} = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}$}.
+    \end{teorema}
+    
+\end{frame}
+\begin{frame}{Problema 2}
+    \framesubtitle{Práctica 13}
+    2. Verifique el \textbf{Teorema de Gauss o de la Divergencia}
+    \[
+    \oiint\limits_S \vec{F}\cdot d\vec{S} = \iiint\limits_D \nabla\cdot\vec{F}~dV,
+    \]
+donde $\vec{F}(x,y,z) = x^2\hat{i}+xz\hat{j}+3z\hat{k}$ y el borde de la superficie $S$ de la esfera sólida $x^2+y^2+z^2\leq4$
+\end{frame}
+
+
+\end{document}

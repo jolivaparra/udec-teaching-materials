@@ -1,0 +1,99 @@
+\documentclass{plantillaPPT}
+
+\titulo{2}{Límites y Continuidad}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Límites}
+\framesubtitle{Práctica 2}
+
+1. Sea \(f\) la siguiente función:
+\[f(x,y)=\frac{x-2y}{4y^2-x^2}, \quad 4y^2\neq x^2\]
+
+Calcule, si existe, \(\displaystyle \lim_{(x,y)\to(a,b)}\) cuando:\\[10 pt]
+\((a) \quad (a,b)=(2,1)\)\\
+\((b) \quad (a,b)=(0,0)\)\\
+\((c) \quad (a,b)=(2,-1)\)
+
+\end{frame}
+
+\begin{frame}{Continuidad}
+
+\begin{definicion}
+Sea \(f:\mathbb{R}^n \to \mathbb{R}\) y un punto \(\Vec{x_0}\in\mathbb{R}^n\).\\
+Se dice que \(f\) es continua en \(\vec{x_0}\) si:
+\[
+\lim_{\vec{x}\to\vec{x_0}} f(\vec{x}) = f(\vec{x_0})
+\]
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Resultado}
+\framesubtitle{Continuidad}
+
+De la definición se obtienen 3 condiciones:
+
+\begin{enumerate}
+    \item \(f(\vec{x_0})\) existe.
+    \vspace{5pt}
+    \item \(\displaystyle \lim_{\vec{x}\to\vec{x_0}}f(\vec{x})\) existe.
+    \vspace{5pt}
+    \item \(\lim_{\vec{x}\to\vec{x_0}} f(\vec{x}) = f(\vec{x_0})\).
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Límites en un punto}
+\framesubtitle{Definición formal para campos escalares}
+
+\begin{definicion}
+    Sea \(f:D\subseteq\mathbb{R}^n\to\mathbb{R}\) una función escalar y \(\vec{x_0}\) un punto de acumulación de \(D\). Se dice que:
+    \[
+    \lim_{\vec{x}\to\vec{x_0}}f(\vec{x}) = L
+    \]
+    si se cumple que
+    \[\forall \epsilon>0, \exists \delta>0: \|\vec{x}-\vec{x_0}\|<\delta \Rightarrow \|f(\vec{x})-L\|<\epsilon\]
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Definición de límite}
+\framesubtitle{Práctica 2}
+
+2. Use la definición de límite para mostrar que \(f\) es continua en \((0,0)\), donde:
+\[
+f(x) =
+\begin{cases}
+\frac{x^2-y\cos(y)}{|x|+\sqrt{|y|}}, \quad \;\text{si }(x,y)\neq(0,0) \\
+ \quad \quad 0, \quad \quad \quad \text{si }(x,y) = (0,0)
+\end{cases}
+\]
+    
+\end{frame}
+
+\begin{frame}{Continuidad}
+\framesubtitle{Práctica 2}
+
+3. Se da una función \(f(x,y)\) que no está definida en \((0,0)\). ¿Es posible definir el valor \(f(0,0)\) de tal modo que \(f\) sea continua en dicho punto?. Justifique su respuesta.
+\[(a) f(x,y)=\frac{xy^2}{x^2+y^4}\]
+\[(b) f(x,y)=\frac{\sin(x^2+y^2)}{2(e^{x^2+y^2}-1)}\]
+    
+\end{frame}
+
+\begin{frame}{Continuidad}
+\framesubtitle{Práctica 2}
+
+4. Sea \(f: \mathbb{R}^2\to\mathbb{R}\) una función definida por:
+\[
+f(x) = 
+\begin{cases}
+\frac{x^2+xy}{x-y}, \quad si x\neq y \\
+\quad 0, \quad \quad si x=y 
+\end{cases}
+\]
+\((a)\) Determinar el subconjunto mayor de \(\mathbb{R}^2\) en donde \(f\) es continua.\\
+\end{frame}
+
+\end{document}

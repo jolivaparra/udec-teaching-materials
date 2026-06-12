@@ -1,0 +1,78 @@
+\documentclass{plantillaPPT}
+\titulo{4}{Integral Definida}
+\begin{document}
+\primeraDiapo
+\begin{frame}{Integrales Definidas e Impropias}
+\framesubtitle{Práctica 4}
+1. Calcule las siguientes integrales definidas
+
+\[(a)\int_0^1 \sqrt{x^2+1} \quad (b)\int_{-2}^{-1} \frac{1}{x(x-1)^2}\,dx \quad (c) \int_1^e \sin(\ln(x)) \,dx\]
+
+\end{frame}
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 4}
+
+\((a)\) Sea \(g:\mathbb{R}\to\mathbb{R}\) una función continua tal que
+\[\int_{1+x}^{(2x+1)^2} g(t)\,dt = x^4-3x-2\]
+
+Calcular, si es posible, \(g(1)\).
+\end{frame}
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 4}
+\((b)\) Decida si la función \(f:\mathbb{R}\to\mathbb{R}\) definida por
+\[f(x) = 
+\begin{cases}\displaystyle
+    \frac{1}{x-1}\int_0^{x-1} \sin(t^2)\,dt\quad &\text{si } x\neq 1\\
+    0 \quad &\text{si } x=1
+\end{cases}\]
+es derivable y continua en \(X=1\).
+\end{frame}
+
+\begin{frame}{Integral Impropia de Tipo I}
+    \framesubtitle{Definición}
+    \vspace{-0.5cm}
+
+\begin{definicion}
+Dada una función \( f:[a, \infty) \to \mathbb{R} \) continua. Se define:
+\vspace{0.3cm}
+\[
+\int_a^{\infty} f(x) \, dx = \lim_{b \to \infty} \int_a^b f(x) \, dx
+\]\vspace{0.3cm}
+
+Si el límite existe y es finito, se dice que la integral \textbf{converge}.
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Integral Impropia de Tipo II}
+    \framesubtitle{Definición}
+
+\begin{definicion}
+Dada \( f \) continua en \( (a, b) \) excepto en un punto \( c \in (a, b) \). Se define:
+\vspace{0.3cm}
+\[
+\int_a^b f(x) \, dx = \lim_{x \to c^-} \int_a^x f(t) \, dt + \lim_{x \to c^+} \int_x^b f(t) \, dt
+\]
+\vspace{0.3cm}
+
+Si ambos límites existen y son finitos, se dice que la integral \textbf{converge}.
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 4}
+3. Sea \(f\) una función derivable en \(\mathbb{R}\) tal que \(f(2)=0\) y \(f(8)=1\). Calcule
+\[
+\int_1^{\sqrt{3}} \frac{x \cdot f'(3x^2-1)}{1+\left[f(3x^2-1)\right]^2}\,dx
+\]
+\end{frame}
+\begin{frame}{Integrales Impropias}
+\framesubtitle{Práctica 4}
+4. Calcule, si existe, las siguientes integrales impropias
+\[(a)\int_0^1 \frac{\ln(x)}{\sqrt{x}}\,dx \qquad (b)\int_3^{+\infty} \frac{x^2}{x^3-1}\,dx\]
+    
+\end{frame}
+
+
+\end{document}

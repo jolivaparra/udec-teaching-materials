@@ -1,0 +1,126 @@
+\documentclass{plantillaPPT}
+\titulo{6}{Máximos y Mínimos locales}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Máximos y mínimos locales (relativos)}
+\framesubtitle{Definición}
+
+\begin{definicion}
+    Sea $f:A\subseteq\mathbb{R}^n\to\mathbb{R}$ y sea $\vec{x_0}\in A$. Diremos que $f$ alcanza un \textcolor{red}{máximo local} (\textcolor{blue}{mínimo local}) en $\vec{x_0}$ si $f(\vec{x_0})$ es el \textcolor{red}{mayor} (\textcolor{blue}{menor}) valor que alcanza $f$ en una vecindad de $\vec{x_0}$.
+\end{definicion}
+\end{frame}
+
+\begin{frame}{Punto Crítico}
+\framesubtitle{Definición}
+
+\begin{definicion}
+    Sea $f:A\subseteq\mathbb{R}^n\to\mathbb{R}$ y $\vec{x_0}\in A$ un punto interior. Diremos que $\vec{x_0}$ es \textcolor{red}{punto crítico} de $f$ si
+    \begin{itemize}
+        \item $\nabla f(\vec{x_0}) = \vec{\theta}$ (todas las derivadas parciales de $f$ en $\vec{x_0}$ se anulan).
+        \item $\nabla f(\vec{x_0})$ no existe (alguna de las derivadas parciales de $f$ en $\vec{x_0}$ no existe).
+    \end{itemize}
+\end{definicion}
+
+\begin{teorema}[Condición Necesaria]
+    Sea $f:A\subseteq\mathbb{R}^n\to\mathbb{R}$ y $\vec{x_0}\in A$ un punto interior. Si $\vec{x_0}$ es un extremo relativo de $f$, entonces $\vec{x_0}$ es un punto crítico de $f$.
+\end{teorema}    
+\end{frame}
+
+\begin{frame}{Matriz Hessiana}
+\framesubtitle{Definición}
+
+Nos interesa ahora un criterio que permita decidir cual es la naturaleza de un punto crítico encontrado. Para ello, necesitamos introducir la llamada \textcolor{red}{Matriz Hessiana de $f$}.
+
+\begin{definicion}
+Sea $f:A\subseteq\mathbb{R}^n\to\mathbb{R}$ y $\vec{x_0}\in A$. Llamaremos matriz Hessiana de $f$ en $\vec{x_0}$ a la matriz
+\vspace{-0.3cm}
+\[
+Hf(\vec{x_0}) = \left(
+\begin{matrix}
+    f_{x_1,x_1}(\vec{x_0}) & f_{x_1,x_2}(\vec{x_0}) & \cdots & f_{x_1,x_n}(\vec{x_0})\\
+    f_{x_2,x_1}(\vec{x_0}) & f_{x_2,x_2}(\vec{x_0}) & \cdots & f_{x_2,x_n}(\vec{x_0})\\
+    \cdots & \cdots & \cdots & \cdots \\
+    f_{x_n,x_1}(\vec{x_0}) & f_{x_n,x_2}(\vec{x_0}) & \cdots & f_{x_n,x_n}(\vec{x_0})\\
+\end{matrix}
+\right)
+\]
+siempre que $f_{x_n,x_m}(\vec{x_0})$ existan.
+
+\end{definicion}
+\end{frame}
+
+\begin{frame}{Criterio para extremos relativos}
+\framesubtitle{Teorema}
+\begin{teorema}[Criterio de la segunda derivada]
+    Sea $A\in\mathbb{R}^n$ abierto, $f:A\subseteq\mathbb{R}^n\to\mathbb{R}$ de clase $C^2$ y $\vec{x_0}\in A$ un punto crítico. Si $det(Hf(\vec{x_0})) \neq 0$ entonces, 
+\end{teorema}
+\begin{enumerate}
+    \item {\small $\vec{x_0}$ es un \textcolor{blue}{mínimo local} si y solo si $\Delta_k(\vec{x_0})>0$ para cada $k\leq n$.}
+    \item {\small $\vec{x_0}$ es un \textcolor{red}{máximo local} si y sólo si $(-1)^k\Delta_k(\vec{x_0})>0$ para cada $k\leq n$, es decir}
+    \vspace{-0.2cm}
+    \[\Delta_1(\vec{x_0})<0, \Delta_2(\vec{x_0})>0, \Delta_3(\vec{x_0})<0, ...  \]
+    \item $\vec{x_0}$ es un punto silla, en cualquier otro caso.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Criterio para extremos relativos}
+\framesubtitle{Teorema}
+
+\[\text{donde } \Delta_k(\vec{x_0}) = det\left(
+\begin{matrix}
+    f_{x_1,x_1}(\vec{x_0}) & f_{x_1,x_2}(\vec{x_0}) & \cdots & f_{x_1,x_k}(\vec{x_0})\\
+    f_{x_2,x_1}(\vec{x_0}) & f_{x_2,x_2}(\vec{x_0}) & \cdots & f_{x_2,x_k}(\vec{x_0})\\
+    \cdots & \cdots & \cdots & \cdots \\
+    f_{x_k,x_1}(\vec{x_0}) & f_{x_k,x_2}(\vec{x_0}) & \cdots & f_{x_k,x_k}(\vec{x_0})\\
+\end{matrix}
+\right) \]
+    
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 6}
+
+1. Determine todos los puntos críticos para la función $f$ definida en $\mathbb{R}^3$ mediante
+\[f(x,y,z) = (x+y+z)^3-3(x+y+z)-24xyz+1.\]
+    
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 6}
+
+2. Sea
+\[
+f(x,y) = 
+\begin{cases}
+    \frac{x^2y^3}{x^2+y^2},& \text{ si } (x,y)\neq(0,0) \\
+    \quad 0 ,& \text{ si } (x,y)=(0,0).
+\end{cases}
+\]
+Encuentre todos los puntos críticos de la función $f$ y estudie su naturaleza.
+    
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 6}
+
+3. Determinar la naturaleza de los punto críticos de
+\[
+f(x,y)=(3-x)(3-y)(x+y-3).
+\]
+
+\end{frame}
+
+\begin{frame}{Problema 4}
+\framesubtitle{Práctica 6}
+
+4. Determinar la naturaleza de los puntos críticos de la función
+\[
+f(x,y,z) = \frac{x^3}{3}-x-y^2+2y-z^2+2z+2.
+\]
+    
+\end{frame}
+
+
+\end{document}

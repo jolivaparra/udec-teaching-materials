@@ -1,0 +1,99 @@
+\documentclass{plantillaPPT}
+
+\titulo{3}{Derivadas Parciales y Direccionales}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Derivadas Parciales}
+\framesubtitle{Definición}
+
+\begin{definicion}
+    Sea \(f:D \subseteq \mathbb{R}^n\to \mathbb{R}\) un campo escalar y \(\vec{x} = (x_1, x_2, ..., x_n)\in \mathring{D}\). Se define la \textbf{derivada parcial} de \(f\) respecto a \(x_i\) en el punto \(\vec{x}\) como:
+    \begin{align*}
+    \textcolor{red}{\frac{\partial f}{\partial x_i} (\vec{x})} &= \lim_{h \to 0} \frac{f(\vec{x}+h\cdot e_i)-f(\vec{x})}{h} \\
+    &= \lim_{h \to 0} \frac{f(x_1, x_2, ..., x_i+h, ..., x_n)-f(x_1, x_2, ..., x_n)}{h} \\
+    \end{align*}
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Derivadas Parciales}
+\framesubtitle{Caso de \(\mathbb{R}^2\)}
+
+
+Para un campo escalar \(f:D \subseteq \mathbb{R}^2\to \mathbb{R}\) de dos variables \(x\) e \(y\), las derivadas parciales de \(f\) en el punto \((x,y)\) quedan:
+\begin{align*}
+\textcolor{red}{\frac{\partial f}{\partial x} (x,y)} &= \lim_{h \to 0} \frac{f(x+h, y)-f(x,y)}{h} \\[5pt]
+\textcolor{blue}{\frac{\partial f}{\partial y} (x,y)} &= \lim_{h \to 0} \frac{f(x, y+h)-f(x,y)}{h}
+\end{align*}
+De esto resulta que, \(\displaystyle \textcolor{red}{\frac{\partial f}{\partial x}} \; \left(\textcolor{blue}{\frac{\partial f}{\partial y}}\right) \) corresponde a derivar \(f\) con respecto a \(\textcolor{red}{x}\) \(\textcolor{blue}{(y)}\) considerando a \(\textcolor{red}{y}\) \(\textcolor{blue}{(x)}\) como constante
+    
+\end{frame}
+
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 3}
+
+1. Sea \(f:\mathbb{R}^2\to\mathbb{R}\), la función definida por
+\[
+f(x,y) = 
+\begin{cases}
+        \frac{xy^2}{x^2+y^2}, \quad & \text{si } (x,y) \neq (0,0)\text{, y } (x,y) \neq (1,0) \\
+    \centering 0, \quad &\text{si } (x,y) = (0,0) \\
+    \centering 1, \quad &\text{si } (x,y) = (1,0)
+\end{cases}
+\]
+
+\((a)\) Analice la continuidad de \(f\) en todo su dominio. \\
+\((b)\) Defina la función derivada parcial, \(\frac{\partial f}{\partial x}\) y \(\frac{\partial f}{\partial y}\) en todo punto de \(\mathbb{R}^2\) donde ella exista.\\
+\((c)\) Muestre que \(\frac{\partial^2f}{\partial x\partial y}(0,0)\) existe, pero \(\frac{\partial^2f}{\partial y\partial x}(0,0)\) no existe.
+
+\end{frame}
+
+\begin{frame}{Comprobar soluciones de EDP}
+\framesubtitle{Práctica 3}
+
+2. \((a)\) Muestre que si \(z = e^{-(x^2+y^2)}\) satisface la ecuación.
+\[
+y\frac{\partial z}{\partial x}-x\frac{\partial z}{\partial y} = 0    
+\]
+    
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 3}
+
+\((b)\) Muestre que si \(z=8x^3+3x^2y+5y^3\) satisface la ecuación.
+\[
+x\frac{\partial z}{\partial x}+y\frac{\partial z}{\partial y} = 3z
+\]
+    
+\end{frame}
+
+\begin{frame}{Derivadas Direccionales}
+\framesubtitle{Definición}
+Como los vectores tienen magnitud y dirección, y en este caso solo nos interesa la dirección, entonces podemos resrtingirnos a \textcolor{red}{vectores unitarios}.
+\begin{definicion}
+    Sea \(f:D\subseteq \mathbb{R}^n\to\mathbb{R}\), \(\vec{x_0}\in \mathring{D}\) y \(\hat{v}\in\mathbb{R}^2\) un vector unitario. Se define la \textbf{derivada direccional} de \(f\) en \(\vec{x_0}\) en la direccion de \(\hat{v}\) como:
+    \vspace{-0.3cm}
+    \[
+    \frac{\partial f}{\partial \hat{v}}(\vec{x_0}) = \lim_{h\to0}\frac{f(\vec{x_0}+h\cdot \hat{v}) - f(\vec{x})}{h}
+    \]
+    Si el límite no existe, entonces la derivada direccional no existe en el punto \(\vec{x_0}\).
+    
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Derivadas direccionales}
+\framesubtitle{Práctica 3}
+
+3. Calcule la derivada direccional de la función dada en la dirección del vector indicado. \\[10pt]
+
+\((a) f(x,y)=xy^2, \quad v=-\hat{i}+\hat{j}\)\\[5pt]
+\((b) f(x,y,z,u) = xyzu, \quad v = (1/3, -2/3, -2/3, 0)\).
+    
+\end{frame}
+
+\end{document}

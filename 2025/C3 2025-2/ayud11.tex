@@ -1,0 +1,111 @@
+\documentclass{plantillaPPT}
+\titulo{11}{Cambio de Coordenadas}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Cambio de variables conocidos}
+    \framesubtitle{Cambios de Coordenadas}
+
+    \begin{minipage}{0.45\textwidth}
+    \centering
+        Coordenadas Cilíndricas:
+        \begin{align*}
+            x &= r\cos(\theta)) \\
+            y &= r\sin(\theta)) \\
+            z &= z
+        \end{align*}
+        \vspace{0.1cm}
+        \begin{equation*}
+            \frac{\partial(x,y,z)}{\partial(r,\theta, z)} = r
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        Coordenadas Esféricas:
+        \begin{align*}
+            x &= \rho\sen(\varphi)\cos(\theta) \\
+            y &= \rho\sen(\varphi)\sen(\theta) \\
+            z &= \rho\cos(\varphi)
+        \end{align*}
+        \vspace{0.1cm}
+        \begin{equation*}
+             \frac{\partial(x,y,z)}{\partial(\rho,\theta, \varphi)} = \rho^2\sin(\varphi)
+        \end{equation*}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Problema 1 y 2}
+    \framesubtitle{Práctica  11}
+    1. Calcule el volumen de la región acotada superiormente por $x^2+y^2+z^2=6$ e inferiormente por el paraboloide $z=(x^2+y^2)/5$.
+    \\
+    \vspace{1cm}
+    2. Calcule el volumen del sólido acotado inferiormente por la esfera $x^2+y^2+z^2=2z$ y superiormente por el cono $z=\sqrt{x^2+y^2}$
+\end{frame}
+
+\begin{frame}{Integral de Línea}
+\framesubtitle{Definición para campo escalar}
+
+\begin{definicion}
+    Sea $C$ una curva parametrizada por $\vec{r}:[a,b] \to \mathbb{R}^n$ de clase $C^1$ y $f:A\subseteq\mathbb{R}^n\to\mathbb{R}$ un campo escalar continuo en un abierto $A$ que contiene la curva $C$. La integral de $f$ a lo largo de $C$ es
+    \begin{equation*}
+        \int_C f\,ds = \int_a^b f(\vec{r}(t)) \cdot \|r'(t)\|\,dt
+    \end{equation*}
+\end{definicion}
+    
+    
+\end{frame}
+
+\begin{frame}{Problema 3}
+    \framesubtitle{Práctica 11}
+
+    3. Sea $\gamma$ la curva definida por
+    \begin{equation*}
+        \vec{r}(t) = (t\cos(t))\hat{i} + (t\sin(t))\hat{j} + (2\sqrt{2}/3)\,t^{3/2}\;\hat{k}, t\in[0,\pi]
+    \end{equation*}
+
+    $(a)$ Calcule la longitur de la curva $\gamma$.\\
+    $(b)$ Obtenga el vector tangente unitario de la curva $\gamma$.
+    
+\end{frame}
+
+\begin{frame}{Problema 4.a)}
+    \framesubtitle{Práctica 11}
+    4. Evalue
+
+    $(a)$ La integral de línea de campo escalar
+
+    \begin{equation*}
+        \int_{\gamma} (x+\sqrt{y})\,ds
+    \end{equation*}
+    donde $\gamma=\gamma_1 \cup \gamma_2$
+    \begin{equation*}
+        \begin{aligned}
+            \gamma_1 \quad &: \quad y=x^2, &0\leq x \leq 1,\\
+            \gamma_2 \quad &: \quad x=t, &0\leq x \leq 1,
+        \end{aligned}
+    \end{equation*}
+    con $\gamma_1$ y $\gamma_2$ ambos en el sentido antihorario.
+\end{frame}
+
+\begin{frame}{Integral de linea para campos vectoriales}
+    \framesubtitle{Definicion}
+    \begin{definicion}
+        Sea $C$ una curva parametrizada por $\vec{r}:[a,b] \to \mathbb{R}^n$ de clase $C^1$ y $\vec{F}:A\subseteq\mathbb{R}^n\to\mathbb{R}^n$ un campo vectorial continuo en un abierto $A$ que contiene a la curva $C$. La integral de $\vec{F}$ a lo largo de $C$ es
+        \begin{equation*}
+            \int_C \vec{F}\cdot d\vec{r} = \int_a^b \vec{F}(\vec{r}(t)) \cdot \vec{r}\,'(t)\,dt
+        \end{equation*}
+    \end{definicion}
+\end{frame}
+
+\begin{frame}{Problema 4.b)}
+    \framesubtitle{Práctica 11}
+
+    $(b)$ La integral de línea sobre campo vectorial
+    \begin{equation*}
+        \int_\gamma \vec{F} \cdot d\vec{r}
+    \end{equation*}
+    donde $\vec{F}(x,y) = (x,\sqrt{y})$.
+\end{frame}
+
+\end{document}

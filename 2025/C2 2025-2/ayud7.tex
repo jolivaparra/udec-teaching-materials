@@ -1,0 +1,92 @@
+\documentclass{plantillaPPT}
+
+\titulo{7}{Fin de Sólidos de Revolución y Parametrización}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Superficie de sólidos de revolución}
+\framesubtitle{Definición}
+    \begin{definicion}
+        La expresión general para calcular el área de la superficie de un sólido de revolución debido a una curva $y = f(x)$ son
+        \begin{align*}
+            S = \int_a^b 2\pi r(x)\sqrt{1+(f'(x))^2}\,dx\quad
+        \end{align*}
+    \end{definicion}
+    donde $r(x)$ corresponde a los segmentos entre la curva de interés y el eje de rotación.
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 7}
+
+1. La siguiente imagen muestra la región $R$ acotada por las curvas $C_1: y=x+3$, $C_2: y=x^2-3$ y $C_3: y = 5-x^2$.
+
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{C2 2025-2/imagenes/prac07.png}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 7}
+
+$(a)$ Escriba la integral que permite calcular el volumen del sólido de revolución que se genera al rotar la región $R$ en torno a la recta $y=4$.
+
+$(b)$ Escriba la integral que permite calcular el área de la superficie del sólido de revolución que se genera al rotar la región $R$ en torno a la recta $x=-3$.
+    
+\end{frame}
+
+\begin{frame}[plain]
+
+\begin{center}
+    \Huge \textcolor{azul}{Parametrizar}
+\end{center}
+    
+\end{frame}
+
+\begin{frame}{Parametrizaciones Típicas}
+    \begin{itemize}
+        \item Segmento de recta entre $A$ y $B$:\\[-15pt]
+        \[ \vec{r}(t) = Bt + (1-t)A, \quad t\in[0,1]\]
+        \item Circunferencia de radio R centrada en $C=(x_0, y_0)$:\\[-15pt]
+        \[\vec{r}(t) = (x_0+R\cos(t),y_0+R\sin(t)), \quad t\in[0,2\pi]\]
+        \item Elipse de radio mayor $a$ en eje $x$, y radio menor $b$ en eje y, con centro $C=(x_0, y_0)$.\\[-15pt]
+        \[\vec{r}(t) = (x_0+a\cos(t),y_0+b\sin(t)), \quad t\in[0,2\pi]\]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Longitud de Arco en Curvas Paramétricas}
+\framesubtitle{Definición}
+    \begin{definicion}
+        Sea una curva paramétrica $C: \vec{r}=(x(t),y(t)), t\in[a,b]$, la longitud de arco de la gráfica de $C$ entre los puntos $\vec{r}(a)$ y $\vec{r}(b)$ se da por.
+        \begin{equation*}
+            L = \int_a^b \sqrt{[x'(t)]^2+[y'(t)]^2}\,dx
+        \end{equation*}
+    \end{definicion}
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 7}
+
+2. Determine una parametrización de la curva $C$ y la integral que permite calcular la longitud del arco $C$ si:\\[5ex]
+$(a)$ $C$ es el segmento orientado que une los puntos $A(-1,2)$ y $B(5,1)$.
+
+$(b)$ $C$ es el arco de la circunferencia de ecuación $x^2+y^2=4$ que va desde el punto $(2, 0)$ hasta $(-\sqrt{3}, 1)$, con $y\geq0$.
+    
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 7}
+
+
+3. Sea $C$ la curva definida paramétricamente como:
+\begin{equation*}
+    x(t) = 1-\sin(t), \quad \text{e} \quad y(t)=1-\cos(t), \quad \text{con } t\in[0,4\pi] 
+\end{equation*}
+$(a)$ Determine la ecuación de la recta tangente a la gráfica $C$ en el punto $t = \frac{\pi}{3}$.
+
+$(b)$ Determine los puntos donde las rectas tangentes son horizontales.
+    
+\end{frame}
+
+\end{document}

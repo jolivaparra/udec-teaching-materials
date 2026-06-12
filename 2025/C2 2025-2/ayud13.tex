@@ -1,0 +1,66 @@
+\documentclass{plantillaPPT}
+\titulo{13}{Series de potencia y Taylor}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 13}
+
+    1. Sabiendo que $\displaystyle \forall x\in\mathbb{R}, e^x = \sum_{n=1}^\infty \frac{x^n}{n!}$ exprese $f(x) = xe^x$ como una serie y muestre que
+    \begin{equation*}
+        \sum_{n=1}^\infty \frac{(-1)^n}{(n+2)n!} = \frac{1}{2}-\frac{2}{e}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Series de Taylor}
+\framesubtitle{Aproximación de funciones}
+
+% --- Definición ---
+\begin{definicion}[Serie de Taylor]
+    Sea \(f\) una función infinitamente diferenciable en un intervalo \((a, b)\) que contiene al punto \(c\).
+    La \textbf{Serie de Taylor} de \(f\) centrada en \(c\) es la serie de potencias dada por:
+\end{definicion}
+
+% --- Expresión de la Serie ---
+\begin{equation*}
+f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(c)}{n!}(x-c)^n
+\end{equation*}
+
+% --- Parte Extra/Comentario ---
+\begin{itemize}
+    \item Esta serie representa a la función \(f(x)\) en el \textbf{radio de convergencia} de la serie.
+    \item Si el centro es \(c=0\), la serie se denomina \textbf{Serie de Maclaurin}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Problema 2}
+    \framesubtitle{Práctica 13}
+    
+    2. Determine la serie de Taylor centrada en $c$, para la función $f$ indicada.\\[15pt]
+    $(a)\quad f(x)=\ln(4x+3),\; c=0$.\\
+    $(b)\quad f(x) = \frac{1}{x^4},\; c=-3$. \\
+    $(c)\quad f(x) = \arctan(x),\; c=0$.
+\end{frame}
+
+\begin{frame}{Problema 3}
+    \framesubtitle{Práctica 13}
+    3. La integral
+    \begin{equation*}
+        I = \int_0^1 (e^{x^2} - e^{-x^2})\,dx
+    \end{equation*}
+    no se puede calcular por métodos elementales. Nuestro objetivo es aproximar su valor utilizando series de Maclaurin.\\[10pt]
+    $(a)$ Obtener la serie de Maclaurin de la función $g(x) = e^{x^2}-e^{-x^2}$ si se sabe que:
+    \begin{equation*}
+        \forall x\in\mathbb{R}: \frac{1}{2}(e^x-e^{-x}) = \sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!}
+    \end{equation*}
+    
+\end{frame}
+\begin{frame}{Problema 3}
+    \framesubtitle{Práctica 13}
+    $(b)$ Determinar la serie numérica que represente a la integral \\[5pt] $\displaystyle \int_0^x (e^{t^2}-e^{-t^2})\,dt$.\\[5pt]
+    $(c)$ Usar los primeros tres términos de la serie obtenida en $(b)$ para aproximar el valor de $I$.
+\end{frame}
+\end{document}
+
+

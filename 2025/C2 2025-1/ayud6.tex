@@ -1,0 +1,118 @@
+\documentclass{plantillaPPT}
+
+\titulo{6}{Integrales Impropias}
+
+\begin{document}
+
+\primeraDiapo
+
+\begin{frame}{Función Gamma}
+    \framesubtitle{Definición}
+
+\begin{definicion}
+    Sea \(\Gamma:]0,+\infty[ \to \mathbb{R}\) la función definida por: \vspace{0.3cm}
+
+\[\Gamma(t)=\int_{0}^{+\infty} e^{-x}x^{t-1}dx\]
+\vspace{0.3cm}
+
+La cual se conoce como la \textbf{Función Gamma.} Se puede probar que es convergente \(\forall t>0\), además que \(\Gamma(\frac{1}{2}) = \sqrt{\pi}\), y que \(\forall t \in \mathbb{N}\) se cumple \(\Gamma(t)=(t-1)!\).
+
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Uso de la función Gamma}
+    \framesubtitle{Práctica 6}
+    
+\vspace{-0.7cm}
+Utilice la función gamma para determinar el valor de las siguientes integrales.
+\vspace{0.6cm}
+\[(a) \int_{0}^{+\infty} x^4e^{-x}dx \]
+    
+\end{frame}
+
+\begin{frame}{Uso de la función Gamma}
+\framesubtitle{Práctica 6}
+
+\[(b) \int_{0}^{+\infty} x^3e^{-3x^2}dx \]
+    
+\end{frame}
+
+\begin{frame}{Uso de la función Gamma}
+\framesubtitle{Práctica 6}
+
+\[(c) \int_{0}^{+\infty} e^{-4x^2}dx \]
+    
+\end{frame}
+
+\begin{frame}{Uso de la función Gamma}
+\framesubtitle{Práctica 6}
+
+\[(d) \int_{0}^{1} \frac{1}{\sqrt{-\ln(x)}}dx \]
+    
+\end{frame}
+
+\begin{frame}{Integral Impropia de Tipo I}
+    \framesubtitle{Definición}
+    \vspace{-0.5cm}
+
+\begin{definicion}
+Dada una función \( f:[a, \infty) \to \mathbb{R} \) continua. Se define:
+\vspace{0.3cm}
+\[
+\int_a^{\infty} f(x) \, dx = \lim_{b \to \infty} \int_a^b f(x) \, dx
+\]\vspace{0.3cm}
+
+Si el límite existe y es finito, se dice que la integral \textbf{converge}.
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Cálculo de Impropias de Tipo I}
+\framesubtitle{Práctica 6}
+2. Estudie la convergencia de las siguientes integrales impropias:
+
+\[(a) \int_{-\infty}^{0} xe^xdx \]
+
+\end{frame}
+
+\begin{frame}{Cálculo de Impropias de Tipo I}
+\framesubtitle{Práctica 6}
+
+\[(b) \int_{-\infty}^{+\infty} \frac{2}{x^2+1}dx \]
+    
+\end{frame}
+
+\begin{frame}{Integral Impropia de Tipo II}
+    \framesubtitle{Definición}
+
+\begin{definicion}
+Dada \( f \) continua en \( (a, b) \) excepto en un punto \( c \in (a, b) \). Se define:
+\vspace{0.3cm}
+\[
+\int_a^b f(x) \, dx = \lim_{x \to c^-} \int_a^x f(t) \, dt + \lim_{x \to c^+} \int_x^b f(t) \, dt
+\]
+\vspace{0.3cm}
+
+Si ambos límites existen y son finitos, se dice que la integral \textbf{converge}.
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Cálculo de Impropias de Tipo I}
+\framesubtitle{Práctica 6}
+
+\[(c) \int_{0}^{1} \frac{x+1}{x}dx \]
+    
+\end{frame}
+
+\begin{frame}{Encontrar Valores para convergencia}
+\framesubtitle{Práctica 6}
+
+3. Determinar para qué valores de \(p\in\mathbb{R}\) la integral impropia
+
+\[\int_0^{+\infty}xe^{-px}dx\]
+converge y calcular su valor.    
+\end{frame}
+
+\end{document}

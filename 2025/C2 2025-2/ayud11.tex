@@ -1,0 +1,93 @@
+\documentclass{plantillaPPT}
+\titulo{11}{Convergencia Absoluta y Series de Potencias}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Criterio de Convergencia Absoluta}
+\framesubtitle{Criterios de Convergencia}
+
+Dada una sucesión \(a_n\) se tiene que:\\[2ex]
+Si \(\displaystyle\sum_{n}^\infty |a_n|\) CV \(\Rightarrow\) \(\displaystyle\sum_{n}^\infty a_n\) CV\\[2ex]
+Y se dice que la serie \(\displaystyle\sum_{n}^\infty a_n\) es \textbf{absolutamente convergente}.\\[4ex]
+Además, si \(\displaystyle\sum_{n}^\infty a_n\) CV pero \(\displaystyle\sum_{n}^\infty |a_n|\) DV, se dice que la serie \(\displaystyle\sum_{n}^\infty a_n\) es \textbf{Condicionalmente convergente}.
+\end{frame}
+
+\begin{frame}{Criterio de la Razón/Cociente y de la Raíz}
+\framesubtitle{Criterios de Convergencia}
+
+Sea \(\displaystyle\sum_{n}^\infty a_n\) una serie de términos no nulos que cumple alguna de las expresiones:\\[2ex]
+
+\[\lim_{n\to\infty}\frac{|a_{n+1}|}{|a_n|} = L \qquad \text{o bien} \qquad \lim_{n\to\infty}\sqrt[n]{|a_n|} = L\]\\[2ex]
+Se tiene que:\\[2ex]
+- Si \(L<1\) La serie Converge, y converge \textbf{absolutamente}. \\[2ex]
+- Si \(L>1\) La serie Diverge.\\[2ex]
+- Si \(L=1\) El criterio no es concluyente.
+    
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 11}
+
+1. Determine si cada una de las siguientes series converge absolutamente, condicionalmente o no converge.
+
+\begin{equation*}
+    (a) \sum_{n=1}^\infty \frac{(n!)^2}{(2n)!} \qquad (b)\sum_{n=1}^\infty \frac{\ln(n)}{\sqrt[n]{n+1}} \qquad (c) \sum_{n=1}^\infty \frac{(-1)^nn}{e^{n^2}}
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 11}
+
+2. Determine, si es posible, los valores de $\alpha\in\mathbb{R}$ de modo que la serie
+\begin{equation*}
+    \sum_{n=1}^\infty \frac{\sqrt{n!}}{n^{\alpha n}}
+\end{equation*}
+sea convergente.
+
+\end{frame}
+
+\begin{frame}{Series de Potencia}
+\framesubtitle{Definición}
+
+\begin{definicion}
+    Una \textbf{Serie de Potencia} centrada en $a$ es una serie de la forma:
+    \[
+    \sum_{n=0}^{\infty} c_n (x-a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + \dots
+    \]
+    donde $x$ es una variable y los $c_n$ son constantes llamadas coeficientes de la serie.
+\end{definicion}
+
+\textbf{Nota:} Si el centro es $a=0$, la serie se simplifica a $\sum_{n=0}^{\infty} c_n x^n$.
+\end{frame}
+
+\begin{frame}{Convergencia de Series de Potencia}
+\framesubtitle{Radio e Intervalo de Convergencia}
+
+\small % <--- Este comando reduce el tamaño de la fuente
+\begin{enumerate}
+    \item \textbf{Radio de Convergencia ($R$):} Es un número no negativo ($0 \le R \le \infty$) que determina el tamaño del dominio de convergencia. La serie:
+    \begin{itemize}
+        \item \textbf{Converge} absolutamente si $|x-a| < R$.
+        \item \textbf{Diverge} si $|x-a| > R$.
+    \end{itemize}
+    \textcolor{blue}{Para Calcular $R$ se utiliza el Criterio de la Razón/Raíz.}
+    \vspace{0.5cm}
+    \item \textbf{Intervalo de Convergencia ($I$):} Es el conjunto de valores de $x$ para los cuales la serie converge. Siempre incluye el intervalo abierto $(a-R, a+R)$, y es \textbf{esencial} verificar la convergencia en los puntos extremos $x=a-R$ y $x=a+R$ por separado.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 11}
+
+3. Determine el radio de convergencia de las siguientes series de potencias
+\begin{equation*}
+\begin{gathered}
+(a) \sum_{n=1}^\infty \frac{(-1)^n(x+1)^n}{n!5^n} \qquad (b) \sum_{n=2}^\infty \frac{(-1)^n\ln(2)(2x-1)^n}{n} \\[1cm]
+(c) \sum_{n=1}^\infty \frac{(-3)^n x^n}{\sqrt{n+1}}
+\end{gathered}
+\end{equation*}
+
+\end{frame}
+
+\end{document}

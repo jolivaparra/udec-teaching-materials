@@ -1,0 +1,131 @@
+\documentclass{plantillaPPT}
+
+\titulo{2}{Integrales Indefinidas Parte 2}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Cálculo de integrales indefinidas}
+\framesubtitle{Práctica 2}
+
+1. Calcule las siguientes integrales indefinidas:
+
+\[(a) \int \frac{1}{x^2\sqrt{x^2-9}}\,dx \qquad \qquad (b) \int \frac{1}{(x^2+1)^2}\,dx\]
+    
+\end{frame}
+
+\begin{frame}{Integración por partes}
+\framesubtitle{Teorema}
+\begin{teorema}
+    Supongamos que \(u=f(x)\) y \(v=g(x)\) son funciones con derivadas continuas. Entonces, la fórmula de integración por partes para la integral que involucra estas dos funciones es:
+    \[\int u\,dv = uv - \int v\,du\]
+\end{teorema}
+
+\end{frame}
+
+\begin{frame}{Cálculo de integrales indefinidas}
+\framesubtitle{Práctica 2}
+\[(c) \int x2^{-3x}\,dx\qquad \qquad (d) \int e^x\sin(x)\,dx\]
+
+\end{frame}
+
+\begin{frame}{Cálculo de integrales indefinidas}
+\framesubtitle{Práctica 2}
+\[(e) \int x^2\arctan(x)\,dx \qquad \qquad (f) \int \ln(x+\sqrt{x^2+1})\,dx\]
+
+\end{frame}
+
+\begin{frame}[plain]
+    \centering
+    \vfill
+    {\usebeamercolor[fg]{title}\Huge Fracciones Parciales}
+    \vfill
+\end{frame}
+
+\begin{frame}{Descomposición por fracciones parciales}
+Es un método que permite reescribir una función racional ''complicada'' como una \textbf{suma de fracciones mas simples}.
+
+\[
+\frac{P(x)}{(ax^2+bx+c)(dx+e)^2}=\frac{A}{dx+e}+\frac{B}{(dx+e)^2}+\frac{Cx+D}{ax^2+bx+c}
+\]
+    
+\end{frame}
+
+\begin{frame}{Descomposición por fracciones parciales}
+\framesubtitle{Condiciones mínimas}
+
+Las condiciones mínimas de la función a reducir son:
+\pause
+
+\begin{enumerate}
+    \item Debe ser un cociente de dos polinomios:
+    \[R(x)=\frac{P(x)}{Q(x)}, \quad P(x),Q(x),R(x)\in\mathbb{R}[x] \]
+    \pause
+    \item El grado del polinomio en el numerador debe ser menor al del denominador: \(\displaystyle \quad \text{deg}(P(x))<\text{deg}(Q(x))\).
+    \vspace{5pt}
+    \pause
+    \item El polinomio ubicado en el denominador(\(Q(x)\)) debe reescrito como producto de \textbf{factores lineales o cuadráticos irreductibles} (en \(\mathbb{R}\)).
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Factores lineales no repetidos}
+\framesubtitle{Caso 1}
+
+\textbf{Situación: }Denominador con factores lineales distintos.\\[10pt]
+Forma de la fracción parcial:
+
+\[
+\frac{P(x)}{(ax+b)(mx+n)} = \frac{A}{ax+b}+\frac{B}{mx+n}
+\]
+    
+\end{frame}
+
+\begin{frame}{Factores lineales repetidos}
+\framesubtitle{Caso 2}
+
+\textbf{Situación: }Denominador con algún factor lineal elevado a alguna potencia \(n\in\mathbb{Z}\).\\[10pt]
+Forma de la fracción parcial:
+
+\[
+\frac{P(x)}{(ax+b)^n} = \frac{A_1}{ax+b}+\frac{A_2}{(ax+b)^2}+...+\frac{A_n}{(ax+b)^n}
+\]
+    
+\end{frame}
+
+\begin{frame}{Factores cuadráticos irreductibles}
+\framesubtitle{Caso 3}
+
+\textbf{Situación: }Denominador con un factor cuadrático que \textbf{no tiene raíces reales}.\\[10pt]
+Forma de la fracción parcial:
+
+\[
+\frac{P(x)}{ax^2+bx+c} = \frac{Ax+B}{ax^2+bx+c}
+\]
+    
+\end{frame}
+
+\begin{frame}{Integrales usando fracciones parciales}
+\framesubtitle{Práctica 2}
+
+2. Usando fracciones parciales, calcule las siguientes integrales.
+
+\[(a) \int \frac{2}{x^2+5x-14}\,dx \qquad \qquad (b) \int \frac{3x+1}{x(x^2+1)}\,dx\]
+    
+\end{frame}
+
+\begin{frame}{Integrales usando fracciones parciales}
+\framesubtitle{Práctica 2}
+
+\[(c) \int \frac{x}{(x-1)(x+1)^2}\,dx\]
+    
+\end{frame}
+
+\begin{frame}{PVI}
+\framesubtitle{Práctica 2}
+
+3. Un cuerpo que se mueve en línea recta con aceleración dada por \(a(t)=te^{-t}\). Encuentre la función velocidad \(v(t)\) y la función posición \(s(t)\) sabiendo que \(v(0)=1\) y \(s(0)=-1\).
+    
+\end{frame}
+
+\end{document}

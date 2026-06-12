@@ -1,0 +1,111 @@
+\documentclass{plantillaPPt}
+\titulo{4}{Diferenciabilidad y Aproximación Afín}
+\begin{document}
+\primeraDiapo
+
+
+\begin{frame}{Problema 4}
+\framesubtitle{Práctica 4}
+
+4. Sea \(u = u(x,y)\) una función que satisface la identidad \(\frac{\partial^2u}{\partial x\partial y}=0\). Muestre que \(z=u(x,y)e^{x+y}\) es solución de
+\[
+\frac{\partial^2z}{\partial x\partial y}-\frac{\partial z}{\partial x}-\frac{\partial z}{\partial y}+z =0
+\]
+    
+\end{frame}
+
+\begin{frame}{Vector Gradiente}
+\framesubtitle{Definición}
+
+\begin{definicion}
+    Sea \(f:A\subseteq\mathbb{R}^2\to\mathbb{R}\) y \(\vec{a}\) un punto interior de \(A\). Se define el \textbf{vector gradiente} como
+    \[
+    \nabla f(\vec{a}) = \left(\frac{\partial f}{\partial x_1}(\vec{a}), \frac{\partial f}{\partial x_2}(\vec{a}),...,\frac{\partial f}{\partial x_n}(\vec{a})\right)
+    \]
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Diferenciabilidad}
+\framesubtitle{Definición}
+
+\begin{definicion}
+    Sea \(f:A\subseteq\mathbb{R}^n\to\mathbb{R}\) y \(\vec{a}=(a_1,a_2,a_3,...,a_n)\) un punto interior.
+
+    Diremos que \(f\) es \textbf{diferenciable} en \(\vec{a}\) si
+    \begin{itemize}
+        \item Todas las parciales \(\frac{\partial f}{\partial x_1}(\vec{a}), \frac{\partial f}{\partial x_2}(\vec{a}), ...\;\frac{\partial f}{\partial x_n}(\vec{a})\) existen.
+        \item La aproximación
+        \[
+        f(\vec{x}) = f(\vec{a}) + \nabla f(\vec{a}) \cdot (\vec{x}-\vec{a}) + \epsilon(\vec{x})
+        \]
+        satisface que
+        \[
+        \lim_{\vec{x}\to\vec{a}}\frac{\epsilon(\vec{x})}{\|\vec{x}-\vec{a}\|}=0
+        \]
+    \end{itemize}
+\end{definicion}
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 4}
+2. Considere la función
+\[
+f(x,y,z) = e^{\arctan(x-y)}+\cos(x+z).
+\]
+Construya la buena aproximación afín a \(f\) en el punto (2,2,-2), utilícela para aproximar el valor de \(f(\text{2.1},\text{1.98},\text{-2.03})\).
+    
+\end{frame}
+
+\begin{frame}{Diferenciabilidad}
+\framesubtitle{Propiedad}
+
+\begin{teorema}
+    Sea \(A\in\mathbb{R}^n\) abierto y \(f:A\subseteq\mathbb{R}^n\to\mathbb{R}^m\) una función de clase \(C^1\) en todo \(A\), entonces \(f\) es diferenciable en \(A\).
+\end{teorema}
+    
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 4}
+
+1. Sea \(f:\mathbb{R}^2\to\mathbb{R}\) la función definida por
+
+\[
+f(x,y) = 
+\begin{cases}
+\frac{xy^2}{x^2+y^2}, \quad & \text{si } (x,y) \neq (0,0)\\
+0, \quad &\text{si } (x,y) = (0,0) 
+\end{cases}
+\]
+
+\((a)\) Determine todas las derivadas parciales de \(f\) en todo punto del dominio.\\
+\((b)\) ¿\(f\) es de clase \(C^1\) en \(\mathbb{R}^2\)?. Justifique su respuesta.\\
+\((c)\) Analice la diferenciabilidad de \(f\) en cada punto del dominio.
+\end{frame}
+
+
+\begin{frame}{Interpretación geométrica del gradiente}
+\framesubtitle{Teorema}
+
+\begin{teorema}
+    Sea \(S\) una superficie definida de forma implícita por la ecuación \(f(x,y,z)=0\) con \(f\) de clase \(C^1\) y sea \(\vec{a}\in\mathbb{R}^3\) tal que \(\nabla f(\vec{a})\neq 0\). Entonces \(\nabla f(\vec{a})\) es perpendicular al plano tangente a \(S\) en el punto \(\vec{a}\)(o sea, \(\nabla f(\vec{a})\) es perpendicular a \(S\) en el punto \(\vec{a}\)).
+\end{teorema}
+\vspace{0.75cm}
+\textcolor{blue}{Observación. }En virtud del teorema previo, la ecuación del plano tangente a \(S\) que pasa por \(\vec{a} = (x_0,y_0,z_0)\) es
+\[
+\nabla f(\vec{a}) \cdot (x-x_0, y-y_0, z-z_0) = 0
+\]
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 4}
+
+3. Determine la ecuación del plano tangente a la superficie \(z=x^2+xy\) que sea paralelo al plano
+\[2x+2y-z=10.\]
+    
+\end{frame}
+
+
+
+\end{document}

@@ -1,0 +1,116 @@
+\documentclass{plantillaPPT}
+\titulo{9}{Sucesiones y Series}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Acotamientos y expresiones útiles}
+\framesubtitle{Protips}
+
+Las siguientes expresiones son útiles al acotar funciones:
+\vspace{5pt}
+\begin{itemize}
+    \item Desigualdad triangular: \(|a\pm b| \leq |a|+|b|\)
+    \vspace{5pt}
+    \item Dados \(a,b>0\): \(\frac{1}{a+b}\leq\frac{1}{a}\) o bien \(\frac{1}{a+b}\leq\frac{1}{b}\)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 9}
+
+1. Sea $(a_n)_{n\in\mathbb{N}}$ la sucesión definida por $a_1 = 1$ y $a_{n+1} = \sqrt{3+2a_n}$ para $n\geq1$. Mostrar que si $(a_n)_{n\in\mathbb{N}}$ es monótona crceciente y, $\forall n\in\mathbb{N}_{>1}$, se cumple que $2<a_n<3$, entonces $\displaystyle \lim a_n = 3$. 
+    
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 9}
+
+2. Calcular, si es posible, $\displaystyle \lim a_n$, donde $a_n$ es:
+\vspace{-0.4cm}
+{
+\renewcommand{\arraystretch}{2} % <--- reduce la altura de las filas
+\[
+\begin{array}{@{}l@{}l@{}c@{}l@{}l@{}}
+(a)\,&a_n=\sqrt{n^6-n^3}-\sqrt{n^6-n^2}&\,&(b)&a_n=\dfrac{e^n-e^{-n}}{e^n+e^{-n}}\\
+(c)\,&a_n=\dfrac{(-1)^n}{\sqrt{n}}&\,&(d)\,&a_n=n^{\tfrac{2}{n+1}}\\
+(e)\,&a_n=\dfrac{\ln(n)}{\ln(3n)}&\,&(f)\,&a_n=\dfrac{\cos(n+1)}{n^3}\\
+(g)\,&a_n=\dfrac{2^n+\sin(\sqrt{n})}{5^n+2^n}&\,&(h)\,&a_n=\ln\!\left(\dfrac{n+3}{n+1}\right)\cos^2(n+8)
+\end{array}
+\]
+}
+\end{frame}
+
+\begin{frame}{Series}
+\framesubtitle{Sucesión de sumas parciales}
+
+\begin{definicion}
+    Sea \((a_n)_{n=1}^{\infty}\) una sucesión de números reales. 
+    Se define la \textbf{sucesión de sumas parciales} asociada a \((a_n)\) como:
+    \[
+    S_n = \sum_{k=1}^{n} a_k = a_1 + a_2 + \dots + a_n
+    \]
+    \begin{itemize}
+        \item Cada \(S_n\) representa la suma de los \(n\) primeros términos de la sucesión.
+        \item La secuencia \((S_n)\) será utilizada para analizar el comportamiento de la \textbf{serie infinita}.
+    \end{itemize}
+\end{definicion}
+\end{frame}
+
+\begin{frame}{Series}
+\framesubtitle{Definición formal}
+\begin{definicion}
+    La \textbf{serie infinita} asociada a una sucesión \((a_n)\) se define como:
+    \[
+    \sum_{k=1}^{\infty} a_k = \lim_{n \to \infty} S_n = \lim_{n \to \infty} \sum_{k=1}^{n} a_k
+    \]
+    \begin{itemize}
+        \item Si el límite \( \displaystyle \lim_{n \to \infty} S_n = L \) existe y es finito, decimos que la serie \textbf{converge} y su \textbf{suma} es \(L\).
+        \item Si el límite no existe o es infinito, decimos que la serie \textbf{diverge}.
+    \end{itemize}
+\end{definicion}
+\end{frame}
+
+\begin{frame}{Serie Geométrica}
+\framesubtitle{De la suma finita a la serie infinita}
+
+\begin{block}{Suma geométrica finita}
+    Sea \(r \neq 1\). La suma de los primeros \(n\) términos es:
+    \[
+    S_n = 1 + r + r^2 + \dots + r^{n-1} = \frac{1 - r^n}{1 - r}
+    \]
+\end{block}
+
+\vspace{-15pt}
+
+\begin{definicion}
+    La \textbf{serie geométrica infinita} se define como:
+    \[
+    \sum_{n=0}^{\infty} r^n = \lim_{n \to \infty} S_n =
+    \begin{cases}
+        \displaystyle \frac{1}{1 - r}, & \text{si } |r| < 1 \\[1.5ex]
+        \text{diverge}, & \text{si } |r| \ge 1
+    \end{cases}
+    \]
+\end{definicion}
+
+\end{frame}
+
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 9}
+
+3. Calcule las siguientes sumas
+\vspace{10pt}
+\[
+(a)\; \sum_{n=1}^\infty \left(\frac{5}{7^n} + \frac{3}{n(n+1)}\right)
+\]
+\vspace{5pt}
+\[
+(b)\; \sum_{n=1}^\infty \left(\int_n^{n+1}xe^{-x}\,dx\right)
+\]
+
+
+\end{frame}
+
+
+\end{document}

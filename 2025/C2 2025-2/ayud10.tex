@@ -1,0 +1,145 @@
+\documentclass{plantillaPPT}
+
+\titulo{10}{Convergencia de Series}
+
+\begin{document}
+\primeraDiapo
+
+
+
+\begin{frame}{Criterio de Divergencia}
+\framesubtitle{Criterios de Convergencia}
+
+Dada una serie \(\displaystyle\sum_{n}^{\infty}a_n\), sabemos que:\\[2ex]
+\[\text{Si} \sum_{n}^{\infty}a_n\ \text{es Convergente} \Rightarrow \lim_{n\to\infty}a_n = 0\]\\[2ex]
+Luego, por contrarrecíproco, obtenemos el siguiente criterio de convergencia:
+\[\text{Si} \lim_{n\to\infty}a_n \neq 0 \Rightarrow \sum_{n}^{\infty}a_n\ \text{Es Divergente}\]
+    
+\end{frame}
+
+\begin{frame}{Criterio de Comparación Directa}
+\framesubtitle{Criterios de Convergencia}
+
+Dadas las sucesiones \(a_n\) y \(b_n\) tales que \(\forall n\in\mathbb{N}\) \(0\leq a_n\leq b_n\) entonces tiene que:\\[3ex]
+\begin{center}
+- Si \(\displaystyle\sum_{n}^\infty b_n\) CV \(\Rightarrow\) \(\displaystyle\sum_{n}^\infty a_n\) CV\\[3ex]
+- Si \(\displaystyle\sum_{n}^\infty a_n\) DV \(\Rightarrow\) \(\displaystyle\sum_{n}^\infty b_n\) DV
+\end{center}
+    
+\end{frame}
+
+\begin{frame}{Acotamientos y expresiones útiles}
+\framesubtitle{Protips}
+
+Las siguientes expresiones son útiles al acotar funciones:
+\vspace{5pt}
+\begin{itemize}
+    \item Desigualdad triangular: \(|a\pm b| \leq |a|+|b|\)
+    \vspace{5pt}
+    \item Dados \(a,b>0\): \(\frac{1}{a+b}\leq\frac{1}{a}\) o bien \(\frac{1}{a+b}\leq\frac{1}{b}\)
+    \vspace{5pt}
+    \item $|\sen(x)|\leq1$
+    \item $|\cos(x)|\leq1$
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Comparación al límite}
+\framesubtitle{Criterios de Convergencia}
+
+Dados \(a_n \geq 0\) y \(b_n>0\) tales que:
+\[\lim_{n\to\infty}\frac{a_n}{b_n}=L\]
+- Si \(L\in\mathbb{R} \land L\neq0\) entonces la series \(\displaystyle\sum_{n}^{\infty}a_n\) y \(\displaystyle\sum_{n}^{\infty}b_n\) comparten convergencia(ambas divergen o convergen).\\[2ex]
+- \(L = 0\): \(\quad\) Si \(\displaystyle\sum_{n}^{\infty}b_n\) CV \(\Rightarrow\) \(\displaystyle\sum_{n}^{\infty}a_n\) CV. \\[2ex]
+- \(L = \infty\): \(\quad\) Si \(\displaystyle\sum_{n}^{\infty}b_n\) DV \(\Rightarrow\) \(\displaystyle\sum_{n}^{\infty}a_n\) CV.
+
+\end{frame}
+
+\begin{frame}{Criterio de la Integral}
+\framesubtitle{Criterios de Convergencia}
+
+Sea \(a_n\) una sucesión, y \(f\) una función continua, positiva no creciente en el intervalo \([1,\infty[\) que cumple \(f(k) = a_k, \; \forall k\in\mathbb{N}\). Entonces:\\[4ex]
+\begin{center}
+\(\displaystyle\sum_{n}^{\infty}a_n\) CV \(\Longleftrightarrow\) \(\displaystyle\int_1^{\infty}f(x)\,dx\) CV
+\end{center}
+\end{frame}
+
+\begin{frame}{Criterio de Leibniz}
+\framesubtitle{Criterios de Convergencia}
+
+Sea \(a_n\) una sucesión, si se cumplen las siguientes condiciones:\\[2ex]
+- \(|a_n|\) es decreciente.\\[2ex]
+- \(\displaystyle\lim_{n\to\infty}|a_n| = 0\)\\[2ex]
+Entonces se cumple que las series:\\[2ex]
+\[\sum_{n}^\infty (-1)^{n} a_n \quad \text{o bien} \quad \sum_{n}^\infty (-1)^{n+1} a_n\]\\[2ex]
+Son convergentes.
+
+\end{frame}
+
+\begin{frame}{Criterio de Convergencia Absoluta}
+\framesubtitle{Criterios de Convergencia}
+
+Dada una sucesión \(a_n\) se tiene que:\\[2ex]
+Si \(\displaystyle\sum_{n}^\infty |a_n|\) CV \(\Rightarrow\) \(\displaystyle\sum_{n}^\infty a_n\) CV\\[2ex]
+Y se dice que la serie \(\displaystyle\sum_{n}^\infty a_n\) es \textbf{absolutamente convergente}.\\[4ex]
+Además, si \(\displaystyle\sum_{n}^\infty a_n\) CV pero \(\displaystyle\sum_{n}^\infty |a_n|\) DV, se dice que la serie \(\displaystyle\sum_{n}^\infty a_n\) es \textbf{Condicionalmente convergente}.
+\end{frame}
+
+\begin{frame}{Criterio de la Razón/Cociente y de la Raíz}
+\framesubtitle{Criterios de Convergencia}
+
+Sea \(\displaystyle\sum_{n}^\infty a_n\) una serie de términos no nulos que cumple alguna de las expresiones:\\[2ex]
+
+\[\lim_{n\to\infty}\frac{|a_{n+1}|}{|a_n|} = L \qquad \text{o bien} \qquad \lim_{n\to\infty}\sqrt[n]{|a_n|} = L\]\\[2ex]
+Se tiene que:\\[2ex]
+- Si \(L<1\) La serie Converge, y converge \textbf{absolutamente}. \\[2ex]
+- Si \(L>1\) La serie Diverge.\\[2ex]
+- Si \(L=1\) El criterio no es concluyente.
+    
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 10}
+1. Considere la suma infinita
+\begin{equation*}
+    54+18+6+2+\frac{2}{3}+\frac{2}{9}+...
+\end{equation*}
+Escriba como serie geométrica y determine su suma.
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 10}
+
+2. Determinar la suma de las siguientes series convergente.
+\begin{equation*}
+    (a) \sum_{n=5}^\infty \frac{3^{n-1}}{4^{3n+1}} \qquad \qquad (b) \sum_{n=2}^\infty \frac{1}{n^2-1}
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 10}
+3. Analice la convergencia de las siguientes series:
+\begin{equation*}
+(a) \sum_{n=1}^\infty \arcsen\left(\frac{1}{\sqrt{n}}\right) \qquad \qquad (b) \sum_{n=1}^\infty \frac{3^n}{n^24^n+\sqrt{n}}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\framesubtitle{Práctica 10}
+\begin{equation*}
+    (c) \sum_{n=1}^\infty \left(1+\frac{1}{n}\right)^n \qquad \qquad (d)
+\sum_{n=3}^\infty \frac{\ln(n)}{n^{3/2}}
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Problema 4}
+\framesubtitle{Práctica 10}
+4. Analice la convergencia de las siguientes series alternantes.
+\begin{equation*}
+(a)\sum_{n=1}^\infty \frac{\cos(n\pi)(n+2)}{n^3+n^2+1} \qquad \qquad (b) \sum_{n=2}^\infty (-1)^n\,\frac{\sqrt{n^2+1}}{n^3}
+\end{equation*}
+    
+\end{frame}
+
+
+\end{document}

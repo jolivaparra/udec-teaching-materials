@@ -1,0 +1,69 @@
+\documentclass{plantillaPPt}
+\titulo{14}{Series de Taylor y Fin de Cálculo II}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Problema 1}
+    \framesubtitle{Práctica 14}
+    1. Verifique que la serie de potencias de $f(x)=(4+x^2)^{-1}$ es
+    \begin{equation*}
+        \sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{4^{(n+1)}}
+    \end{equation*}
+    indicando su radio de convergencia.
+\end{frame}
+
+\begin{frame}{Polinomio de Taylor}
+\framesubtitle{Definicion}
+
+\begin{definicion}
+    Sea \(f\) una función con derivadas de orden \(n\) en un punto \(a\). El \textbf{Polinomio de Taylor de orden \(n\)} generado por \(f\) en \(a\) es:
+    \[
+    P_n(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n
+    \]
+    En notación de sumatoria:
+    \[ P_n(x) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!} (x-a)^k \]
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Teorema de Taylor (Resto de Lagrange)}
+\framesubtitle{Estimación de errores}
+
+\begin{teorema}
+    Si \(f\) es derivable \(n+1\) veces en un intervalo \(I\) que contiene a \(a\), entonces para cada \(x \in I\), existe un número \(c\) entre \(a\) y \(x\) tal que:
+    \[ f(x) = P_n(x) + R_n(x) \]
+    Donde \(R_n(x)\) es el \textbf{Resto de Lagrange}:
+    \[ R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \]
+\end{teorema}
+\vspace{-10pt}
+Esto nos permite medir el error de la aproximación: \(|f(x)-P_n(x)| = |R_n(x)|\).
+
+\end{frame}
+
+\begin{frame}{Problema 2}
+    \framesubtitle{Práctica 14}
+    2. Sea $f$ la función definida por $f(x) = \cos(3x+\frac{\pi}{6})$ y $P(x)$ el polinomio de Taylor de grado 4 de $f$ con centro $x=0$.\\[10pt]
+    $(a)$ Determianr $P(x)$.\\
+    $(b)$ Utilizar el resto de Lagrange para mostrar que 
+    \begin{equation*}
+        \left|f\left(\frac{1}{6}\right)-P\left(\frac{1}{6}\right)\right|<\frac{1}{3000}.
+    \end{equation*}
+\end{frame}
+\begin{frame}{Problema 3}
+    \framesubtitle{Práctica 14}
+    3. La serie de Taylor de $f$ centrada en $x=5$ converge a $f(x)$ para todo $x$ en su intervalo de convergencia. La $n-$ésima derivada de $f$ en $x=5$ está dada por
+    \begin{equation*}
+        f^{(n)}(5) = \frac{(-1)^nn!}{2^n(n+2)} \text{  con  }f(5)=\frac{1}{2}.
+    \end{equation*}
+    $(a)$ Determinar el polinomio de Taylor de grado 3 de $f$ centrado en $x=5$.\\
+    $(b)$ Mostrar que el polinomio de Taylor del item $(a)$ aproxima $f(6)$ con un error menor a $0.02$.
+\end{frame}
+\begin{frame}{Problema 4}
+    \framesubtitle{Práctica 14}
+    4. Sabiendo que $\displaystyle \forall x\in\mathbb{R}, e^x=\sum_{n=0}^\infty \frac{x^n}{n!}$, expresar $f(x) = e^{-x^2}$ como una serie y determinar el valor de la integral
+    \begin{equation*}
+        \int_0^1 e^{-x^2}\,dx
+    \end{equation*}
+    con un error menor a $\frac{1}{200}$.
+\end{frame}
+\end{document}

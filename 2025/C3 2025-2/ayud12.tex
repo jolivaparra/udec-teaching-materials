@@ -1,0 +1,92 @@
+\documentclass{plantillaPPT}
+\titulo{12}{Campos Conservativos e Integrales de Superficie}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Campos Conservativos}
+\framesubtitle{Definición}
+
+
+\begin{definicion}
+    Un campo vectorial $\vec{F}$ se dice que es \textbf{conservativo} si existe un campo escalar $f$ de clase $C^1$ tal que {\color{red} $\nabla f = \vec{F}$} en \textcolor{blue}{todo} el dominio de $\vec{F}$. A dicho campo escalar $f$ se le llama el \textbf{potencial} de $\vec{F}$.    
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Campos vectoriales conservativos}
+    \framesubtitle{Teorema fundamental}
+    \begin{teorema}
+        Sea $C$ una curva suave (o suave por tramos) parametrizada por $\vec{r}:[a,b]\to\mathbb{R}^n$.
+        Si $\nabla f = \vec{F}$, entonces
+        \begin{equation*}
+            \int_C \vec{F}\cdot d\vec{r} = \boxed{\int_C \nabla f\cdot d\vec{r} = f(\vec{r}(b)) - f(\vec{r}(a))}
+        \end{equation*}
+    \end{teorema}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Problema 1}
+    \framesubtitle{Práctica 12}
+    1. Muestre que el valor de la integral de línea es independiente de la trayectoria. Después evalúe la integral de línea y empleando la función potencial. Sea $\gamma$ cualquier curva suave a trozos desde el punto $A$ hasta el punto $B$, donde.
+\end{frame}
+\begin{frame}
+    \frametitle{Problema 1}
+    \framesubtitle{Práctica 12}
+    \begin{gather*}
+        (a)\quad \int_\gamma e^x\sin(y)\,dx+(e^x\cos(y)+y)\,dy\,; \\ A=(0,0) \text{ y } B=(2, \pi/2). \\[30pt]
+    (b) \quad \int_\gamma (2y^3-8xz^2)\,dx + (6xy^2+1)\,dy -    (8x^2z+3z^2)\,dz; \\  A=(2,0,0) \text{ y }B=(3, 2, 1)
+    \end{gather*}
+\end{frame}
+
+
+
+\begin{frame}{Área de una superficie}
+    \framesubtitle{Definicion}
+
+    \begin{definicion}
+
+    Sea $\vec{r}:D\subseteq\mathbb{R}^2\to\mathbb{R}^3$ una superficie paramétrica suave. El \textcolor{red}{área de la superficie} está dada por
+    \begin{equation*}
+        A(S) =\iint_S\,dS = \iint_D \|\vec{n}_S\|\,d(u,v)
+    \end{equation*}
+    donde $\vec{n}_S = \vec{r}_u \times \vec{r}_v $
+    \end{definicion}
+\end{frame}
+
+\begin{frame}{Integral de superficie sobre campos escalares}
+\framesubtitle{Definición}
+\begin{definicion}
+    Sea $S\subset\mathbb{R}^3$ una superficie parametrizada por una función $\vec{r}$ con dominio $D$. Sea $f(x,y,z)$ un campo escalar continuo en un abierto que contiene a $S$. La \textbf{Integral de superficie} de $f$ sobre $S$ se define como
+    \begin{equation*}
+        \iint_Sf(x,y,t)\,dS = \iint_Df(\vec{r}(t)) \|\vec{r}_u \times\vec{r}_v\|\,d(u,v)
+    \end{equation*}
+\end{definicion}
+\end{frame}
+
+\begin{frame}{Integral de superficie sobre campos vectoriales}
+\framesubtitle{Definición}
+\begin{definicion}
+    Sea $S$ una superficie parametrizada por $D:\subseteq\mathbb{R}^2\to\mathbb{R}^3$ suave y orientada en la difección del vector unitario $\displaystyle\hat{n}_S = \frac{\vec{r}_u\times\vec{r}_v}{\|\vec{r}_u\times\vec{r}_v\|}$. Sea $\vec{F}:A\subseteq\mathbb{R}^2\to\mathbb{R}^3$ un campo vectorial continuo en un abierto $A$ que contiene a $S$. Definimos la \textbf{integral de superficie de }$\vec{F}$\textbf{ sobre} $S$ como
+    \begin{equation*}
+        \iint_S\vec{F}\cdot\d\vec{S} = \iint_D \vec{F}(\vec{r}(t)) \cdot \vec{n}_S\,d(u,v).
+    \end{equation*}
+\end{definicion}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Problema 2}
+    \framesubtitle{Práctica 12}
+    2. Calcule el área de la porción del cono $z=2\sqrt{s^2+y^2}$ entre los plano $z=2$ y $z=6$.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Problema 3}
+    \framesubtitle{Práctica 12}
+    3. Evalúe
+    \begin{equation*}
+        \iint_S x^2\sqrt{5-4z}dS
+    \end{equation*}
+    donde $S$ es la superficie del domo parabólico $z=1-x^2-y^2, z\geq0$.
+\end{frame}
+
+\end{document}

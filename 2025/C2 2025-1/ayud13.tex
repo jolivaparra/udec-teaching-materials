@@ -1,0 +1,74 @@
+\documentclass{plantillaPPT}
+
+\titulo{13}{Series}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Serie Geométrica}
+\framesubtitle{Definición}
+
+\begin{definicion}
+    Una serie geométrica es una serie de la forma:
+    \[
+    \sum_{n=0}^{\infty}ar^n = a+ar+ar^2+ar^3+...
+    \]
+    Donde \(a\) es el primer término y \(r\) es la razón común.
+    \begin{itemize}
+        \item Si \(|r|<1\), la serie converge y su valor está dado por \\[1ex]
+        \(\displaystyle\sum_{n=0}^{\infty}ar^n = \frac{a}{1-r}\)\\[2ex]
+        \item Si \(|r|\geq1\), la serie diverge.
+    \end{itemize}
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Serie Geométrica}
+\framesubtitle{Sucesión de sumas parciales}
+
+En el caso de una serie geométrica finita de \(n\) términos, la suma de estos viene dada por:
+\[S_n=a\cdot\frac{1-r^n}{1-r}\]
+    
+\end{frame}
+
+\begin{frame}{Modelado de Series}
+\framesubtitle{Práctica 13}
+
+1. Considerar un cuadrado de lado 1. Con los puntos medios de sus lados, considerar otro cuadrado y calcular su área. Si el área del cuadrado original es \(a_0\), la del cuadrado interior es \(a_1\), la del cuadrado interior al interior es \(a_2\) y así sucesivamente.\\[3ex]
+\((a)\) Calcular las áreas \(a_2,a_3,...,a_n\). \\[2ex]
+\((b)\) Expresar la cantidad \(a_0+a_1+a_2+...+a_n\) como una sumatoria.\\[2ex]
+\((c)\) ¿La suma anterior es convergente? Justifique su respuesta.\\[2ex]
+
+\end{frame}
+
+\begin{frame}{Valores de Series}
+\framesubtitle{Práctica 13}
+
+2. Determinar el valor de la suma:\\[2ex]
+\[(a)\;1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{9}+\frac{1}{8}+\frac{1}{27}+\frac{1}{16}+\frac{1}{81}+..._.\]
+
+\[(b)\;\frac{1}{2!}+\frac{2}{3!}+\frac{3}{4!}+\frac{4}{5!}+\frac{5}{6!}+..._.\] \\[2ex]
+
+\textbf{Indicación: }en \((b)\) utilice la definición de serie telescópica.
+
+\end{frame}
+
+\begin{frame}{Valor de Series}
+\framesubtitle{Práctica 13}
+
+3. Encontrar la suma de las siguientes series convergentes:
+\[(a)\sum_{n=0}^{\infty}\frac{3^{n-1}}{4^{3n+1}} \qquad (b)\sum_{n=5}^{\infty}\frac{3^{n-1}}{4^{3n+1}} \qquad (c)\sum_{n=2}^{\infty}\frac{1}{n^2-1}\]
+    
+\end{frame}
+
+\begin{frame}{Valor de Series}
+\framesubtitle{Práctica 13}
+4. Sean \((a_n)_{n\in\mathbb{N}}\) y \((s_n)_{n\in\mathbb{N}}\) sucesiones.\\[1ex]
+Si la suma \(a_1+a_2+a_3+...\) es convergente y su sucesión de sumas parciales está dada por \(s_n=\frac{5n^2-3n+2}{n^2-1}\).\\[3ex]
+
+\((a)\) Calcular el valor al que converge la serie \(\sum_{n=1}^{\infty}a_n\).\\[2ex]
+\((b)\) Determine el término \(a_n\), considerando la definición de sucesión de sumas parciales.
+    
+\end{frame}
+
+\end{document}

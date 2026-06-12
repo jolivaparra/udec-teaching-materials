@@ -1,0 +1,145 @@
+\documentclass{plantillaPPT}
+\titulo{5}{Gradiente y Regla de la Cadena}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Derivada direccional máxima}
+\framesubtitle{Vector gradiente}
+
+Sabemos que si \(f:A\subseteq\mathbb{R}^n\to\mathbb{R}\) es diferenciable en \(\vec{a}\in A\) y \(\vec{v}\) es un vector unitario, entonces
+\[
+\frac{\partial f}{\partial \vec{v}}(\vec{a}) = \nabla f(\vec{a})\cdot\vec{v}
+\]
+
+\textbf{Pregunta: }¿Cuál es la dirección del vector \(\vec{v}\) que permite obtener una \textcolor{red}{derivada direccional máxima} en el punto \(\vec{a}\)?
+
+Notar que
+\[
+\left|\frac{\partial f}{\partial \vec{v}}(\vec{a})\right|=|\nabla f(\vec{a})\cdot\vec{v}|\leq\|\nabla f(\vec{a})\|\,\text{(Por Cauchy-Schwarz)}
+\]
+Luego, \(\|\nabla f(\vec{a})\|\) es una cota superior de todas las derivadas direccionales de \(f\) en \(\vec{a}\).
+    
+\end{frame}
+
+\begin{frame}{Derivada direccional máxima}
+\framesubtitle{Vector Gradiente}
+
+Si consideramos el vector \(\displaystyle\vec{v}=\frac{\nabla f(\vec{a})}{\|\nabla f(\vec{a})\|}\) (siempre que el vector gradiente no sea nulo) se tiene que:
+\[
+\frac{\partial f}{\partial \vec{v}}(\vec{a})=\nabla f\cdot\vec{v} = \nabla f(\vec{a})\cdot \frac{\nabla f(\vec{a})}{\|\nabla f(\vec{a}\|} = \|\nabla f(\vec{a})\|
+\]
+
+Por lo tanto, el vector \textcolor{red}{\(\nabla f(\vec{a})\)} proporciona \textcolor{red}{la dirección de mayor crecimiento de \(f\) en \(\vec{a}\)} y el valor máximo de crecimiento de la derivada direccional de \(f\) en \(\vec{a}\) es \textcolor{red}{\(\|\nabla f(\vec{a})\|\)}.\\[5pt]
+
+\textcolor{blue}{Observación: } La \textcolor{blue}{mínima derivada direccional} de \(f\) en \(\vec{a}\) se alcanza en la dirección del vector \textcolor{blue}{\(-\nabla f(\vec{a})\)} y el valor mínimo de la derivada direccional de \(f\) en \(\vec{a}\) es \textcolor{blue}{\(-\|\nabla f(\vec{a})\|\)}.
+
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 5}
+
+1. La temperatura en cualquier punto de una plana rectangular ubicada en el plano \(xy\) es \(T(x,y)=3x^2+2xy\). La distancia se mide en metros.\\[5pt]
+\((a)\) Calcule la máxima tasa de variación de temperatura en el punto \((3, -6)\) de la placa.\\[2pt]
+\((b)\) Determine la dirección para la cual ocurre esta tasa de variación máxima en \((3,-6)\).
+    
+\end{frame}
+
+\begin{frame}{Matriz Jacobiana}
+\framesubtitle{Definición}
+
+\begin{definicion}
+Sea \(f:A\subseteq\mathbb{R}^n\to\mathbb{R}^m\) y \(\vec{a}=(a_1,a_2,...,a_n)\in A\) un punto interior. La matriz
+    \[
+    Jf(\vec{a})=
+    \begin{pmatrix}
+    \frac{\partial f_1}{\partial x_1}(\vec{a}) & \frac{\partial f_1}{\partial x_2}(\vec{a}) & \cdots & \frac{\partial f_1}{\partial x_n}(\vec{a}) \\
+    \frac{\partial f_2}{\partial x_1}(\vec{a}) & \frac{\partial f_2}{\partial x_2}(\vec{a}) & \cdots & \frac{\partial f_2}{\partial x_n}(\vec{a}) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \frac{\partial f_m}{\partial x_1}(\vec{a}) & \frac{\partial f_m}{\partial x_2}(\vec{a}) & \cdots & \frac{\partial f_m}{\partial x_n}(\vec{a})
+    \end{pmatrix}_{m\times n}
+    \]
+se llama \textcolor{red}{matriz Jacobiana} de \(f\) en \(\vec{a}\)
+\end{definicion}
+\end{frame}
+
+\begin{frame}{La Diferencial}
+\framesubtitle{Definición}
+
+\begin{definicion}
+    La transformación lineal
+    \[
+    \textcolor{red}{Df(\vec{a})}:\mathbb{R}^n\to\mathbb{R}^m
+    \]
+    \[
+    \vec{x}=(x_1,x_2,...,x_n)\mapsto\textcolor{blue}{Df(\vec{a})(\vec{x})=Jf(\vec{a})_{m\times n}\cdot
+    \begin{pmatrix}
+        x_1\\x_2\\\vdots\\x_n
+    \end{pmatrix}_{n\times 1}
+    }
+    \]
+    se llama la \textcolor{red}{Diferencial} de \(f\) en \(\vec{a}\).
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Regla de la Cadena}
+\vspace{-15pt}
+\begin{teorema}
+Sea \(g:A\subseteq\mathbb{R}^n\to\mathbb{R}^m\) y \(f:B\subseteq\mathbb{R}^m\to\mathbb{R}^p\). Si \(g\) es diferenciable en \(\vec{a}\) y \(f\) es diferenciable en \(g(\vec{a})\), entonces la función compuesta \(f\circ g\) es diferenciable en \(\vec{a}\) y se cumple la siguiente fórmula
+\[
+D(f\circ g)(\vec{a}) = Df(g(\vec{a}))\circ Dg(\vec{a})
+\]
+
+Del Álgebra Lineal, la composición de transformaciones lineales corresponde al producto de sus matrices asociadas. Entonces, la fórmula del teorema se traduce en
+\[
+\textcolor{red}{J(f\circ g)(\vec{a}) = Jf(g(\vec{a}))\cdot Jg(\vec{a})}.
+\]
+
+donde \(J(f\circ g)(\vec{a})\) es de tamaño \(p \times n\).
+\end{teorema}
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 5}
+
+2. Sean \(f:\mathbb{R}^2\to\mathbb{R}^3\) y \(g:\mathbb{R}^3\to\mathbb{R}^2\) las funciones \(f(x,y) = (x+y, xy, x^2+y^2)\), \(g(x,y,z)=(x^2, y^2+z^3)\). \\[5pt]
+Calcular \(J(f\circ g)(1,1,1)\).
+    
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 5}
+
+3. Si \(f\) es una función diferenciable de \(x\) e \(y\), \(u=f(x,y)\), \(x=r\cos(\theta)\) y \(y=r\sen(\theta)\), muestre que\\
+\((a)\)
+
+\begin{align*}
+    \frac{\partial u}{\partial x}=\frac{\partial u}{\partial r}\cos(\theta)-\frac{1}{r}\frac{\partial u}{\partial \theta}\sin(\theta)\\[10pt]
+    \frac{\partial u}{\partial y}=\frac{\partial u}{\partial r}\sin(\theta)-\frac{1}{r}\frac{\partial u}{\partial \theta}\cos(\theta)
+\end{align*}
+
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 5}
+\((b)\)
+\[
+\left(\frac{\partial u}{\partial x}\right)^2+\left(\frac{\partial u}{\partial y}\right)^2 = \left(\frac{\partial u}{\partial r}\right)^2+\frac{1}{r^2}\left(\frac{\partial u}{\partial \theta}\right)^2
+\]
+    
+\end{frame}
+
+\begin{frame}{Problema 4}
+\framesubtitle{Práctica 5}
+
+4. Sean \(f\) y  \(g\) dos funciones de una variable real de clase \(C^2\), y definamos
+\[F(x,y) = f[x+g(y)].\]
+
+Hallar las fórmulas correspondientes a todas las derivadas parciales de \(F\) de primero y segundo orden, expresadas en función de las derivadas de \(f\) y \(g\). Comprobar la relación
+\[
+\frac{\partial F}{\partial x}\frac{\partial^2 F}{\partial x\partial y}-\frac{\partial F}{\partial y}\frac{\partial^2 F}{\partial^2 x}=0
+\]
+    
+\end{frame}
+
+\end{document}

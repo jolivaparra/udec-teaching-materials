@@ -1,0 +1,95 @@
+\documentclass{plantillaPPT}
+
+\titulo{1}{Integral Indefinida}
+
+\begin{document}
+
+\primeraDiapo
+
+\begin{frame}{Integrales Indefinidas}
+    \framesubtitle{Práctica 1}
+
+    1. Calcule las siguientes integrales indefinidas:
+
+    \begin{align*}
+    (a)\int \frac{\sin(3x)\cos(3x)}{1+\sin^2(3x)}dx \qquad
+    (b)\int \frac{\sqrt{x^2-1}}{\sqrt{x+1}}dx
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}{Sustitución Trigonométrica}
+    \framesubtitle{¿Cuándo realizarlas?}
+
+    La sustitución trigonométrica es útil en los siguientes casos:
+    \vspace{0.5cm}
+
+    \begin{itemize}
+        \item \textcolor{red}{\(\sqrt{a^2-x^2}\)}, se usará la %
+        sustitución: \textcolor{red}{\(x=a\sin(\theta)\)} \\
+        Obj: Usar la identidad: \(1-\sin^2(\theta)=\cos^2(\theta)\)
+        \vspace{0.25cm}
+        \item \textcolor{green!50!black}{\(\sqrt{x^2+a^2}\)}, se usará la sustitución: \textcolor{green!40!black}{\(x=a\tan(\theta)\)} \\
+        Obj: Usar la identidad: \(\tan^2(\theta)+1=\sec^2(\theta)\)
+        \vspace{0.25cm}
+        \item  \textcolor{blue}{\(\sqrt{x^2-a^2}\)}, se usará la sustitución: \textcolor{blue}{\(x=a\sec(\theta)\)} \\
+        Obj: Usar la identidad: \(\sec^2(\theta)-1=\tan^2(\theta)\)
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Integrales Indefinidas}
+
+    \framesubtitle{Práctica 1}
+    
+    \begin{align*}
+        (c)\int \frac{x^2}{\sqrt{2x-x^2}}dx \qquad
+        (d)\int \sin^4(x)\cos^5(x)dx
+    \end{align*}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Encontrar la función}
+    \framesubtitle{Práctica 1}
+    \vspace{-2.5cm}
+    2. Hallar la ecuación de la curva \(y=f(x)\) que cumple % 
+    las  siguientes condiciones: pasa por \((-1, -1)\), es %
+    tangente a la recta de ecuación \(-11x+y-10=0\) en una %
+    vecindad de dicho punto de la curva se verifica que \(y'' = 6x -8\).
+
+\end{frame}
+
+\begin{frame}{Concepto de Antiderivada}
+
+    \framesubtitle{Práctica 1}
+
+    3. Sea \(f: A \subseteq \mathbb{R} \to \mathbb{R}\) una función %
+    contínua en todo su dominio tal que:
+
+    \vspace{-1cm}
+
+    \begin{align*}
+        \int \frac{f(x)}{\sqrt{x}}dx = \frac{\sqrt{x}}{x^2 + 1} +C, 
+        \quad C\in \mathbb{R}
+    \end{align*}
+
+    Determine la función \(f\) y calcule \(\int f(x)dx\). %
+    \textbf{Indicación:} note que: \(\frac{1-3x^2}{(x^2+1)^2} = 
+    \frac{4}{(x^2+1)^2}-\frac{3}{x^2+1}\). 
+    
+\end{frame}
+
+\begin{frame}{Problema de Aplicación}
+    \framesubtitle{Práctica 1}
+
+    \vspace{-2.5cm}
+    
+    4. Un cierto tipo de bacteria aumenta continuamente a razón %
+    proporcional a su cantidad presente. Si inicialmente hay 100 %
+    presentes y cinco horas mas tarde hay 300 bacterias presentes. %
+    ¿Cuántas habrá diez horas después del momento inicial?
+    
+\end{frame}
+
+\end{document}

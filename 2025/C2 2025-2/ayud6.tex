@@ -1,0 +1,103 @@
+\documentclass{plantillaPPT}
+
+\titulo{6}{Volúmenes de Sólidos de Revolución y Longitud de Curva}
+
+\begin{document}
+\primeraDiapo
+
+
+\begin{frame}{Método de Discos o Anillos}
+\framesubtitle{Métodos para obtener volúmenes de sólidos de revolución}
+
+Expresión general:
+
+\[V = \int_{a}^{b} \pi \, r^2\; dx \qquad\text{o bien}\qquad V=\int_{a}^{b}\pi (R^2-r^2)dx\]
+
+Con \(R\) y \(r\) los radios del disco/anillo a generar.\\ \vspace{0.2cm}
+\begin{itemize}
+    \item Si se usa la expresión 2, \(R\) es el radio mayor y \(r\) es el radio menor del anillo. \(\Rightarrow R>r\)
+    \item Los radios son segmentos \textbf{perpendiculares} al eje de rotación.
+    \item Se integra \textbf{paralela} al eje de rotación.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Método de Capas Cilíndricas}
+\framesubtitle{Métodos para obtener volúmenes de sólidos de revolución}
+
+Expresión general:
+\[\int_{a}^{b} 2\pi \,r\, h \; dx\]
+Con \textbf{\(r\)} el \textbf{radio} y \textbf{\(h\)} la \textbf{altura} de las capas a generar. \\ \vspace{0.2cm}
+\begin{itemize}
+    \item Los radios son segmentos \textbf{perpendiculares} al eje de rotación. 
+    \item Las alturas son segmentos \textbf{paralelos} al eje de rotación.
+    \item Se integra en dirección \textbf{perpendicular} al eje de rotación.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{¿Qué método usar?}
+
+1. Ver en qué variable es más conveniente integrar (respecto a que variable la región se expresa mas fácilmente).
+
+\vspace{1cm}
+
+\begin{itemize}
+    \item Si mi eje de rotación es \textbf{paralelo} al eje de la variable a la cual voy a integrar \(\implies\) \textcolor{blue}{\textbf{Anillos/Discos}}
+    \item Si mi eje de rotación es \textbf{perpendicular} al eje de la variable a la cual voy a integrar \(\implies\) \textcolor{blue}{\textbf{Capas Cilíndricas}}
+\end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}{Ejemplos}
+\begin{enumerate}
+    \item Me conviene integrar respecto a \(y\), y mi eje de rotación es \(x=a\) (eje de rotación paralelo al eje de la variable a la cual integro). \(\implies\) \textcolor{blue}{\textbf{Anillos/Discos}}
+    \item Me conviene integrar respecto a \(x\), y mi eje de rotación es \(y=a\) (eje de rotación perpendicular al eje de la variable a la cual integro). \(\implies\) \textcolor{blue}{\textbf{Capas Cilíndricas}}
+\end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Área de regiones}
+\framesubtitle{Práctica 6}
+
+1. Determinar el área de cada una de las siguientes regiones del plano.\\[15pt]
+\((a)\) La región encerrada entre las gráficas de \(x-y+1=0\) e \(y=x^3-3x^2-3+1\).\\[5pt]
+\((b)\) La región del primer cuadrante acotada por los ejes coordenados, la recta \(y=e\) y las gráficas de las curvas \(y=\ln(x)\) e \(y=e^x\).
+    
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 6}
+2. Sea \(R\) la región del plano limitada por la parábola \(y=x^2\) y la recta \(y=mx\), con \(m>0\). Determinar el valor de \(m\) de modo que los volúmenes generados por la rotación de \(R\) en torno al eje \(X\) y en torno al eje \(Y\) sean iguales.
+    
+\end{frame}
+
+\begin{frame}{Volúmene de Sólidos de Revolución}
+\framesubtitle{Práctica 6}
+
+3. Sea \(R\) la región del primer cuadrante acotada por la gráfica de las curvas \(y=x-2\) e \(y=\sqrt{x}\). Escribir dos fórmulas distintas que permitan calcular el volumen del sólido \(S\) generado al girar \(R\) en torno a la recta \(y=-3\).
+\end{frame}
+
+\begin{frame}{Longitud de Arco para \(y=f(x)\)}
+\framesubtitle{Teorema}
+
+\begin{teorema}
+    Sea \(f:A\subseteq\mathbb{R}\to\mathbb{R}\) un función derivable en \([a,b]\). Entonces la longitud de la porción del gráfico de \(f\) entre \(x=a\) y \(x=b\) está dada por
+    \[
+    L_f(a,b) = \int_a^b \sqrt{1+[f'(x)]^2}\,dx
+    \]
+\end{teorema}    
+\end{frame}
+
+\begin{frame}{Problema 4}
+\framesubtitle{Práctica 6}
+
+4. Sea \(R\) la región del plano delimitada por la curva \(\mathbf{C}: y=x^{3/2}\), la recta \(T\) tangente a \(\mathbf{C}\) en el punto \((1,1)\) y el \(X\).\\[15pt]
+\((a)\) Calcular el perímetro de la región \(R\).\\[5pt]
+\((b)\) Escribir la integral que permite calcular el volumen de sólido \(S\) generado al rotar \(R\) en torno al eje \(x=-2\).
+
+    
+\end{frame}
+
+
+\end{document}

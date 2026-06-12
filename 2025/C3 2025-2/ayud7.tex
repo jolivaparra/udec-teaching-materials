@@ -1,0 +1,57 @@
+\documentclass{plantillaPPT}
+
+\titulo{7}{Optimización y Multiplicadores de Lagrange}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Multiplicadores de Lagrange}
+\framesubtitle{Definición}
+
+\begin{teorema}
+    Sean $f:A\subseteq\mathbb{R}^n\to\mathbb{R}$ y $g:A\subseteq\mathbb{R}^n\to\mathbb{R}$ funciones de clase $C^1$. Si $\vec{x_0}\in A$ es tal que $g(\vec{x_0}) = 0$ y $\nabla g(\vec{x_0}) \neq 0$, entonces para que $f$ alcance un extremo local en $\vec{x_0}$ es necesario que $\nabla f \parallel \nabla g$
+\end{teorema}
+\vspace{0.5cm}
+El teorema establece que los extremos relativos de una función $f$ sometidos a una condición $g(\vec{x}) =0$ se obtienen resolviendo el sistema
+\vspace{-0.1cm}
+\[
+\left\{
+\begin{aligned}
+g(\vec{x}) &= 0 \\
+\nabla f(\vec{x}) &= \lambda\nabla g(\vec{x})
+\end{aligned}
+\right.
+\]
+
+\end{frame}
+
+\begin{frame}{Problema 1}
+\framesubtitle{Práctica 7}
+1. Hallar los valores máximo y mínimo absolutos de la función
+\[
+f(x,y) = xy(1-x^2-y^2)
+\]
+en el rectángulo $R = [0,1]\times[0,1]$
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 7}
+2. Si $T(x,y)$ grados es la temperatura en cualquier punto $(x,y)$ de disco circular $D: x^2+y^2\leq 1$ y
+\[
+T(x,y) = 2x^3+y^2-y
+\]
+determine los puntos más calientes y los más fríos del disco $D$ y la temperatura en esos puntos.
+\end{frame}
+
+\begin{frame}{Problema 3}
+\framesubtitle{Práctica 7}
+
+3. Calcule las distancias menor y mayor desde el origen a un punto el elipsoide
+\[
+9x^2+4y^2+z^2 = 36
+\]
+
+\end{frame}
+
+
+\end{document}

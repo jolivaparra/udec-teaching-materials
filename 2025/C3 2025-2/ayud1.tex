@@ -1,0 +1,296 @@
+\documentclass{plantillaPPT}
+
+\titulo{1}{Topología e inicio de límites}
+
+\begin{document}
+
+\primeraDiapo
+
+\begin{frame}[plain]
+    \centering
+    {\Huge \usebeamercolor[fg]{structure} Topología} \\
+    {\large \usebeamercolor[fg]{structure} Definiciones}
+\end{frame}
+
+\begin{frame}{Bola Abierta}
+\framesubtitle{Topología}
+
+\begin{definicion}
+    Sea \(x_0\in\mathbb{R}^n\) y \(r>0\). La bola abierta de radio \(r\) centrada en \(x_0\) es:
+    \[B(x_0, r) = \{x\in\mathbb{R}^n: \|x-x_0\|<r\}\]
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Punto Interior}
+\framesubtitle{Topología}
+
+\begin{definicion}
+    Sea \(A\subset\mathbb{R}^n\), un punto \(x_0\in A\) se llama \textbf{punto interior} de \(A\) si:
+    \[\exists r>0:B(x_0,r)\subset A\]
+    Además, se define el interior de \(A\), denotado por \(\mathring{A}\) (o bien int\((A)\)) como el conjunto de todos los puntos interiores de \(A\).
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Punto de Frontera}
+\framesubtitle{Topología}
+
+\begin{definicion}
+    Sea \(A\subset\mathbb{R}^n\), un punto \(x_0\in A\) se llama \textbf{punto frontera} de \(A\) si:
+    \[ \forall r>0: B(x_0,r)\cap A\neq \emptyset \land B(x_0,r)\cap A^c \neq \emptyset \]
+    Además, se define la frontera de \(A\), denotada por \(\partial A\)(o bien Fr(\(A\))) como el conjunto de todos los puntos frontera de \(A\).
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Conjuntos Abiertos y Cerrados}
+\framesubtitle{Topología}
+
+\begin{definicion}
+    \begin{enumerate}
+        \item Un conjunto \(A\subseteq\mathbb{R}\) es \textbf{abierto} si \(\mathring{A}=A\)
+        \item Un conjunto \(A\subseteq\mathbb{R}\) es \textbf{cerrado} si \(\partial A\subseteq A\)
+    \end{enumerate}
+    \vspace{3ex}
+    Luego con estas definiciones:
+    \begin{enumerate}
+        \item \(A\) es \textbf{abierto} si \(A^c\) es \textbf{cerrado}
+        \item \(A\) es \textbf{cerrado} si \(A^c\) es \textbf{abierto}
+    \end{enumerate}
+\end{definicion}
+\end{frame}
+
+\begin{frame}{Punto de Adherencia(o Clausura)}
+\framesubtitle{Topología}
+
+\begin{definicion}
+    Sea \(A\subset\mathbb{R}^n\), un punto \(x_0\in \mathbb{R}^n\) se llama \textbf{punto de adherencia(o clausura)} de \(A\) si:
+    \[\forall r>0: B(x_0,r)\cap A\neq \emptyset\]
+    Se define la clausura(o adherencia) de \(A\), denotada por \(\overline{A}\)(o bien cl(\(A\))) como el conjunto de todos los puntos de adherencia de \(A\). \\[15pt]
+    Además, se tiene que: \(\overline{A} = A \cup \partial A\) 
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Conjunto Acotado y Cerrado}
+\framesubtitle{Topología}
+
+\begin{definicion}
+\begin{itemize}
+    \item Diremos que \(A \subseteq\mathbb{R}\) es \textbf{acotado} si:
+    \[\exists x_0\in\mathbb{R},\exists r>0: A\subset B(x_0,r)\]
+    \item Diremos que \(A \subseteq\mathbb{R}\) es \textbf{compacto} si es cerrado y acotado.
+\end{itemize}
+\end{definicion}
+
+\end{frame}
+
+\begin{frame}{Punto de Acumulación}
+\framesubtitle{Topología}
+
+\begin{definicion}
+    Sea \(A\subset\mathbb{R}^n\), un punto \(x_0\in \mathbb{R}^n\) se llama \textbf{punto de acumulación} de \(A\) si:
+    \[\forall r>0: (B(x_0,r)-\{x_0\})\cup A \neq \emptyset\]
+    Además, denotaremos por \(A'\) al conjunto de todos los puntos de acumulación de \(A\).
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Algunas propiedades}
+\framesubtitle{Topología}
+\centering
+\begin{itemize}
+    \item \(\overline{A}=A\cup A'\)
+    \item \(\overline{A}=\mathring{A}\cup \partial A\)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[plain]
+    \centering
+    {\Huge \usebeamercolor[fg]{structure} Fin Topología} \\
+\end{frame}
+
+\begin{frame}{Funciones de varias variables}
+\begin{definicion}
+    Sea \(f: D\subseteq\mathbb{R}^n\to\mathbb{R}^m\) una función de varias variables:
+    \begin{itemize}
+        \item Si \(m = 1\), \(f\) se le llama \textbf{función escalar} o \textbf{campo escalar}.
+        \item Si \(m > 1\), \(f\) se le llama \textbf{función vectorial} o \textbf{campo vectorial}.
+    \end{itemize}
+\end{definicion}
+\end{frame}
+
+\begin{frame}{Conjuntos de nivel}
+\begin{definicion}
+    Sea \(f: D\subseteq\mathbb{R}^n\to\mathbb{R}\) y \(c\in\mathbb{R}\). El conjunto
+    \[N_c(f) = \{\Vec{x}\in D: f(\vec{x}) = c\}\]
+    se llama \textbf{conjunto de nivel} \(c\). Si \(n=2\) se llama \textbf{curva de nivel} \(c\). Si \(n>2\), se llama \textbf{superficie de nivel \(c\)}.
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Problema de topología}
+\framesubtitle{Práctica 1}
+
+1. Sea \(f:U\subset\mathbb{R}^2\to\mathbb{R}\) la función definida por: 
+\[f(x,y) = \frac{\sqrt{4-x^2-y^2}}{\sqrt{x^2+y^2-1}}\]
+\((a)\) Encuentre el dominio de \(f\), el conjunto de nivel \(N_1(f)\) y haga un esbozo.\\
+\((b)\) Hallar los puntos interiores, adherencia, acumulación y frontera de \(U\).\\
+\((c)\) Decida si el conjunto \(U\) es abierto, cerrado, acotado o compacto. Justifique su respuesta.
+    
+\end{frame}
+
+\begin{frame}{Acotamientos y expresiones útiles}
+\framesubtitle{Protips}
+
+Las siguientes expresiones son útiles al acotar funciones:
+\vspace{5pt}
+\begin{itemize}
+    \item Desigualdad triangular: \(|a\pm b| \leq |a|+|b|\)
+    \vspace{5pt}
+    \item Dados \(a,b>0\): \(\frac{1}{a+b}\leq\frac{1}{a}\) o bien \(\frac{1}{a+b}\leq\frac{1}{b}\)
+    \vspace{5pt}
+    \item Para \(\vec{x}=(x_1, x_2, x_3, ..., x_n)\in\mathbb{R}^n\): \(|x_i|\leq\|\vec{x}\|\)
+    \vspace{5pt}
+    \item Dado \((x,y)\): \(x^2+y^2=\|(x,y)\|^2\)
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Probar desigualdades}
+\framesubtitle{Práctica 1}
+
+2. Probar que las siguientes desigualdades son válidas para \((x,y)\neq(0,0)\). \\[5pt]
+\[
+(a) \quad \frac{|x^3y^2|}{x^4+4y^4}\leq \frac{\|(x,y)\|}{2}
+\]
+\vspace{10pt}
+\[
+(b) \left|\frac{x^4-y\sin(\sqrt{|y|})}{|x|^3+\sqrt{|y|}}\right|\leq 2\|(x,y)\|
+\]
+
+\end{frame}
+
+\begin{frame}{Límites en un punto}
+\framesubtitle{Definición formal para campos escalares}
+
+\begin{definicion}
+    Sea \(f:D\subseteq\mathbb{R}^n\to\mathbb{R}\) una función escalar y \(\vec{x_0}\) un punto de acumulación de \(D\). Se dice que:
+    \[
+    \lim_{\vec{x}\to\vec{x_0}}f(\vec{x}) = L
+    \]
+    si se cumple que
+    \[\forall \epsilon>0, \exists \delta>0: \|\vec{x}-\vec{x_0}\|<\delta \Rightarrow \|f(\vec{x})-L\|<\epsilon\]
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Álgebra de Límites}
+Sean \(f\) y \(g\) campos escalares tales que
+\[
+\lim_{\vec{x}\to\vec{x_0}} f(\vec{x}) = L \qquad \text{y} \qquad \lim_{\vec{x}\to\vec{x_0}} g(\vec{x}) = M
+\]
+se tiene:\\[5pt]
+\begin{minipage}{0.5\textwidth}
+\begin{itemize}
+    \item \(\displaystyle \lim_{\vec{x}\to\vec{x_0}}  f(\vec{x})\pm g(\vec{x}) = L \pm M\)
+\end{itemize}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\begin{itemize}
+    \item \(\displaystyle \lim_{\vec{x}\to\vec{x_0}}  c\cdot f(\vec{x}) = c\cdot L\)
+\end{itemize}
+\end{minipage}\\
+\vspace{5pt}
+\begin{minipage}{0.5\textwidth}
+\begin{itemize}
+    \item \(\displaystyle \lim_{\vec{x}\to\vec{x_0}}  f(\vec{x})\cdot g(\vec{x}) = L\cdot M\)
+\end{itemize}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\begin{itemize}
+    \item \(\displaystyle \lim_{\vec{x}\to\vec{x_0}}  \frac{f(\vec{x}}{g(\vec{x})} =\frac{L}{M}\; ,M\neq0\)
+\end{itemize}
+\end{minipage}
+    
+\end{frame}
+
+\begin{frame}{Criterio de las trayectorias}
+\framesubtitle{Teorema}
+
+\begin{teorema}
+    Sea \(f:D\subseteq\mathbb{R}^n\to\mathbb{R}\) un campo escalar.\\[4pt]
+    Si \(\displaystyle \lim_{\vec{x}\to\vec{x_0}}  f(\vec{x}) = L\) existe, entonces para todo conjunto \(T\subseteq D\) con \\[4pt]
+    \(\vec{x_0}\in T'\) (T se le llama \textbf{trayectoria}) se cumple que 
+    \[
+    \lim_{\substack{\vec{x}\to \vec{x_0} \\ \vec{x}\,\in\, T}} f(\vec{x}) = L
+    \]
+\end{teorema}
+    
+\end{frame}
+
+\begin{frame}{Criterio para no existencias de límites}
+\framesubtitle{Teorema}
+
+El teorema anterior es especialmente util por su contrarrecíproco:
+
+\begin{teorema}
+    Sea \(D\subseteq\mathbb{R}\) y \(\vec{x_0}\in D'\). Si existen almenos 2 trayectorias \(T_1, T_2\subseteq D\) tales que
+    \[
+    \lim_{\substack{\vec{x}\to \vec{x_0} \\ \vec{x}\,\in\, T_1}} f(\vec{x}) \neq \lim_{\substack{\vec{x}\to \vec{x_0} \\ \vec{x}\,\in\, T_2}} f(\vec{x})
+    \]
+    entonces \(\displaystyle\lim_{\vec{x}\to\vec{x_0}}  f(\vec{x})\) no existe
+\end{teorema}
+    
+\end{frame}
+
+\begin{frame}{Probar la no existencia de límites}
+\framesubtitle{Práctica 1}
+
+4. Encontrar dos trayectorias donde los límites difieren, para mostrar que los siguientes límites no existen.\\[5pt]
+\[
+(a) \lim_{(x,y)\to(0,0)} \frac{\sin(x)-y}{x-\sin(y)}
+\]
+\vspace{5pt}
+\[
+(b) \lim_{(x,y)\to(0,0)} \frac{x^2-xy}{x+y} 
+\]
+\vspace{5pt}
+\[
+(c) \lim_{(x,y)\to(0,0)} \frac{xy^3}{x^2+y^6}
+\]
+    
+\end{frame}
+
+\begin{frame}{Existencia de Límites}
+\framesubtitle{Teorema del acotamineto}
+
+\begin{teorema}
+    Sea \(D\subseteq\mathbb{R}^n\), \(\vec{x_0}\in D'\) y \(f:D\to\mathbb{R}\). Si
+    \[
+    |f(\vec{x})-L|\leq h(\vec{x}) \quad \text{y} \quad \lim_{\vec{x}\to\vec{x_0}} h(\vec{x}) = 0
+    \]
+    entonces
+    \[
+    \lim_{\vec{x}\to\vec{x_0}} f(\vec{x}) = L
+    \]
+\end{teorema}
+    
+\end{frame}
+
+\begin{frame}{Cálculo de límites}
+\framesubtitle{Práctica 1}
+3. Utilizar el Teorema del Acotamiento para calcular los siguientes límites:\\[5pt]
+\[
+(a) \lim_{(x,y)\to(0,0)} \frac{\sqrt{|x|}\sin(x^2+y^2)}{x^2+y^2}
+\]
+\vspace{5pt}
+\[
+(b) \lim_{(x,y)\to(0,0)} \frac{2x^3-y^2}{x^2+|y|}
+\]
+    
+\end{frame}
+
+\end{document}

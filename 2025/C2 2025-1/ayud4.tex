@@ -1,0 +1,104 @@
+\documentclass{plantillaPPT}
+
+\titulo{4}{La Integral Definida}
+
+\begin{document}
+\primeraDiapo
+
+\begin{frame}{Sumas de Riemann}
+    \framesubtitle{Práctica 4}
+\vspace{0.1cm}
+1. Determine el valor del siguiente límite utilizando la definición de sumas de Riemann:
+
+\[\lim_{n\to +\inf} n^2\left[ \frac{1}{(n+1)^3} + \frac{1}{(n+2)^3} + ... + \frac{1}{(n+n)^3}\right]\]\vspace{0.3cm}
+
+\textbf{Indicación:} relacione la suma de Riemann con una integral definida de este estilo \(\int_{\, 0}^1f(x)dx\)
+\end{frame}
+
+\begin{frame}{Suma de Riemann por la derecha}
+    \framesubtitle{Una de las formas de una suma de Riemann}
+
+    \begin{definicion}
+        Dada una función \(f: [a,b] \to \mathbb{R} \) y la partición regular \(P=\{a=x_0, x_1, x_2, ... , x_n=b\}\) de \(n\) subintervalos. \\ Se define la suma de Riemann \textit{por la derecha} de \(f\) sobre el intervalo \([a,b]\) como:
+
+        \begin{align*}
+            \sum_{i=1}^n f(x_i)\Delta x
+        \end{align*}\vspace{0.5cm}
+
+        Con \(x_i=a+i\, \Delta x\) y \(\Delta x= \frac{b-a}{n}\) (ya que la partición es regular).
+        
+    \end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Integral asociada a la suma de Riemann}
+
+    \begin{definicion}
+        Dada una suma de Riemann de \(f\) sobre el intervalo \([a,b]\), en una partición \(P\), la integral asociada cuando la cantidad de subintervalos, n, tiende a \(\infty\) es:
+
+        \begin{align*}
+            \lim_{n \to \infty} \sum_{i=1}^n f(x_i)\Delta x \; \; = \; \; \int_{a}^bf(x)dx
+        \end{align*}
+        
+    \end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Propiedades de la integral definida}
+    \framesubtitle{Práctica 4}
+    
+2. Sean \(f,g:[1,8]\to \mathbb{R}\) dos funciones continuas en todo su dominio, de modo que:
+
+\begin{align*}
+\int_{\, 1}^{3}f(x)dx = 2, \quad \int_{\, 2}^{8}f(x)&dx = 7,\quad \int_{\, 7}^{8}f(x)dx = 3 \\
+\text{y} \quad \int_{\, 1}^{7}f(x)&dx = 3, 
+\end{align*}
+
+Determine el valor de: 
+\[\int_{\, 2}^{3}g(x)dx\text{, si se sabe que } \int_{\, 2}^{3}(f(x)-3g(x))dx = 12.\]
+
+\end{frame}
+
+\begin{frame}{Propiedades de comparación}
+    \framesubtitle{Algunas propiedades}
+
+Dadas \(f:[a,b] \to \mathbb{R} \), \(g: [a,b] \to \mathbb{R} \) y un intervalo \([a,b]\), se cumple lo siguiente: \vspace{0.5cm}
+
+\begin{itemize}
+    \item Si \(\forall x\in[a,b], \; f(x)\geq0\) entonces 
+    \[\int_{a}^{b}f(x)dx \geq \; 0\] \vspace{0.1cm}
+    \item Si \(\forall x \in [a,b],\; f(x)\geq g(x)\) entonces
+    \[\int_{a}^{b}f(x)dx\geq \int_{a}^{b}g(x)dx\]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Propiedades de comparación}
+    \framesubtitle{Propiedad}
+
+Dadas \(f:[a,b] \to \mathbb{R} \), \(g: [a,b] \to \mathbb{R} \) y un intervalo \([a,b]\), se cumple lo siguiente: \vspace{0.5cm}
+
+\begin{itemize}
+    \item Si \(m\) y \(M\) son constantes reales tales que \(m\leq f(x) \leq M\), entonces:
+    \[m(b-a) \leq \int_{a}^{b} f(x)dx \leq M(b-a)\]
+
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Propiedad de comparación}
+    \framesubtitle{Práctica 4}
+    \vspace{-1.5cm}
+    
+3. Utilice la propiedad de comparación para mostrar que: 
+\vspace{1cm}
+
+\[(a) \quad 0 \leq \int_{\, -e}^{-1} \ln(-x)dx \leq 2(e-1)\]
+    
+\end{frame}
+
+\begin{frame}{Propiedad de comparación}
+\[(b) \quad \sqrt{2} \leq \int_{1}^{2}\sqrt{1+x^4}dx \leq 2\sqrt{17}\]
+\end{frame}
+
+\end{document}

@@ -1,0 +1,153 @@
+\documentclass{plantillaPPT}
+\titulo{5}{Impropias y Área entre Curvas}
+\begin{document}
+\primeraDiapo
+
+\begin{frame}[plain]
+    \centering
+    {\huge \usebeamercolor[fg]{structure} Criterios de Convergencia} \\
+    {\large Para Integrales Impropias}
+\end{frame}
+
+\begin{frame}{Integral tipo p}
+\framesubtitle{Expresión}
+
+Dada la siguiente integral impropia
+\[
+\int_1^\infty \frac{1}{x^p}\,dx
+\]
+Se tiene que la integral:
+\vspace{0.3cm}
+\begin{itemize}
+    \item \textbf{Converge} \(\forall p>1\)
+    \vspace{0.2cm}
+    \item \textbf{Diverge} \(\forall p\leq1\)
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Criterio de Comparación Directa}
+\framesubtitle{Criterios de Convergencia}
+
+Dadas funciones \(f(x)\) y \(g(x)\) tales que \(\forall x\in\mathbb{R}\) \(0\leq f(x)\leq g(x)\) entonces tiene que:\\[3ex]
+\begin{center}
+- Si \(\displaystyle\int_{a}^{\infty}g(x)\,dx\) CV \(\Rightarrow\) \(\displaystyle\int_{a}^{\infty}f(x)\,dx\) CV\\[3ex]
+- Si \(\displaystyle\int_{a}^{\infty}f(x)\,dx\) DV \(\Rightarrow\) \(\displaystyle\int_{a}^{\infty}g(x)\,dx\) DV
+\end{center}
+con cada integral únicamente una integral impropia de tipo 1.
+\end{frame}
+
+\begin{frame}{Comparación al límite}
+\framesubtitle{Criterios de Convergencia}
+
+Dados \(f(x) \geq 0\) y \(g(x)>0\) tales que:
+\[\lim_{x\to\infty}\frac{f(x)}{g(x)}=L\]
+- Si \(L\in\mathbb{R} \land L\neq0\) entonces la integrales impropias \(\displaystyle\int_1^{\infty}f(x)\,dx\) y \(\displaystyle\int_1^{\infty}g(x)\,dx\) comparten convergencia(ambas divergen o convergen).\\[2ex]
+- \(L = 0\): \(\quad\) Si \(\displaystyle\int_1^{\infty}g(x)\,dx\) CV \(\Rightarrow\) \(\displaystyle\int_1^{\infty}f(x)\,dx\) CV. \\[2ex]
+- \(L = \infty\): \(\quad\) Si \(\displaystyle\int_1^{\infty}g(x)\,dx\) DV \(\Rightarrow\) \(\displaystyle\int_1^{\infty}f(x)\,dx\) CV.
+
+\end{frame}
+
+\begin{frame}[plain]
+\centering
+\huge \usebeamercolor[fg]{structure}
+Fin de Criterios de Convergencia
+\end{frame}
+
+\begin{frame}{Acotamientos y expresiones útiles}
+\framesubtitle{Protips}
+
+Las siguientes expresiones son útiles al acotar funciones:
+\vspace{5pt}
+\begin{itemize}
+    \item Desigualdad triangular:\\
+    \(|a\pm b| \leq |a|+|b|\) o bien \(a\pm b\leq|a|+|b|\)
+    \vspace{5pt}
+    \item Dados \(a,b>0\): \(\frac{1}{a+b}\leq\frac{1}{a}\) o bien \(\frac{1}{a+b}\leq\frac{1}{b}\)
+    \vspace{5pt}
+    \item \(|\sin(x)|\leq 1\)
+    \item \(|\cos(x)|\leq 1\)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Funciones pares e impares}
+\framesubtitle{Definición}
+Sea \(f:A\subseteq\mathbb{R}\to\mathbb{R}\) una función real.
+\vspace{0.2cm}
+\begin{itemize}
+    \item \(f\) es una \textbf{función par} \(\iff\) \(f(x) = f(-x)\)
+    \vspace{0.3cm}
+    \item \(f\) es una \textbf{función impar} \(\iff\) \(-f(x) = f(-x)\)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Propiedades de integrales con funciones pares e impares}
+\framesubtitle{Práctica 5}
+
+Sea \(f:A\subseteq\mathbb{R}\to\mathbb{R}\) una función real. Dado un intervalo simétrico, es decir \([-a, a]\), con \(a>0\), se tiene que
+\vspace{0.5cm}
+\begin{itemize}
+    \item Si \(f\) es una \textbf{función par} \(\implies\) \(\displaystyle\int_{-a}^af(x)\,dx = 2\int_0^af(x)\,dx\)
+    \vspace{0.5cm}
+    \item Si \(f\) es una \textbf{función impar} \(\implies\) \(\displaystyle\int_{-a}^af(x)\,dx = 0\)
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Convergencia de Integrales Impropias}
+\framesubtitle{Práctica 5}
+
+1. Analizar la convergencia de las siguientes integrales impropias
+\[(a) \int_{-\infty}^0xe^x\,dx \qquad (b)\int_0^1\frac{x+1}{x}\,dx\]
+\vspace{0.5cm}
+\[
+(c)\int_1^2\frac{\sin^2(x)+3\cos^2(x)}{\sqrt{x-1}}\,dx
+\]
+\end{frame}
+
+\begin{frame}{Convergencia de Integrales Impropias}
+\framesubtitle{Práctica 5}
+
+\[
+(d)\int_{-\infty}^{+\infty}\frac{2}{x^2+1}\,dx \qquad (e)\int_1^{+\infty}\frac{6-\cos(x)\sen(x)}{1+\sqrt{x}+x^3}\,dx
+\]
+
+\end{frame}
+
+\begin{frame}{Problema 2}
+\framesubtitle{Práctica 5}
+2. Considere la siguiente integral impropia
+\[\int_1^{+\infty}\frac{e^{1/x}}{x^\alpha}\,dx\quad,\; \alpha\in\mathbb{R}\]
+\vspace{5pt}
+\((a)\) Determine los valores de \(\alpha\in\mathbb{R}\), para los cuales la integral impropia es convergente.\\[3pt]
+\((b)\) Obtenga, si es posible, el valor de la integral para \(\alpha=3\),
+    
+\end{frame}
+
+\begin{frame}{Área entre Curvas}
+\framesubtitle{Definición}
+
+\begin{definicion}
+    Sean \(f(x)\) y \(g(x)\) funciones continuas sobre el intervalo \([a,b]\). El área \(A\) de región encerrada entre los gráficos de las funciones \(f(x)\) y \(g(x)\) delimitada por las rectas \(x=a\) y \(x=b\), está dada por
+    \[
+        A = \int_a^b |f(x)-g(x)|\,dx
+    \]
+\end{definicion}
+    
+\end{frame}
+
+\begin{frame}{Área entre curvas}
+\framesubtitle{Práctica 5}
+
+3. Calcule el área de la región delimitada por la curva \(y=6-x-2x^2\) y las rectas \(y=4x+3\), \(x=-3\) y \(x=2\).
+    
+\end{frame}
+
+\begin{frame}{Problema 4}
+\framesubtitle{Práctica 5}
+
+4. Determine el área de la región encerrada por la parábola \(x=y^2\) y la recta \(y=x-2\), calculando una integral en la variable \(y\) y kuego una integral en la variable \(x\).
+    
+\end{frame}
+
+\end{document}

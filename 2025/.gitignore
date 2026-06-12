@@ -1,0 +1,43 @@
+# Archivos de compilación de LaTeX comunes
+# -------------- PRESENTES ---------------
+*.aux
+*.bbl
+*.bcf
+*.bcf-SAVE-ERROR
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+# -----------------------------------------
+
+# --------------- Extras ------------------
+*.nav
+*.snm
+*.tdo
+*.gz
+*.thm
+*.upa
+*.spl
+*.ttt
+*.dvi
+*.ps
+*.idx
+*.ind
+*.ilg
+*.synctex.gz(busy)
+
+
+# Ignorar el PDF de salida (Opcional, pero recomendado)
+*.pdf
+
+# Archivos de caché del sistema y editor
+# ----------------------------------------
+*~
+.DS_Store
+.vscode/
