@@ -49,15 +49,15 @@
 
 \begin{solucion}
     Existen dos formas de abordar este ejercicio, primero es parametrizando la curva correspondiente llegando a: $\vec{r}_C(\theta) = R\cos(\theta)\hat{x} + R\sin(\theta)\hat{y}$, con intervalos $\theta\in[0, \pi]$ y diferencial de línea de $dl = Rd\theta$ y construir el diferencial de campo eléctrico.
-    \\ \\
+
     La segunda forma se puede realizar aprovechándonos de la simetría del sistema, y es que, notamos que la componente $x$ del campo eléctrico será nula ya que cada carga ubicada a la izquierda compensa el campo formado por su asociada a la derecha. De esto rescatamos que: $d\vec{E} = dE_x\hat{x} + dE_y\hat{y}$ y $dE_x\hat{x} = 0$.
-    \\ \\
-    Lo siguiente es que notamos que cada elemento infinitesimal de la curva produce exactamente la misma \textbf{magnitud} de campo eléctrico sobre el punto $P$ al ubicarse a la misma distancia de este. Esta magnitud estará dada por:\\[-15pt]
+
+    Lo siguiente es que notamos que cada elemento infinitesimal de la curva produce exactamente la misma \textbf{magnitud} de campo eléctrico sobre el punto $P$ al ubicarse a la misma distancia de este. Esta magnitud estará dada por:
     \begin{equation}
         dE = \frac{1}{4\pi\epsilon_0} \frac{dq}{R^2}
     \end{equation}
     donde $dq = \lambda dl$ y notamos además que $dl$ se puede expresar como $Rd\theta$ con $\theta\in[0, \pi]$ y $R$ el radio de la semicirunferencia.
-    \\ \\
+
     De esta expresión nos interesa únicamente la componente $y$ del diferencial de campo $d\vec{E}$, el cual mediante la siguiente figura, se llega a que se puede extraer como: $dE_y\hat{y} = -\sin(\theta)dE\hat{y}$.
 
     \begin{center}
@@ -154,43 +154,34 @@
 
 \begin{solucion}
     Debido a que el punto que nos interesa calcular la intensidad de campo eléctrico esta muy alejado de la esfera, nos podemos ayudar de tratar a la carga total de la esfera como una \textbf{Carga Puntual} ejerciendo fuerza sobre este punto a distancia $R$.
-    \\ \\
-    De esta forma lo único que necesitamos es obtener la carga total de la esfera y calcular la intensidad de campo eléctrico que ejerce sobre este punto de interés.
-    \\ \\
-    Sabemos que $dq = \rho dV$, pero además que $\rho$ varía en base a la distancia desde el centro de la esfera según la expresión dada, por lo tanto:
 
+    De esta forma lo único que necesitamos es obtener la carga total de la esfera y calcular la intensidad de campo eléctrico que ejerce sobre este punto de interés.
+
+    Sabemos que $dq = \rho dV$, pero además que $\rho$ varía en base a la distancia desde el centro de la esfera según la expresión dada, por lo tanto:
     \begin{equation}
         dq = \rho(r)dV
     \end{equation}
 
     Luego para obtener una expresión para $dV$ en base a $r$ existen varias formas, una de ellas es que podemos tomar la superficie de una efera de radio $r$ (con $r\in[0, a]$) y multiplicarla por un pequeño grosor $r$, así:
-
     \begin{equation}
         dV = 4\pi r^2 dr
     \end{equation}
-
     Esto juntando con la expresión de $dq$ obtenemos
-
     \begin{equation}
         dq = \rho_0 \left( \frac{r - a}{a} \right) 4\pi r^2 dr, \qquad \text{con } r\in[0, a]
     \end{equation}
-
     Finalmente obtenemos la carga total de la esfera.
-
     \begin{align}
         Q_S = \int_S dq = \int_{0}^{a} \rho_0 \left( \frac{r - a}{a} \right)4\pi r^2 \,dr
         \\
         Q_S = \frac{4\pi\rho_0}{a} \int_{0}^{a} r^3-ar^2\,dr
     \end{align}
-
     \begin{align}
         Q_S = \frac{4\pi\rho_0}{a} \left.\left(\frac{r^4}{4}-a\frac{r^3}{3}\right)\right|_0^a
         \\
         Q_S = -\frac{a^3\pi\rho_0}{3}
     \end{align}
-
     Finalmente, la magnitud de campo eléctrico que ejerce esta esfera sobre el punto a una distancia $R$ muy lejana es:
-
     \begin{align}
         E = \left|\frac{1}{4\pi\epsilon_0} \frac{Q_S}{R^2}\right|
         \\

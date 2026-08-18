@@ -1,0 +1,156 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{udec-pset}
+
+% ========== PAQUETES NÚCLEO ==========
+\RequirePackage{etoolbox}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[spanish,es-tabla]{babel}
+
+% Matemáticas y Ciencia
+\let\Bbbk\relax
+\RequirePackage{mathtools}
+\RequirePackage{amssymb}
+\RequirePackage{siunitx}
+\RequirePackage{tikz}
+\RequirePackage[american]{circuitikz}
+
+% Extras Documento
+\RequirePackage{graphicx}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage{float}
+\RequirePackage{subfig} % Sustituye a subcaption
+\RequirePackage{comment} % Nuevo gestor para el entorno de soluciones
+
+\sisetup{per-mode = symbol, output-decimal-marker = {.}}
+\setlength{\jot}{7pt}
+
+% Tipografía e Interlineado
+\RequirePackage{newtxtext, newtxmath}
+\RequirePackage{setspace}
+\onehalfspacing
+
+% Referencias
+\RequirePackage[hidelinks, pdfusetitle, linktoc=all]{hyperref}
+
+% Geometría
+\RequirePackage[a4paper, left=2cm, right=2cm, top=1.5cm, bottom=2.5cm, headheight=40pt, includehead]{geometry}
+
+% ========== COLORES Y VARIABLES ==========
+\definecolor{UdeCPrincipal}{HTML}{223c6a}
+\definecolor{UdeCSecundario}{HTML}{ffffff}
+\definecolor{UdeCAcento}{HTML}{e69b0a}
+\definecolor{UdeCAlerta}{HTML}{E74C3C}
+
+\newcommand{\nombreAsignatura}{Nombre Asignatura}
+\newcommand{\codigoAsignatura}{000000}
+\newcommand{\infoSemestre}{20XX - X}
+\newcommand{\nombreAyudante}{Nombre Ayudante}
+\newcommand{\contactoAyudante}{example@email.com}
+
+\newcommand{\numeroGuia}{00}
+\newcommand{\temaGuia}{Tema General}
+
+\newcommand{\asignatura}[2]{\renewcommand{\nombreAsignatura}{#1}\renewcommand{\codigoAsignatura}{#2}}
+\newcommand{\semestre}[1]{\renewcommand{\infoSemestre}{#1}}
+\newcommand{\ayudante}[2]{\renewcommand{\nombreAyudante}{#1}\renewcommand{\contactoAyudante}{#2}}
+\newcommand{\guia}[2]{\renewcommand{\numeroGuia}{#1}\renewcommand{\temaGuia}{#2}}
+
+\IfFileExists{../infoAsignatura.tex}{\input{../infoAsignatura.tex}}{
+    \PackageError{udec-pset}{No se encontro 'infoAsignatura.tex'}{Verifica carpetas.}
+}
+
+% Macro
+\newcommand{\fasor}[2]{#1\angle #2^{\circ}}
+
+% ========== ENCABEZADO ==========
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\normalsize \scshape Universidad de Concepción \\ Facultad de Ingeniería \\ Depto. de Ingeniería Eléctrica}
+\chead{{\bfseries \codigoAsignatura\ -- \nombreAsignatura} \\ \infoSemestre}
+\rhead{\includegraphics[height=2.5\baselineskip]{logo-header.png}}
+\lfoot{\footnotesize \scshape \nombreAyudante}
+\cfoot{\small \thepage}
+\rfoot{\footnotesize \contactoAyudante}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcommand{\crearEncabezado}{
+    \begin{center}
+        {\LARGE Guía de Problemas N$^\circ$\numeroGuia} \\[0.2cm]
+        {\large \temaGuia} \\[0.4cm]
+    \end{center}
+}
+
+% ========== BLOQUES DE CONTENIDO ==========
+\tcbset{
+    baseBox/.style={
+            enhanced, breakable, colback=white, arc=1mm, boxrule=0.6pt, leftrule=4pt,
+            fonttitle=\bfseries\normalsize, before skip=1.5em, after skip=1.5em,
+            sharp corners=downhill, attach boxed title to top left={xshift=4mm, yshift=-3mm},
+            coltitle=white, top=10pt, bottom=4pt, left=8pt, right=8pt, #1
+        }
+}
+\newtcolorbox{boxTeoria}[2][]{baseBox={#1}, colframe=UdeCPrincipal, title={#2}, boxed title style={colback=UdeCPrincipal, sharp corners, rounded corners=northeast, arc=3mm}}
+\newtcolorbox{boxAlerta}[2][]{baseBox={#1}, colframe=UdeCAlerta, title={#2}, boxed title style={colback=UdeCAlerta, sharp corners, rounded corners=northeast, arc=3mm}}
+\newtcolorbox{boxEjemplo}[2][]{baseBox={#1}, colframe=UdeCAcento, title={#2}, coltitle=black, boxed title style={colback=UdeCAcento, sharp corners, rounded corners=northeast, arc=3mm}}
+\newtcolorbox{boxNota}[2][]{baseBox={#1}, colframe=gray!60, title={#2}, boxed title style={colback=gray!60, sharp corners, rounded corners=northeast, arc=3mm}}
+
+% ========== SISTEMA DE PROBLEMAS Y SOLUCIONES ==========
+\newcounter{problemaNum}
+\renewcommand{\theproblemaNum}{\numeroGuia.\arabic{problemaNum}}
+
+% Diseño adaptado al formato MIT "Problema 1.1 [Tema]."
+\newenvironment{problema}[1][]{
+    \refstepcounter{problemaNum}
+    \par \vspace{1.5em}
+    \noindent\ignorespaces%
+    {\bfseries Problema \theproblemaNum}%
+    \ifstrempty{#1}%
+    {\textbf{.}}
+    { \textbf{[#1].}} % Espacio, corchetes y punto final en negrita
+    \enskip\ignorespaces
+}{
+    \par \vspace{1em}
+}
+
+% Lógica de Soluciones compatible con SyncTeX y sangría nativa
+\newif\if@soluciones
+\newcommand{\mostrarSoluciones}{\@solucionestrue}
+
+\newtcolorbox{CajaSolucionDef}{
+    enhanced,
+    breakable,
+    frame hidden,           % Oculta el borde cerrado
+    boxrule=0pt,            % Grosor de borde general en 0
+    colback=white,          % Fondo blanco
+    borderline west={3pt}{0pt}{UdeCAcento}, % Barra lateral gruesa (Naranja UdeC)
+    left=12pt,
+    right=0pt,
+    top=5pt,
+    bottom=5pt,
+    parbox=false,           % Permite saltos de párrafo naturales
+    before upper={
+            % Aquí insertamos dinámicamente el número del problema
+            \noindent{\large\bfseries\color{UdeCPrincipal}Solución \theproblemaNum.}\par\vspace{0.5em}
+            \setlength{\parindent}{15pt} % Activa la sangría
+        }
+}
+
+\AtBeginDocument{
+    \if@soluciones
+        \newenvironment{solucion}{%
+            \setcounter{equation}{0}%
+            \renewcommand{\theequation}{\theproblemaNum.\arabic{equation}}%
+            \begin{CajaSolucionDef}%
+                }{%
+            \end{CajaSolucionDef}%
+            \vspace{5pt}%
+        }
+    \else
+        % El paquete comment elimina del PDF todo lo que este dentro de solucion
+        \excludecomment{solucion}
+    \fi
+}

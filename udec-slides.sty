@@ -1,0 +1,158 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{udec-slides}
+
+% ========== PAQUETES ==========
+\RequirePackage{etoolbox}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[spanish,es-tabla]{babel}
+
+% Matemáticas y Ciencia
+\let\Bbbk\relax
+\RequirePackage{mathtools}
+\RequirePackage{amssymb}
+\RequirePackage{siunitx}
+\RequirePackage{tikz}
+\RequirePackage[american]{circuitikz}
+
+% Extras
+\RequirePackage{graphicx}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage[shortlabels]{enumitem}
+
+% ========== CONFIGURACIÓN SIUNITX ==========
+\sisetup{
+    per-mode = symbol,
+    output-decimal-marker = {.}
+}
+\setlength{\jot}{7pt}
+
+% ========== COLORES ==========
+\definecolor{UdeCPrincipal}{HTML}{223c6a}
+\definecolor{UdeCSecundario}{HTML}{ffffff}
+\definecolor{UdeCAcento}{HTML}{e69b0a}
+\definecolor{UdeCAlerta}{HTML}{E74C3C}
+
+% ========== VARIABLES DE DATOS ==========
+\newcommand{\nombreAsignatura}{Nombre Asignatura}
+\newcommand{\codigoAsignatura}{000000}
+\newcommand{\infoSemestre}{20XX - X}
+\newcommand{\nombreAyudante}{Nombre Ayudante}
+\newcommand{\contactoAyudante}{example@email.com}
+
+\newcommand{\asignatura}[2]{
+    \renewcommand{\nombreAsignatura}{#1}
+    \renewcommand{\codigoAsignatura}{#2}
+}
+\newcommand{\semestre}[1]{\renewcommand{\infoSemestre}{#1}}
+\newcommand{\ayudante}[2]{
+    \renewcommand{\nombreAyudante}{#1}
+    \renewcommand{\contactoAyudante}{#2}
+}
+
+% ========== EXTRACCIÓN DE DATOS ==========
+\IfFileExists{../infoAsignatura.tex}{%
+    \input{../infoAsignatura.tex}%
+}{%
+    \PackageError{udec-slides}{No se encontro 'infoAsignatura.tex'}{Verifica que este en la carpeta raiz.}%
+}
+
+% ========== MACROS ==========
+% Comando para fasores (ej: \fasor{12}{30})
+\newcommand{\fasor}[2]{#1\angle #2^{\circ}}
+
+% ========== BLOQUES DE CONTENIDO (TCOLORBOX) ==========
+\tcbset{
+    baseBox/.style={
+            enhanced, breakable,
+            colback=white,
+            arc=1mm,
+            boxrule=0.6pt,
+            leftrule=4pt,
+            fonttitle=\bfseries\normalsize,
+            before skip=1.5em, after skip=1.5em,
+            sharp corners=downhill,
+            attach boxed title to top left={xshift=4mm, yshift=-3mm},
+            coltitle=white,
+            top=10pt, bottom=4pt, left=8pt, right=8pt,
+            #1
+        }
+}
+
+\newtcolorbox{boxTeoria}[2][]{baseBox={#1}, colframe=UdeCPrincipal, title={#2}, boxed title style={colback=UdeCPrincipal, sharp corners, rounded corners=northeast, arc=3mm}}
+\newtcolorbox{boxAlerta}[2][]{baseBox={#1}, colframe=UdeCAlerta, title={#2}, boxed title style={colback=UdeCAlerta, sharp corners, rounded corners=northeast, arc=3mm}}
+\newtcolorbox{boxEjemplo}[2][]{baseBox={#1}, colframe=UdeCAcento, title={#2}, coltitle=black, boxed title style={colback=UdeCAcento, sharp corners, rounded corners=northeast, arc=3mm}}
+\newtcolorbox{boxNota}[2][]{baseBox={#1}, colframe=gray!60, title={#2}, boxed title style={colback=gray!60, sharp corners, rounded corners=northeast, arc=3mm}}
+
+% =============================================================
+% CONFIGURACIÓN EXCLUSIVA DE BEAMER
+% =============================================================
+\mode<presentation>
+
+% Forzamos fuente tipográfica Serif para solucionar el choque con siunitx
+\usefonttheme{serif}
+\usefonttheme{professionalfonts}
+
+\setbeamercolor*{structure}{fg=UdeCPrincipal,bg=white}
+\setbeamercolor*{palette primary}{fg=white,bg=UdeCPrincipal}
+\setbeamercolor*{palette secondary}{fg=UdeCPrincipal,bg=UdeCSecundario}
+\setbeamercolor*{palette tertiary}{fg=white,bg=UdeCAcento}
+
+\useoutertheme{infolines}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor{author in head/foot}{bg=UdeCPrincipal,fg=white}
+\setbeamercolor{title in head/foot}{bg=UdeCSecundario,fg=black}
+
+\useinnertheme[shadow=true]{rounded}
+\setbeamercolor{title}{bg=UdeCPrincipal, fg=white}
+\setbeamerfont{title}{series=\bfseries, size=\LARGE}
+\setbeamercolor{subtitle}{fg=white}
+\setbeamerfont{subtitle}{series=\mdseries, size=\normalsize}
+
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.20\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\nombreAsignatura
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.12\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertsubtitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.41\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.20\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\nombreAyudante
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.07\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+            \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+        \end{beamercolorbox}}%
+    \vskip0pt%
+}
+
+\author{\nombreAyudante}
+\institute{{\nombreAsignatura} - \codigoAsignatura \\[5pt] Universidad de Concepción}
+\date{\infoSemestre}
+
+\addtobeamertemplate{title page}
+{
+    \centering
+    \vspace{1em}
+    \IfFileExists{logo.png}{\includegraphics[height=2.5cm]{logo.png}}{}
+    \vspace{0.5em}
+}
+
+\newcommand{\primeraDiapo}{
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+}
+
+\newcommand{\ayud}[2]{
+    \title{#2}
+    \subtitle{Ayudantía #1}
+}
+
+\mode<all>
