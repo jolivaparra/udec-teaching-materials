@@ -1,0 +1,95 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{udec-slides}
+\ayud{6}{Corriente y Ley de Joule}
+
+\begin{document}
+\primeraDiapo
+
+
+\begin{frame}{Potencia Eléctrica y Ley de Joule}
+    La potencia eléctrica es la rapidez con la que se transfiere energía. En elementos resistivos, esta energía se disipa en forma de calor.
+    \begin{boxTeoria}{Expresiones Macroscópicas}
+        Utilizando la Ley de Ohm ($V = I \cdot R$), la potencia disipada se define como:
+        \begin{equation*}
+            P = \frac{dW}{dt} = \frac{dW}{dQ} \cdot \frac{dQ}{dt}= V \cdot I = I^2 \cdot R = \frac{V^2}{R} \;[\unit{\W}]
+        \end{equation*}
+    \end{boxTeoria}
+
+    \begin{itemize}
+        \item \textbf{Uso en Serie:} Conviene usar $P = I^2 R$ dado que la corriente se mantiene constante.
+        \item \textbf{Uso en Paralelo:} Conviene usar $P = \frac{V^2}{R}$ dado que la diferencia de potencial es la misma.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Resistencia y Geometría}
+    La resistencia macroscópica de un conductor depende directamente del material y de sus dimensiones físicas.
+    \begin{boxTeoria}{Ecuación de Resistencia}
+        Para un conductor cilíndrico homogéneo, se calcula mediante:
+        \begin{equation*}
+            R = \rho \frac{L}{A} \;[\unit{\ohm}]
+        \end{equation*}
+    \end{boxTeoria}
+
+    \begin{itemize}
+        \item \textbf{Resistividad ($\rho$):} Propiedad intrínseca del material $[\unit{\ohm\cdot\meter}]$.
+        \item \textbf{Área transversal ($A$):} Para cables o alambres con diámetro $d$, el área corresponde a $A = \pi \left(\frac{d}{2}\right)^2$.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Corriente y Densidad de Corriente}
+    La corriente eléctrica $I$ se define formalmente como el flujo del vector densidad de corriente $\vec{J}$ a través de una superficie.
+    \begin{boxTeoria}{Definición Integral}
+        Para una superficie de sección transversal $S$, la corriente total se expresa como:
+        \begin{equation*}
+            I = \iint_S \vec{J} \cdot d\vec{A} \;[\unit{\A}]
+        \end{equation*}
+    \end{boxTeoria}
+
+    \begin{itemize}
+        \item \textbf{Origen Microscópico ($\vec{J}$):} Surge del movimiento de los portadores de carga, definido localmente como $\vec{J} = n q \vec{v}_d$.
+        \item \textbf{Caso Uniforme:} Si $\vec{J}$ es constante y perpendicular a un área plana $A$, la integral se reduce a la forma clásica $I = |\vec{J}| A$.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ley de Ohm Microscópica}
+    Establece la relación local rigurosa entre el campo eléctrico interno y el flujo de portadores de carga en un medio conductor.
+    \begin{boxTeoria}{Expresión Vectorial}
+        La densidad de corriente $\vec{J}$ es proporcional al campo eléctrico $\vec{E}$:
+        \begin{equation*}
+            \vec{J} = \sigma \vec{E} \quad \implies \quad \vec{E} = \rho \vec{J}
+        \end{equation*}
+    \end{boxTeoria}
+
+    \begin{itemize}
+        \item \textbf{Dirección:} La corriente fluye exactamente en la misma dirección que el campo eléctrico en materiales isotrópicos.
+        \item \textbf{Parámetros:} $\sigma$ es la conductividad y $\rho$ la resistividad (escalares en materiales homogéneos).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problema 1}
+
+    Si una resistencia de \qty{45}{\ohm} se etiqueta con una potencia máxima permitida de \qty{125}{\W}. ¿Cuál será el máximo voltaje de operación que soportaría?
+
+\end{frame}
+
+\begin{frame}{Problema 2}
+
+    Dos conductores hechos del mismo material están conectados a través de una diferencia de potencial común. El conductor $A$ tiene el doble de diámetro y el doble de longitud que el conductor $B$. ¿Cuál es la razón de las potencias entregadas por los dos conductores?
+
+\end{frame}
+
+\begin{frame}{Problema 3}
+
+    La resistencia de una estufa eléctrica de \qty{500}{\W} está diseñada para operar desde una fuente de \qty{220}{\V}. Suponiendo que para su fabricación se usa alambre cilíndrico de Nicromo de \qty{0.5}{\mm} de diámetro, y que la resistividad del material permanece constante a su valor de \qty{20}{\degreeCelsius} ($100\cdot 10^{-8} \unit{\ohm\per\meter})$. Calcular:
+
+    \begin{itemize}
+        \item La resistencia de la estufa eléctrica.
+        \item La longitud del alambre usado para construir la resistencia.
+        \item La corriente, densidad de corriente y el campo eléctrica en el alambre.
+    \end{itemize}
+\end{frame}
+
+\end{document}
+

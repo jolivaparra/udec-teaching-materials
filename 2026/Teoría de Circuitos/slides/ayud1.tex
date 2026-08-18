@@ -1,0 +1,124 @@
+\documentclass{beamer}
+\usepackage{udec-slides}
+\ayud{1}{Circuitos Serie/Paralelo}
+
+\usefonttheme{serif}
+
+\usepackage{newtxtext,newtxmath}
+
+\begin{document}
+\primeraDiapo
+
+% -------------------------------------------------------------
+% SLIDE 1: EJERCICIO 1
+% -------------------------------------------------------------
+\begin{frame}{Ejercicio 1}
+    \begin{figure}[htbp]
+        \centering
+        \begin{circuitikz}[american, scale=0.9, transform shape]
+            % Fuente de voltaje
+            \draw (0,0) to[battery1, l=\qty{60}{\V}, invert] (0,3);
+
+            % Rama superior: Amperímetro y resistencia de 12 ohms
+            \draw (0,3) to[ammeter, l=\qty{3.048}{\A}] (2.5,3)
+            to[R, l=\qty{12}{\ohm}, -*] (5,3);
+
+            % Rama inferior: Resistencia de 4 ohms
+            \draw (0,0) to[R, l=\qty{4}{\ohm}, -*] (5,0);
+
+            % Rama vertical central: Resistencia de 5 ohms
+            \draw (5,3) to[R, l=\qty{5}{\ohm}] (5,0);
+
+            % Malla derecha
+            \draw (5,3) to[R, l=\qty{3}{\ohm}] (8,3)
+            to[R, l=\qty{5}{\ohm}] (8,0)
+            to[R, l=\qty{6}{\ohm}] (5,0);
+        \end{circuitikz}
+    \end{figure}
+\end{frame}
+
+% -------------------------------------------------------------
+% SLIDE 2: EJERCICIO 2
+% -------------------------------------------------------------
+\begin{frame}{Ejercicio 2}
+    \begin{figure}[htbp]
+        \centering
+        \begin{circuitikz}[american, scale=0.85, transform shape]
+            % Definición de coordenadas principales
+            \coordinate (top_node) at (4.5,3);
+            \coordinate (bot_left) at (3,0);
+            \coordinate (bot_right) at (6,0);
+
+            % Fuente de voltaje
+            \draw (0,0) to[battery1, l=\qty{25}{\V}, invert] (0,3);
+
+            % Conexión superior con amperímetro
+            \draw (0,3) to[ammeter, l=\qty{2.695}{\A}] (top_node);
+
+            % Conexión inferior con resistencia de 6 ohms
+            \draw (0,0) to[R, l=\qty{6}{\ohm}] (bot_left);
+
+            % Configuración Delta central (triángulo)
+            \draw (bot_left) to[R, l=\qty{6}{\ohm}] (top_node);
+            \draw (top_node) to[R, l=\qty{5}{\ohm}] (bot_right);
+            \draw (bot_left) to[R, l=\qty{4}{\ohm}] (bot_right);
+
+            % Malla derecha
+            \draw (top_node) to[R, l=\qty{3}{\ohm}] (8.5,3)
+            to[R, l=\qty{4}{\ohm}] (8.5,0)
+            to[R, l=\qty{2}{\ohm}] (bot_right);
+
+            % Puntos de unión (nodos negros)
+            \node[circ] at (top_node) {};
+            \node[circ] at (bot_left) {};
+            \node[circ] at (bot_right) {};
+        \end{circuitikz}
+    \end{figure}
+\end{frame}
+
+% -------------------------------------------------------------
+% SLIDE 3: EJERCICIO 3
+% -------------------------------------------------------------
+\begin{frame}{Ejercicio 3}
+    \begin{figure}[htbp]
+        \centering
+        \begin{circuitikz}[american, scale=0.85, transform shape]
+            % Definición de coordenadas principales
+            \coordinate (mid_left) at (3,2);
+            \coordinate (bot_left) at (3,0);
+            \coordinate (mid_right) at (8.5,2);
+
+            % Fuente de voltaje
+            \draw (0,0) to[battery1, l=\qty{75}{\V}, invert] (0,2);
+
+            % Amperímetro hacia el nodo central-izquierdo
+            \draw (0,2) to[ammeter, l=\qty{7.471}{\A}] (mid_left);
+
+            % Resistencia inferior izquierda
+            \draw (0,0) to[R, l=\qty{6}{\ohm}] (bot_left);
+
+            % Resistencia vertical intermedia
+            \draw (mid_left) to[R, l=\qty{6}{\ohm}] (bot_left);
+
+            % Rama superior
+            \draw (mid_left) to[R, l=\qty{2}{\ohm}] (3,4)
+            to[R, l=\qty{4}{\ohm}] (8.5,4)
+            to[R, l=\qty{5}{\ohm}] (mid_right);
+
+            % Rama central horizontal
+            \draw (mid_left) to[R, l=\qty{3}{\ohm}] (mid_right);
+
+            % Rama inferior derecha
+            \draw (mid_right) to[R, l=\qty{4}{\ohm}] (8.5,0)
+            to[R, l=\qty{2}{\ohm}] (6,0)
+            to[R, l=\qty{4}{\ohm}] (bot_left);
+
+            % Puntos de unión (nodos negros)
+            \node[circ] at (mid_left) {};
+            \node[circ] at (bot_left) {};
+            \node[circ] at (mid_right) {};
+        \end{circuitikz}
+    \end{figure}
+\end{frame}
+
+\end{document}
