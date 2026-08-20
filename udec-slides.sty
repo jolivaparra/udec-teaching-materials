@@ -1,9 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{udec-slides}
 
-% ========== PAQUETES ==========
+% ========== PAQUETES NÚCLEO ==========
 \RequirePackage{etoolbox}
-\RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[spanish,es-tabla]{babel}
 
@@ -11,20 +10,25 @@
 \let\Bbbk\relax
 \RequirePackage{mathtools}
 \RequirePackage{amssymb}
+\RequirePackage{esvect}
 \RequirePackage{siunitx}
+\RequirePackage{newtxtext}
+\RequirePackage{newtxmath} % <-- Cargar al final de las matemáticas
+\RequirePackage{bm}        % <-- Siempre el último de todos
 \RequirePackage{tikz}
-\RequirePackage[american]{circuitikz}
 
-% Extras
+
+% Extras Documento y Estética
 \RequirePackage{graphicx}
 \RequirePackage[most]{tcolorbox}
 \RequirePackage[shortlabels]{enumitem}
 
+% Tipografía (Sincronizada con udec-pset)
+\RequirePackage{anyfontsize}
+\RequirePackage{newtxtext, newtxmath}
+
 % ========== CONFIGURACIÓN SIUNITX ==========
-\sisetup{
-    per-mode = symbol,
-    output-decimal-marker = {.}
-}
+\sisetup{per-mode = symbol, output-decimal-marker = {.}}
 \setlength{\jot}{7pt}
 
 % ========== COLORES ==========
@@ -33,12 +37,12 @@
 \definecolor{UdeCAcento}{HTML}{e69b0a}
 \definecolor{UdeCAlerta}{HTML}{E74C3C}
 
-% ========== VARIABLES DE DATOS ==========
+% ========== VARIABLES DE DATOS (Valores por Defecto) ==========
 \newcommand{\nombreAsignatura}{Nombre Asignatura}
 \newcommand{\codigoAsignatura}{000000}
 \newcommand{\infoSemestre}{20XX - X}
 \newcommand{\nombreAyudante}{Nombre Ayudante}
-\newcommand{\contactoAyudante}{example@email.com}
+\newcommand{\contactoAyudante}{correo@udec.cl}
 
 \newcommand{\asignatura}[2]{
     \renewcommand{\nombreAsignatura}{#1}
@@ -50,32 +54,19 @@
     \renewcommand{\contactoAyudante}{#2}
 }
 
-% ========== EXTRACCIÓN DE DATOS ==========
-\IfFileExists{../infoAsignatura.tex}{%
-    \input{../infoAsignatura.tex}%
-}{%
-    \PackageError{udec-slides}{No se encontro 'infoAsignatura.tex'}{Verifica que este en la carpeta raiz.}%
-}
+% ========== EXTRACCIÓN DE DATOS (Silenciosa) ==========
+\IfFileExists{../infoAsignatura.tex}{\input{../infoAsignatura.tex}}{}
 
 % ========== MACROS ==========
-% Comando para fasores (ej: \fasor{12}{30})
 \newcommand{\fasor}[2]{#1\angle #2^{\circ}}
 
 % ========== BLOQUES DE CONTENIDO (TCOLORBOX) ==========
 \tcbset{
     baseBox/.style={
-            enhanced, breakable,
-            colback=white,
-            arc=1mm,
-            boxrule=0.6pt,
-            leftrule=4pt,
-            fonttitle=\bfseries\normalsize,
-            before skip=1.5em, after skip=1.5em,
-            sharp corners=downhill,
-            attach boxed title to top left={xshift=4mm, yshift=-3mm},
-            coltitle=white,
-            top=10pt, bottom=4pt, left=8pt, right=8pt,
-            #1
+            enhanced, colback=white, arc=1mm, boxrule=0.6pt, leftrule=4pt,
+            fonttitle=\bfseries\normalsize, before skip=1em, after skip=1em,
+            sharp corners=downhill, attach boxed title to top left={xshift=4mm, yshift=-3mm},
+            coltitle=white, top=10pt, bottom=4pt, left=8pt, right=8pt, #1
         }
 }
 
@@ -89,10 +80,11 @@
 % =============================================================
 \mode<presentation>
 
-% Forzamos fuente tipográfica Serif para solucionar el choque con siunitx
+% Respetar la tipografía Times de newtx
 \usefonttheme{serif}
 \usefonttheme{professionalfonts}
 
+% Configuraciones de Color Beamer
 \setbeamercolor*{structure}{fg=UdeCPrincipal,bg=white}
 \setbeamercolor*{palette primary}{fg=white,bg=UdeCPrincipal}
 \setbeamercolor*{palette secondary}{fg=UdeCPrincipal,bg=UdeCSecundario}
@@ -110,6 +102,7 @@
 \setbeamercolor{subtitle}{fg=white}
 \setbeamerfont{subtitle}{series=\mdseries, size=\normalsize}
 
+% Diseño del Pie de Página
 \setbeamertemplate{footline}
 {
     \leavevmode%
@@ -132,6 +125,7 @@
     \vskip0pt%
 }
 
+% Datos Automáticos
 \author{\nombreAyudante}
 \institute{{\nombreAsignatura} - \codigoAsignatura \\[5pt] Universidad de Concepción}
 \date{\infoSemestre}
@@ -144,13 +138,15 @@
     \vspace{0.5em}
 }
 
+% Comandos Propios para Inicio Rápido
 \newcommand{\primeraDiapo}{
     \begin{frame}[plain]
         \titlepage
     \end{frame}
 }
 
-\newcommand{\ayud}[2]{
+% Nuevo comando renombrado
+\newcommand{\slide}[2]{
     \title{#2}
     \subtitle{Ayudantía #1}
 }

@@ -2,69 +2,80 @@
 \ProvidesPackage{udec-pset}
 
 % ========== PAQUETES NÚCLEO ==========
-\RequirePackage{etoolbox}
-\RequirePackage[utf8]{inputenc}
+\RequirePackage{etoolbox} % Para condicionales lógicos
 \RequirePackage[T1]{fontenc}
 \RequirePackage[spanish,es-tabla]{babel}
 
-% Matemáticas y Ciencia
-\let\Bbbk\relax
+% Matemáticas y Ciencia Base
+\let\Bbbk\relax % Previene conflicto entre amsmath y newtxmath
 \RequirePackage{mathtools}
 \RequirePackage{amssymb}
 \RequirePackage{siunitx}
+\RequirePackage{esvect}
+\RequirePackage{bm}
 \RequirePackage{tikz}
-\RequirePackage[american]{circuitikz}
 
-% Extras Documento
+% ========== CONFIGURACIÓN SIUNITX ==========
+\sisetup{per-mode = symbol, output-decimal-marker = {.}}
+
+% Extras Documento y Estética Estructural
 \RequirePackage{graphicx}
 \RequirePackage[most]{tcolorbox}
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage{float}
-\RequirePackage{subfig} % Sustituye a subcaption
-\RequirePackage{comment} % Nuevo gestor para el entorno de soluciones
+\RequirePackage{subfig} % Múltiples figuras
+\RequirePackage{comment} % Gestor para ocultar/mostrar soluciones
+\RequirePackage{multicol} % Múltiples columnas
 
-\sisetup{per-mode = symbol, output-decimal-marker = {.}}
 \setlength{\jot}{7pt}
 
 % Tipografía e Interlineado
+\RequirePackage{anyfontsize}
 \RequirePackage{newtxtext, newtxmath}
 \RequirePackage{setspace}
 \onehalfspacing
 
-% Referencias
+% Geometría y Enlaces
+\RequirePackage[a4paper, left=2cm, right=2cm, top=1.5cm, bottom=2.5cm, headheight=40pt, includehead]{geometry}
 \RequirePackage[hidelinks, pdfusetitle, linktoc=all]{hyperref}
 
-% Geometría
-\RequirePackage[a4paper, left=2cm, right=2cm, top=1.5cm, bottom=2.5cm, headheight=40pt, includehead]{geometry}
-
-% ========== COLORES Y VARIABLES ==========
+% ========== COLORES Y VARIABLES GLOBALES ==========
 \definecolor{UdeCPrincipal}{HTML}{223c6a}
 \definecolor{UdeCSecundario}{HTML}{ffffff}
 \definecolor{UdeCAcento}{HTML}{e69b0a}
 \definecolor{UdeCAlerta}{HTML}{E74C3C}
 
+% Valores por defecto
 \newcommand{\nombreAsignatura}{Nombre Asignatura}
 \newcommand{\codigoAsignatura}{000000}
 \newcommand{\infoSemestre}{20XX - X}
 \newcommand{\nombreAyudante}{Nombre Ayudante}
-\newcommand{\contactoAyudante}{example@email.com}
+\newcommand{\contactoAyudante}{correo@udec.cl}
 
-\newcommand{\numeroGuia}{00}
-\newcommand{\temaGuia}{Tema General}
+\newcommand{\tipoDoc}{Guía de Problemas}
+\newcommand{\numeroDoc}{00}
+\newcommand{\temaDoc}{Tema General}
 
+% Macros de configuración de variables
 \newcommand{\asignatura}[2]{\renewcommand{\nombreAsignatura}{#1}\renewcommand{\codigoAsignatura}{#2}}
 \newcommand{\semestre}[1]{\renewcommand{\infoSemestre}{#1}}
 \newcommand{\ayudante}[2]{\renewcommand{\nombreAyudante}{#1}\renewcommand{\contactoAyudante}{#2}}
-\newcommand{\guia}[2]{\renewcommand{\numeroGuia}{#1}\renewcommand{\temaGuia}{#2}}
 
-\IfFileExists{../infoAsignatura.tex}{\input{../infoAsignatura.tex}}{
-    \PackageError{udec-pset}{No se encontro 'infoAsignatura.tex'}{Verifica carpetas.}
+% Comando para el documento
+\newcommand{\doc}[3][Guía de Problemas]{%
+    \renewcommand{\tipoDoc}{#1}%
+    \renewcommand{\numeroDoc}{#2}%
+    \renewcommand{\temaDoc}{#3}%
+    \setcounter{problemaNum}{0}%
 }
 
-% Macro
+% Importación silenciosa del archivo de configuración
+\IfFileExists{../infoAsignatura.tex}{\input{../infoAsignatura.tex}}{}
+
+% Macro extra
 \newcommand{\fasor}[2]{#1\angle #2^{\circ}}
 
-% ========== ENCABEZADO ==========
+% ========== ENCABEZADO Y PIE DE PÁGINA ==========
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -79,12 +90,12 @@
 
 \newcommand{\crearEncabezado}{
     \begin{center}
-        {\LARGE Guía de Problemas N$^\circ$\numeroGuia} \\[0.2cm]
-        {\large \temaGuia} \\[0.4cm]
+        {\LARGE \tipoDoc \ifx\numeroDoc\empty\else\ N$^\circ$\numeroDoc\fi} \\[0.2cm]
+        {\large \temaDoc} \\[0.4cm]
     \end{center}
 }
 
-% ========== BLOQUES DE CONTENIDO ==========
+% ========== BLOQUES DE CONTENIDO (Cajas) ==========
 \tcbset{
     baseBox/.style={
             enhanced, breakable, colback=white, arc=1mm, boxrule=0.6pt, leftrule=4pt,
@@ -98,44 +109,38 @@
 \newtcolorbox{boxEjemplo}[2][]{baseBox={#1}, colframe=UdeCAcento, title={#2}, coltitle=black, boxed title style={colback=UdeCAcento, sharp corners, rounded corners=northeast, arc=3mm}}
 \newtcolorbox{boxNota}[2][]{baseBox={#1}, colframe=gray!60, title={#2}, boxed title style={colback=gray!60, sharp corners, rounded corners=northeast, arc=3mm}}
 
-% ========== SISTEMA DE PROBLEMAS Y SOLUCIONES ==========
+% ========== SISTEMA DE PROBLEMAS ==========
 \newcounter{problemaNum}
-\renewcommand{\theproblemaNum}{\numeroGuia.\arabic{problemaNum}}
 
-% Diseño adaptado al formato MIT "Problema 1.1 [Tema]."
-\newenvironment{problema}[1][]{
-    \refstepcounter{problemaNum}
-    \par \vspace{1.5em}
+% Numeración inteligente adaptada al número del documento
+\renewcommand{\theproblemaNum}{%
+    \ifx\numeroDoc\empty \arabic{problemaNum}%
+    \else \numeroDoc.\arabic{problemaNum}\fi%
+}
+
+% Macro simplificado y libre para los problemas
+\newcommand{\problema}[1][]{%
+    \par \vspace{1.5em}%
+    \refstepcounter{problemaNum}%
     \noindent\ignorespaces%
     {\bfseries Problema \theproblemaNum}%
     \ifstrempty{#1}%
-    {\textbf{.}}
-    { \textbf{[#1].}} % Espacio, corchetes y punto final en negrita
-    \enskip\ignorespaces
-}{
-    \par \vspace{1em}
+    {\textbf{.}}%
+    { \textbf{[#1].}}%
+    \enskip\ignorespaces% Mantiene el texto en la misma línea
 }
 
-% Lógica de Soluciones compatible con SyncTeX y sangría nativa
+% ========== SISTEMA DE SOLUCIONES ==========
 \newif\if@soluciones
 \newcommand{\mostrarSoluciones}{\@solucionestrue}
 
 \newtcolorbox{CajaSolucionDef}{
-    enhanced,
-    breakable,
-    frame hidden,           % Oculta el borde cerrado
-    boxrule=0pt,            % Grosor de borde general en 0
-    colback=white,          % Fondo blanco
-    borderline west={3pt}{0pt}{UdeCAcento}, % Barra lateral gruesa (Naranja UdeC)
-    left=12pt,
-    right=0pt,
-    top=5pt,
-    bottom=5pt,
-    parbox=false,           % Permite saltos de párrafo naturales
+    enhanced, breakable, frame hidden, boxrule=0pt, colback=white,
+    borderline west={3pt}{0pt}{UdeCAcento}, left=12pt, right=0pt, top=5pt, bottom=5pt,
+    parbox=false,
     before upper={
-            % Aquí insertamos dinámicamente el número del problema
             \noindent{\large\bfseries\color{UdeCPrincipal}Solución \theproblemaNum.}\par\vspace{0.5em}
-            \setlength{\parindent}{15pt} % Activa la sangría
+            \setlength{\parindent}{15pt}
         }
 }
 
@@ -150,7 +155,6 @@
             \vspace{5pt}%
         }
     \else
-        % El paquete comment elimina del PDF todo lo que este dentro de solucion
         \excludecomment{solucion}
     \fi
 }

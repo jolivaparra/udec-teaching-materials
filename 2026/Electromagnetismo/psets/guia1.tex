@@ -1,6 +1,8 @@
 \documentclass[11pt]{article}
 \usepackage{udec-pset}
-\guia{1}{Ley de Coulomb}
+\usepackage{esint}
+\usepackage{esvect}
+\doc{1}{Ley de Coulomb}
 \mostrarSoluciones
 
 \begin{document}
@@ -11,19 +13,19 @@
 \subsection*{Operaciones Vectoriales}
 
 \begin{boxTeoria}{Vector de Separación, Norma y Unitario}
-    Dado dos vectores $\vec{r}_1$ y $\vec{r}_2$:
+    Dado dos vectores $\vv{r}_1$ y $\vv{r}_2$:
     \begin{itemize}
-        \item \textbf{Vector de Separación:} El vector $\vec{r}_{12}$, que va desde $\vec{r}_1$ hasta $\vec{r}_2$, está dado por:
+        \item \textbf{Vector de Separación:} El vector $\vv{r}_{12}$, que va desde $\vv{r}_1$ hasta $\vv{r}_2$, está dado por:
               \begin{equation*}
-                  \vec{r}_{12} = \vec{r}_2 - \vec{r}_1
+                  \vv{r}_{12} = \vv{r}_2 - \vv{r}_1
               \end{equation*}
-        \item \textbf{Norma de un Vector:} Dado $\vec{r} = r_x\hat{x} + r_y\hat{y}$, su magnitud o longitud es:
+        \item \textbf{Norma de un Vector:} Dado $\vv{r} = r_x\hat{x} + r_y\hat{y}$, su magnitud o longitud es:
               \begin{equation*}
-                  |\vec{r}| = r = \sqrt{r_x^2 + r_y^2}
+                  |\vv{r}| = r = \sqrt{r_x^2 + r_y^2}
               \end{equation*}
         \item \textbf{Vector Unitario:} Vector que tiene norma 1, utilizado para indicar dirección. Para normalizar un vector, se divide por su propia norma:
               \begin{equation*}
-                  \hat{r} = \frac{\vec{r}}{|\vec{r}|}
+                  \hat{r} = \frac{\vv{r}}{|\vv{r}|}
               \end{equation*}
     \end{itemize}
 \end{boxTeoria}
@@ -37,16 +39,16 @@
 \end{boxTeoria}
 
 \begin{boxTeoria}{Ley de Coulomb y Principio de Superposición}
-    La \textbf{Ley de Coulomb} establece que la fuerza entre dos cargas puntuales en reposo es directamente proporcional al producto de sus cargas e inversamente proporcional al cuadrado de la distancia que las separa. La fuerza ejercida por la carga $q_1$ ubicada en $\vec{r}_1$ sobre $q_2$ ubicada en $\vec{r}_2$ es:
+    La \textbf{Ley de Coulomb} establece que la fuerza entre dos cargas puntuales en reposo es directamente proporcional al producto de sus cargas e inversamente proporcional al cuadrado de la distancia que las separa. La fuerza ejercida por la carga $q_1$ ubicada en $\vv{r}_1$ sobre $q_2$ ubicada en $\vv{r}_2$ es:
     \begin{equation*}
-        \vec{F}_{12} = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{|\vec{r}_{12}|^2} \;\hat{r}_{12} \quad [\unit{\N}]
+        \vv{F}_{12} = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{|\vv{r}_{12}|^2} \;\hat{r}_{12} \quad [\unit{\N}]
     \end{equation*}
     \begin{itemize}
         \item \textbf{Dirección:} Actúa a lo largo de la línea recta que une ambas cargas.
         \item \textbf{Sentido:} Es atractiva si las cargas son de signo opuesto ($q_1 q_2 < 0$) y repulsiva si son del mismo signo ($q_1 q_2 > 0$).
     \end{itemize}
 
-    El \textbf{Principio de Superposición} dicta que la fuerza neta sobre una carga puntual es la suma vectorial de las fuerzas ejercidas por cada una de las demás cargas: $\vec{F}_{R} = \vec{F}_{1} + \vec{F}_{2} + \dots + \vec{F}_{n}$.
+    El \textbf{Principio de Superposición} dicta que la fuerza neta sobre una carga puntual es la suma vectorial de las fuerzas ejercidas por cada una de las demás cargas: $\vv{F}_{R} = \vv{F}_{1} + \vv{F}_{2} + \dots + \vv{F}_{n}$.
 \end{boxTeoria}
 
 \begin{boxNota}{Valores de Algunas Constantes}
@@ -60,9 +62,9 @@
 \subsection*{Campo Eléctrico y Distribuciones de Carga}
 
 \begin{boxTeoria}{Definición de Campo Eléctrico}
-    Si $\vec{F}$ es la fuerza ejercida sobre una carga de prueba $q_0$ ubicada en la posición $\vec{r}$, el campo eléctrico en dicho punto se define como el límite:
+    Si $\vv{F}$ es la fuerza ejercida sobre una carga de prueba $q_0$ ubicada en la posición $\vv{r}$, el campo eléctrico en dicho punto se define como el límite:
     \begin{equation*}
-        \vec{E}(\vec{r}) = \lim_{q_0 \to 0} \frac{\vec{F}}{q_0} \; [\unit{\N\per\C}]
+        \vv{E}(\vv{r}) = \lim_{q_0 \to 0} \frac{\vv{F}}{q_0} \; [\unit{\N\per\C}]
     \end{equation*}
 \end{boxTeoria}
 
@@ -92,110 +94,107 @@
 
 \vspace{0.5cm} % Un pequeño espacio antes de comenzar con los problemas
 
-\begin{problema}[Cargas Puntuales]
-    Se muestra un arreglo de cargas nucleares (cargas positivas) en una
-    molécula de HCl. Si la magnitud de las cargas nucleares del H y del Cl son $e$ y $17e$, respectivamente, y la distancia entre estas es de \qty{1,28e-10}{\m}. ¿Cuál es la fuerza eléctrica neta que estas cargas ejercen sobre un electrón ubicado a \qty{5,0e-11}{\m} sobre el núcleo de H?
+\problema[Cargas Puntuales]
+Se muestra un arreglo de cargas nucleares (cargas positivas) en una
+molécula de HCl. Si la magnitud de las cargas nucleares del H y del Cl son $e$ y $17e$, respectivamente, y la distancia entre estas es de \qty{1,28e-10}{\m}. ¿Cuál es la fuerza eléctrica neta que estas cargas ejercen sobre un electrón ubicado a \qty{5,0e-11}{\m} sobre el núcleo de H?
 
-    \begin{figure}[H]
-        \centering
-        \centering
-        \includegraphics[width=0.45\textwidth]{../fig/ayud1-img-p1.pdf}
-        \caption{Situación problema 1.1
-        }
-    \end{figure}
-\end{problema}
+\begin{figure}[H]
+    \centering
+    \centering
+    \includegraphics[width=0.45\textwidth]{../fig/ayud1-img-p1.pdf}
+    \caption{Situación problema 1.1
+    }
+\end{figure}
 
 \begin{solucion}
-    Sea $q_1$ el núcleo de Cl, $q_2$ el núcleo de H y $q_3$ el electrón. Además, definimos las constantes $l = \num{1.28e-10}$ y $h= \num{5.0e-11}$ para el uso del álgebra. Por el principio de superposición, $\vec{F}_\text{net} = \vec{F}_{13} + \vec{F}_{23}$.
+    Sea $q_1$ el núcleo de Cl, $q_2$ el núcleo de H y $q_3$ el electrón. Además, definimos las constantes $l = \num{1.28e-10}$ y $h= \num{5.0e-11}$ para el uso del álgebra. Por el principio de superposición, $\vv{F}_\text{net} = \vv{F}_{13} + \vv{F}_{23}$.
 
     Y aplicando la Ley de Coulomb:
 
     \begin{equation} \label{ayud1:p1:eq1}
-        \vec{F}_\text{net} = \frac{1}{4\pi\epsilon_0}\cdot\frac{q_1q_3}{|\vec{r}_{13}|^2}\hat{r}_{13} + \frac{1}{4\pi\epsilon_0}\cdot\frac{q_2q_3}{|\vec{r}_{23}|^2}\hat{r}_{23}
+        \vv{F}_\text{net} = \frac{1}{4\pi\epsilon_0}\cdot\frac{q_1q_3}{|\vv{r}_{13}|^2}\hat{r}_{13} + \frac{1}{4\pi\epsilon_0}\cdot\frac{q_2q_3}{|\vv{r}_{23}|^2}\hat{r}_{23}
     \end{equation}
 
-    Mediante el sistema de coordenadas rectangulares con el origen situado en $q_1$, se tiene los vectores posición: $\vec{r}_1 = (0, 0)$, $\vec{r}_2 = (l, \;0)$, $\vec{r}_3 = (l, h)$.
+    Mediante el sistema de coordenadas rectangulares con el origen situado en $q_1$, se tiene los vectores posición: $\vv{r}_1 = (0, 0)$, $\vv{r}_2 = (l, \;0)$, $\vv{r}_3 = (l, h)$.
 
     De esta forma ya se pueden obtener los vectores de separacion.
     \begin{align}
-        \vec{r}_{13} & = \vec{r}_3 - \vec{r}_1 = \vec{r}_3 = (l, h)       \\
-        \vec{r}_{23} & = \vec{r}_3 - \vec{r}_2 = (l, h) - (l, 0) = (0, h)
+        \vv{r}_{13} & = \vv{r}_3 - \vv{r}_1 = \vv{r}_3 = (l, h)        \\
+        \vv{r}_{23} & = \vv{r}_3 - \vv{r}_2 = (l, h) - (l, 0) = (0, h)
     \end{align}
 
-    Luego obtenemos las normas de estos: $|\vec{r}_{13}| = \sqrt{l^2 + h^2}$, $|\vec{r}_{23}| = h$.
+    Luego obtenemos las normas de estos: $|\vv{r}_{13}| = \sqrt{l^2 + h^2}$, $|\vv{r}_{23}| = h$.
 
     Volviendo a la ecuación \ref{ayud1:p1:eq1}.
 
     \begin{equation}
-        \vec{F}_\text{net} = \frac{1}{4\pi\epsilon_0}\cdot\frac{q_1q_3}{|\vec{r}_{13}|^2}\hat{r}_{13} + \frac{1}{4\pi\epsilon_0}\cdot\frac{q_2q_3}{|\vec{r}_{23}|^2}\hat{r}_{23}
+        \vv{F}_\text{net} = \frac{1}{4\pi\epsilon_0}\cdot\frac{q_1q_3}{|\vv{r}_{13}|^2}\hat{r}_{13} + \frac{1}{4\pi\epsilon_0}\cdot\frac{q_2q_3}{|\vv{r}_{23}|^2}\hat{r}_{23}
     \end{equation}
 
     \begin{equation}
-        \vec{F}_\text{net} = \frac{q_3}{4\pi\epsilon_0}\left(\frac{q_1}{|\vec{r}_{13}|^3}\vec{r}_{13} + \frac{q_2}{|\vec{r}_{23}|^3}\vec{r}_{23}\right)
+        \vv{F}_\text{net} = \frac{q_3}{4\pi\epsilon_0}\left(\frac{q_1}{|\vv{r}_{13}|^3}\vv{r}_{13} + \frac{q_2}{|\vv{r}_{23}|^3}\vv{r}_{23}\right)
     \end{equation}
 
     Considerando las cargas en cada núcleo ($q_1 = 17e$, $q_2 = e$, $q_3 = -e$) con los vectores y normas obtenidos anteriormente.
     \begin{align}
-        \vec{F}_\text{net} = \frac{-e}{4\pi\epsilon_0}\left(\frac{17e}{(\sqrt{l^2 + h^2})^3}(l, h) + \frac{e}{(h)^3}(0, h)\right)
+        \vv{F}_\text{net} = \frac{-e}{4\pi\epsilon_0}\left(\frac{17e}{(\sqrt{l^2 + h^2})^3}(l, h) + \frac{e}{(h)^3}(0, h)\right)
         \\
-        \vec{F}_\text{net} = \frac{-e^2}{4\pi\epsilon_0}\left(\frac{17l}{(\sqrt{l^2 + h^2})^3}\hat{x} + \left(\frac{17h}{(\sqrt{l^2 + h^2})^3}+\frac{h}{(h)^3}\right)\hat{y}\right)
+        \vv{F}_\text{net} = \frac{-e^2}{4\pi\epsilon_0}\left(\frac{17l}{(\sqrt{l^2 + h^2})^3}\hat{x} + \left(\frac{17h}{(\sqrt{l^2 + h^2})^3}+\frac{h}{(h)^3}\right)\hat{y}\right)
     \end{align}
 
     Reemplazando todos los valores, se obtiene:
 
     \begin{equation}
-        \vec{F}_\text{net} = \num{-1.93e-7} \hat{x} - \num{1.68e-7} \hat{y}
+        \vv{F}_\text{net} = \num{-1.93e-7} \hat{x} - \num{1.68e-7} \hat{y}
     \end{equation}
 
 \end{solucion}
 
-\begin{problema}[Cargas Puntuales]
-    Dos cargas idénticas $+Q$, están situadas en los dos vértices de un triángulo equilátero de lado $a$, y una tercera carga $-q$ está en el otro vértice. Si una cuarta carga $q_0$ se ubica a una distancia $a/2$, fuera del triángulo, en un punto a lo largo de la bisectriz perpendicular que une la línea entre las cargas $+Q$; y se encuentra que ésta experimenta una fuerza neta cero. ¿Cuál es el valor de la razón $q/Q$?
+\problema[Cargas Puntuales]
+Dos cargas idénticas $+Q$, están situadas en los dos vértices de un triángulo equilátero de lado $a$, y una tercera carga $-q$ está en el otro vértice. Si una cuarta carga $q_0$ se ubica a una distancia $a/2$, fuera del triángulo, en un punto a lo largo de la bisectriz perpendicular que une la línea entre las cargas $+Q$; y se encuentra que ésta experimenta una fuerza neta cero. ¿Cuál es el valor de la razón $q/Q$?
 
-    \begin{figure}[H]
-        \centering
-        \centering
-        \includegraphics[width=0.35\textwidth]{../fig/ayud1-img-p2.pdf}
-        \caption{Situación problema 1.2
-        }
-    \end{figure}
-
-\end{problema}
+\begin{figure}[H]
+    \centering
+    \centering
+    \includegraphics[width=0.35\textwidth]{../fig/ayud1-img-p2.pdf}
+    \caption{Situación problema 1.2
+    }
+\end{figure}
 
 \begin{solucion}
 
     Sea $q_1$ la carga positiva ubicada a la izquierda de $q_0$, $q_2$ la carga positiva ubicada a la derecha de $q_0$ y $q_3$ la carga negativa ubicada del todo arriba.
 
-    Sabemos que $\vec{F}_\text{net} = 0$, además por el principio de superposición, $\vec{F}_\text{net} = \vec{F}_{10} + \vec{F}_{20} + \vec{F}_{30}$.
+    Sabemos que $\vv{F}_\text{net} = 0$, además por el principio de superposición, $\vv{F}_\text{net} = \vv{F}_{10} + \vv{F}_{20} + \vv{F}_{30}$.
 
     \begin{equation}\label{ayud1:p2:eq1}
-        \vec{F}_\text{net} = \frac{q_0}{4\pi\epsilon_0}\left(\frac{q_1}{|\vec{r}_{10}|^2}\hat{r}_{10} + \frac{q_2}{|\vec{r}_{20}|^2}\hat{r}_{20}+ \frac{q_3}{|\vec{r}_{30}|^2}\hat{r}_{30} \right)
+        \vv{F}_\text{net} = \frac{q_0}{4\pi\epsilon_0}\left(\frac{q_1}{|\vv{r}_{10}|^2}\hat{r}_{10} + \frac{q_2}{|\vv{r}_{20}|^2}\hat{r}_{20}+ \frac{q_3}{|\vv{r}_{30}|^2}\hat{r}_{30} \right)
     \end{equation}
 
-    Mediante el sistema de coordenadas rectangulares con el origen situado en $q_0$, se tiene los vectores de posición: $\vec{r}_0 = \theta$, $\vec{r}_1 = \frac{a}{2}(-\hat{x}+\hat{y})$, $\vec{r}_2 = \frac{a}{2}(\hat{x}+\hat{y})$, $\vec{r}_3 = \left(\frac{a}{2} + \frac{\sqrt{3}a}{2}\right)\hat{y}$.
+    Mediante el sistema de coordenadas rectangulares con el origen situado en $q_0$, se tiene los vectores de posición: $\vv{r}_0 = \theta$, $\vv{r}_1 = \frac{a}{2}(-\hat{x}+\hat{y})$, $\vv{r}_2 = \frac{a}{2}(\hat{x}+\hat{y})$, $\vv{r}_3 = \left(\frac{a}{2} + \frac{\sqrt{3}a}{2}\right)\hat{y}$.
 
     De esta forma ya se pueden obtener los vectores de separación.
 
     \begin{align}
-        \vec{r}_{10} & = \vec{r}_0 - \vec{r}_1 = \frac{a}{2}(\hat{x}-\hat{y})    \\
-        \vec{r}_{20} & = \vec{r}_0 - \vec{r}_2 = \frac{-a}{2}(\hat{x}+\hat{y})   \\
-        \vec{r}_{30} & = \vec{r}_0 - \vec{r}_3 = \frac{-a}{2}(1+\sqrt{3})\hat{y}
+        \vv{r}_{10} & = \vv{r}_0 - \vv{r}_1 = \frac{a}{2}(\hat{x}-\hat{y})    \\
+        \vv{r}_{20} & = \vv{r}_0 - \vv{r}_2 = \frac{-a}{2}(\hat{x}+\hat{y})   \\
+        \vv{r}_{30} & = \vv{r}_0 - \vv{r}_3 = \frac{-a}{2}(1+\sqrt{3})\hat{y}
     \end{align}
 
-    Luego obtenemos las normas de estos: $|\vec{r}_{10}| = |\vec{r}_{20}| = \frac{a\sqrt{2}}{2}$, $|\vec{r}_{30}| = \frac{a}{2}(1+\sqrt{3})$.
+    Luego obtenemos las normas de estos: $|\vv{r}_{10}| = |\vv{r}_{20}| = \frac{a\sqrt{2}}{2}$, $|\vv{r}_{30}| = \frac{a}{2}(1+\sqrt{3})$.
 
-    Recordando que $\vec{F}_\text{net} = 0$, se continúa con la ecuación \ref{ayud1:p2:eq1}.
+    Recordando que $\vv{F}_\text{net} = 0$, se continúa con la ecuación \ref{ayud1:p2:eq1}.
 
     \textit{Nota: En cada paso que desaparezca una constante es debido a que se factoriza y divide por ella para liberar la ecuación ya que por el otro lado hay un 0}
 
     \begin{align}
-        0                                                    & = \frac{q_0}{4\pi\epsilon_0}\left(\frac{q_1}{|\vec{r}_{10}|^3}\vec{r}_{10} + \frac{q_2}{|\vec{r}_{20}|^3}\vec{r}_{20}+ \frac{q_3}{|\vec{r}_{30}|^3}\vec{r}_{30} \right)
+        0                                                    & = \frac{q_0}{4\pi\epsilon_0}\left(\frac{q_1}{|\vv{r}_{10}|^3}\vv{r}_{10} + \frac{q_2}{|\vv{r}_{20}|^3}\vv{r}_{20}+ \frac{q_3}{|\vv{r}_{30}|^3}\vv{r}_{30} \right)
         \\
-        0                                                    & = \frac{Q}{|\vec{r}_{10}|^3}\vec{r}_{10} + \frac{Q}{|\vec{r}_{20}|^3}\vec{r}_{20}+ \frac{-q}{|\vec{r}_{30}|^3}\vec{r}_{30}
+        0                                                    & = \frac{Q}{|\vv{r}_{10}|^3}\vv{r}_{10} + \frac{Q}{|\vv{r}_{20}|^3}\vv{r}_{20}+ \frac{-q}{|\vv{r}_{30}|^3}\vv{r}_{30}
         \\
-        0                                                    & = \frac{Q}{|\vec{r}_{10}|^3}\frac{a}{2}(\hat{x}-\hat{y}) + \frac{Q}{|\vec{r}_{20}|^3}\frac{-a}{2}(\hat{x}+\hat{y})+ \frac{-q}{|\vec{r}_{30}|^3}\frac{-a}{2}(1+\sqrt{3})\hat{y}
+        0                                                    & = \frac{Q}{|\vv{r}_{10}|^3}\frac{a}{2}(\hat{x}-\hat{y}) + \frac{Q}{|\vv{r}_{20}|^3}\frac{-a}{2}(\hat{x}+\hat{y})+ \frac{-q}{|\vv{r}_{30}|^3}\frac{-a}{2}(1+\sqrt{3})\hat{y}
         \\
-        0                                                    & = \frac{-aQ}{|\vec{r}_{20}|^3}\hat{y}+ \frac{q}{|\vec{r}_{30}|^3}\frac{a}{2}(1+\sqrt{3})\hat{y}
+        0                                                    & = \frac{-aQ}{|\vv{r}_{20}|^3}\hat{y}+ \frac{q}{|\vv{r}_{30}|^3}\frac{a}{2}(1+\sqrt{3})\hat{y}
         \\
         \frac{aQ}{\left(\frac{a\sqrt{2}}{2}\right)^3}\hat{y} & = \frac{q}{\left(\frac{a}{2}(1+\sqrt{3})\right)^3}\frac{a}{2}(1+\sqrt{3})\hat{y}
         \\
@@ -208,115 +207,112 @@
 
 \newpage
 
-\begin{problema}[Distribución de Carga Lineal]
-    Una línea corta de largo $L$ está cargada con una densidad de
-    carga lineal $\rho_l$. Calcúlese la intensidad de campo eléctrico en el punto $P1$.
+\problema[Distribución de Carga Lineal]
+Una línea corta de largo $L$ está cargada con una densidad de
+carga lineal $\rho_l$. Calcúlese la intensidad de campo eléctrico en el punto $P1$.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.5\textwidth]{../fig/ayud1-img-p3.pdf}
-        \caption{Situación problema 3}
-    \end{figure}    Una esfera sólida de radio $a$ posee una densidad de carga volumétrica no uniforme definida por:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../fig/ayud1-img-p3.pdf}
+    \caption{Situación problema 3}
+\end{figure}    Una esfera sólida de radio $a$ posee una densidad de carga volumétrica no uniforme definida por:
 
-    \begin{equation*}
-        \rho(r) = \rho_0 \left( \frac{r - a}{a} \right)
-    \end{equation*}
+\begin{equation*}
+    \rho(r) = \rho_0 \left( \frac{r - a}{a} \right)
+\end{equation*}
 
-    donde $r$ es la distancia radial desde el centro de la esfera. Encontrar la intensidad del campo eléctrico en un punto situado a una distancia $R$ muy grande ($R \gg a$). ¿Qué cosas deben asumirse?
-\end{problema}
+donde $r$ es la distancia radial desde el centro de la esfera. Encontrar la intensidad del campo eléctrico en un punto situado a una distancia $R$ muy grande ($R \gg a$). ¿Qué cosas deben asumirse?
 
-\begin{solucion}[Distribución de Carga Superficial]
-    Primero, se utilizará el sistema de coordenadas rectangulares con origen en el centro de la barra, por lo tanto, $\vec{r}_1 = \frac{L}{2}\hat{y}$.
+\begin{solucion}
+    Primero, se utilizará el sistema de coordenadas rectangulares con origen en el centro de la barra, por lo tanto, $\vv{r}_1 = \frac{L}{2}\hat{y}$.
 
 
-    Asi, la barra se extenderá desde $(-\frac{L}{2}, 0)$ hasta $(\frac{L}{2}, 0)$, o sea, todo pundo de la barra se encuentra en el segmento: $L: \vec{r}_\ell(\ell) = \ell\hat{x}, \ell\in[-\frac{L}{2}, \frac{L}{2}]$.
+    Asi, la barra se extenderá desde $(-\frac{L}{2}, 0)$ hasta $(\frac{L}{2}, 0)$, o sea, todo pundo de la barra se encuentra en el segmento: $L: \vv{r}_\ell(\ell) = \ell\hat{x}, \ell\in[-\frac{L}{2}, \frac{L}{2}]$.
 
-    Tomando un elemento muy pequeño de la barra, $d\ell$, su carga asociada a este elemento es $dq = \rho_ld\ell$. Además, el vector $\vec{r}_\ell$ ubica este elemento de carga a lo largo de la barra.
+    Tomando un elemento muy pequeño de la barra, $d\ell$, su carga asociada a este elemento es $dq = \rho_ld\ell$. Además, el vector $\vv{r}_\ell$ ubica este elemento de carga a lo largo de la barra.
 
-    Con este se construye el vector de separación entre nuestro elemento diferencial y el punto de interés: $\vec{R} = \vec{r}_1 - \vec{r}-\ell = \frac{L}{2}\hat{y} - \ell\hat{x}$.
+    Con este se construye el vector de separación entre nuestro elemento diferencial y el punto de interés: $\vv{R} = \vv{r}_1 - \vv{r}-\ell = \frac{L}{2}\hat{y} - \ell\hat{x}$.
 
     Con esto podemos ver el elemento diferencial de campo eléctrico formado por $dq$ en el punto $P1$.
 
     \begin{equation}
-        d\vec{E} = \frac{dq}{4\pi\epsilon_0}\frac{\hat{R}}{|\vec{R}|^2}
+        d\vv{E} = \frac{dq}{4\pi\epsilon_0}\frac{\hat{R}}{|\vv{R}|^2}
     \end{equation}
 
-    Desarrollando la expresión, con $\hat{R} = \frac{\vec{R}}{|\vec{R|}}$, $dq = \rho_ld\ell$.
+    Desarrollando la expresión, con $\hat{R} = \frac{\vv{R}}{|\vv{R|}}$, $dq = \rho_ld\ell$.
 
     \begin{align}
-        d\vec{E} = \frac{\rho_l d\ell}{4\pi\epsilon_0}\frac{\vec{R}}{|\vec{R}|^3}
+        d\vv{E} = \frac{\rho_l d\ell}{4\pi\epsilon_0}\frac{\vv{R}}{|\vv{R}|^3}
         \\
-        d\vec{E} = \frac{\rho_l d\ell}{4\pi\epsilon_0}\frac{\frac{L}{2}\hat{y} - \ell\hat{x}}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3}
+        d\vv{E} = \frac{\rho_l d\ell}{4\pi\epsilon_0}\frac{\frac{L}{2}\hat{y} - \ell\hat{x}}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3}
     \end{align}
 
     Finalmente, sumando todos estos elementos diferenciales a lo largo de la barra, se obtendrá el campo neto sobre el punto $P1$.
     \begin{equation}
-        \vec{E}_{P1} = \int_L d\vec{E} = \int_{\frac{-L}{2}}^{\frac{L}{2}} \frac{\rho_l}{4\pi\epsilon_0}\frac{\frac{L}{2}\hat{y} - \ell\hat{x}}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3}\,  d\ell \qquad, L: \vec{r}_\ell(\ell) = \ell\hat{x}, \ell\in[-\frac{L}{2}, \frac{L}{2}]
+        \vv{E}_{P1} = \int_L d\vv{E} = \int_{\frac{-L}{2}}^{\frac{L}{2}} \frac{\rho_l}{4\pi\epsilon_0}\frac{\frac{L}{2}\hat{y} - \ell\hat{x}}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3}\,  d\ell \qquad, L: \vv{r}_\ell(\ell) = \ell\hat{x}, \ell\in[-\frac{L}{2}, \frac{L}{2}]
     \end{equation}
 
     Por linealidad de la integral, podemos separar las componentes de los vectores y sus constantes.
 
     \begin{equation}
-        \vec{E}_{P1} = \frac{\rho_l}{4\pi\epsilon_0}\left(\int_{-\frac{L}{2}}^{\frac{L}{2}} \frac{L}{2} \frac{1}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3} \,d\ell + \int_{-\frac{L}{2}}^{\frac{L}{2}} \frac{-\ell}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3} \,d\ell\right)
+        \vv{E}_{P1} = \frac{\rho_l}{4\pi\epsilon_0}\left(\int_{-\frac{L}{2}}^{\frac{L}{2}} \frac{L}{2} \frac{1}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3} \,d\ell + \int_{-\frac{L}{2}}^{\frac{L}{2}} \frac{-\ell}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3} \,d\ell\right)
     \end{equation}
 
     La segunda integral se anula al ser una integral de función impar sobre intervalo simétrico real.
 
     \begin{equation}
-        \vec{E}_{P1} = \frac{\rho_l}{4\pi\epsilon_0}\int_{-\frac{L}{2}}^{\frac{L}{2}} \frac{L}{2} \frac{1}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3} \,d\ell
+        \vv{E}_{P1} = \frac{\rho_l}{4\pi\epsilon_0}\int_{-\frac{L}{2}}^{\frac{L}{2}} \frac{L}{2} \frac{1}{\left(\sqrt{\left(\frac{L}{2}\right)^2 + \ell^2}\right)^3} \,d\ell
     \end{equation}
 
     La integral del tipo $\int \frac{1}{(a^2 + x^2)^\frac{3}{2}}\,dx$ tiene como solución la expresión $\frac{x}{a^2\sqrt{a^2+x^2}}$.
 
     \begin{align}
-        \vec{E}_{P1} & = \left.\frac{\rho_l}{4\pi\epsilon_0}\frac{L}{2}\frac{\ell}{\frac{L}{2}\sqrt{\left(\frac{L}{2}\right)^2 + l^2}}\right|_{-\frac{L}{2}}^{\frac{L}{2}}
+        \vv{E}_{P1} & = \left.\frac{\rho_l}{4\pi\epsilon_0}\frac{L}{2}\frac{\ell}{\frac{L}{2}\sqrt{\left(\frac{L}{2}\right)^2 + l^2}}\right|_{-\frac{L}{2}}^{\frac{L}{2}}
         \\
-        \vec{E}_{P1} & = \frac{\rho_l}{4\pi\epsilon_0}\frac{L}{2}\frac{\sqrt{2}}{\left(\frac{L}{2}\right)^2}
+        \vv{E}_{P1} & = \frac{\rho_l}{4\pi\epsilon_0}\frac{L}{2}\frac{\sqrt{2}}{\left(\frac{L}{2}\right)^2}
         \\
-        \vec{E}_{P1} & = \frac{\rho_l}{\sqrt{2}L\pi\epsilon_0}
+        \vv{E}_{P1} & = \frac{\rho_l}{\sqrt{2}L\pi\epsilon_0}
     \end{align}
 
 \end{solucion}
 
-\begin{problema}[Distribución de Carga Superficial]
-    Un disco de radio $a$ esta cargado con una densidad de carga uniforme $\rho_s$.  Calcular la intensidad de campo eléctrico a una distancia $h$ desde el centro del disco en su eje.
+\problema[Distribución de Carga Superficial]
+Un disco de radio $a$ esta cargado con una densidad de carga uniforme $\rho_s$.  Calcular la intensidad de campo eléctrico a una distancia $h$ desde el centro del disco en su eje.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.3\textwidth]{../fig/ayud1-img-p4.pdf}
-        \caption{Situación problema 4}
-    \end{figure}
-
-\end{problema}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{../fig/ayud1-img-p4.pdf}
+    \caption{Situación problema 4}
+\end{figure}
 
 \begin{solucion}
 
-    Mediante coordenadas rectangulares con origen en el centro del disco, se tiene que el punto de interés está ubicado en $\vec{r}_P= h\hat{z}$, luego un punto cualquiera del disco está dado por: $D: \vec{r}_S(r, \theta) = r\cos(\theta)\hat{x} + r\sin(\theta)\hat{y}, \; r\in[0, a], \theta\in[0, 2\pi]$.
+    Mediante coordenadas rectangulares con origen en el centro del disco, se tiene que el punto de interés está ubicado en $\vv{r}_P= h\hat{z}$, luego un punto cualquiera del disco está dado por: $D: \vv{r}_S(r, \theta) = r\cos(\theta)\hat{x} + r\sin(\theta)\hat{y}, \; r\in[0, a], \theta\in[0, 2\pi]$.
 
     Tomando un elemento diferencial de la superficie del disco, $dS$, la carga asociada a esta correponde a $dq = \rho_s dS$, luego, el vector de separación entre el elemento diferencial del disco y el punto $P$ es:
     \begin{equation}
-        \vec{R} = \vec{r}_P - \vec{r}_S = h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}
+        \vv{R} = \vv{r}_P - \vv{r}_S = h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}
     \end{equation}
 
     Asi, la cantidad diferencial de campo eléctrico ejercida sobre $P$ corresponde a:
 
     \begin{gather}
-        d\vec{E}  = \frac{dq}{4\pi\epsilon_0}\frac{\hat{R}}{|\vec{R}|^2}
+        d\vv{E}  = \frac{dq}{4\pi\epsilon_0}\frac{\hat{R}}{|\vv{R}|^2}
         \\
-        d\vec{E}  = \frac{\rho_s dS}{4\pi\epsilon_0}\frac{\vec{R}}{|\vec{R}|^3}
+        d\vv{E}  = \frac{\rho_s dS}{4\pi\epsilon_0}\frac{\vv{R}}{|\vv{R}|^3}
         \\
-        d\vec{E}  = \frac{\rho_s dS}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}
+        d\vv{E}  = \frac{\rho_s dS}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}
     \end{gather}
 
     Donde $dS$ corresponde a $r\,d\theta dr$.
     \begin{equation}
-        d\vec{E}  = \frac{\rho_s}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}r\,d\theta dr
+        d\vv{E}  = \frac{\rho_s}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}r\,d\theta dr
     \end{equation}
 
     Finalmente, sumando todos estos elementos de campo para todo el disco, se obtiene el campo eléctrico que está siendo ejercido sobre $P$
 
     \begin{equation}
-        \vec{E}_{\text{net}, P} = \iint_D d\vec{E} = \int_{0}^{a}\int_{0}^{2\pi} \frac{\rho_s}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}\,rd\theta dr
+        \vv{E}_{\text{net}, P} = \iint_D d\vv{E} = \int_{0}^{a}\int_{0}^{2\pi} \frac{\rho_s}{4\pi\epsilon_0}\frac{h\hat{z} - r\cos(\theta)\hat{x} - r\sin(\theta)\hat{y}}{\sqrt{h^2+ (r\cos(\theta))^2 + (r\sin(\theta))^2}^3}\,rd\theta dr
     \end{equation}
 
     Mediante la identidad pitagórica, notamos que $(r\cos(\theta))^2 + (r\sin(\theta))^2 = r^2$. Luego, separamos la integral sobre los componentes del vector involucrado, así tendremos 3 integrales.
@@ -328,17 +324,17 @@
     Considerando los últimos 2 términos de la expresión (asociados a las componentes $x$ e $y$) al resolver la integral respecto a la variable $\theta$ está resulta 0, al estar resolviendo la integral $\int_{0}^{2\pi} \cos(\theta) d\theta$ y $\int_{0}^{2\pi} \sin(\theta) d\theta$ en los correspondientes casos, quedando.
 
     \begin{equation}
-        \vec{E}_{\text{net}, P} = \frac{\rho_s}{4\pi\epsilon_0}\int_{0}^{a}\int_{0}^{2\pi} \frac{hr}{\sqrt{h^2+ r^2}^3} \,d\theta dr\hat{z}
+        \vv{E}_{\text{net}, P} = \frac{\rho_s}{4\pi\epsilon_0}\int_{0}^{a}\int_{0}^{2\pi} \frac{hr}{\sqrt{h^2+ r^2}^3} \,d\theta dr\hat{z}
     \end{equation}
 
     \begin{align}
-        \vec{E}_{\text{net}, P} = \frac{\rho_s}{4\pi\epsilon_0}\int_{0}^{2\pi}\,d\theta \int_{0}^{a} \frac{rh}{\sqrt{h^2+ r^2}^3} \,dr \hat{z}
+        \vv{E}_{\text{net}, P} = \frac{\rho_s}{4\pi\epsilon_0}\int_{0}^{2\pi}\,d\theta \int_{0}^{a} \frac{rh}{\sqrt{h^2+ r^2}^3} \,dr \hat{z}
         \\
-        \vec{E}_{\text{net}, P} = \frac{\rho_s}{4\pi\epsilon_0}2\pi \left.\frac{-h}{\sqrt{h^2 + r^2}}\right|_0^a
+        \vv{E}_{\text{net}, P} = \frac{\rho_s}{4\pi\epsilon_0}2\pi \left.\frac{-h}{\sqrt{h^2 + r^2}}\right|_0^a
         \\
-        \vec{E}_{\text{net}, P} = \frac{\rho_s}{2\epsilon_0} h\left(\frac{1}{h} - \frac{1}{\sqrt{h^2 + a^2}}\right)
+        \vv{E}_{\text{net}, P} = \frac{\rho_s}{2\epsilon_0} h\left(\frac{1}{h} - \frac{1}{\sqrt{h^2 + a^2}}\right)
         \\
-        \vec{E}_{\text{net}, P}= \frac{\rho_s}{2\epsilon_0} \left(1 - \frac{h}{\sqrt{h^2 + a^2}}\right)
+        \vv{E}_{\text{net}, P}= \frac{\rho_s}{2\epsilon_0} \left(1 - \frac{h}{\sqrt{h^2 + a^2}}\right)
     \end{align}
 
 \end{solucion}

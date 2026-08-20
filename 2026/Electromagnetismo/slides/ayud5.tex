@@ -1,6 +1,15 @@
 \documentclass[10pt, aspectratio=169]{beamer}
 \usepackage{udec-slides}
-\ayud{5}{Condensadores y Capacitancia}
+\slide{5}{Condensadores y Capacitancia}
+
+\usetikzlibrary{arrows.meta, calc, positioning}
+
+% Definición de colores basados en las imágenes
+\definecolor{grisAnillo}{RGB}{180,180,180}
+\definecolor{placaAzul}{RGB}{175,200,235}
+\definecolor{dielClaro}{RGB}{205,225,245}
+\definecolor{dielMedio}{RGB}{180,195,210}
+\definecolor{dielOscuro}{RGB}{160,180,200}
 
 \begin{document}
 \primeraDiapo
@@ -43,7 +52,27 @@
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.4\textwidth]{fig/ayud5-img-p1}
+        \begin{tikzpicture}[scale=0.6, transform shape]
+            % Definición de color por si acaso (ajusta si ya lo tienes definido)
+            \colorlet{grisAnillo}{gray!30}
+
+            % Anillo exterior (Más delgado: radios de 2.8 a 3.0)
+            \filldraw[fill=grisAnillo, draw=black, very thick, even odd rule]
+            (0,0) circle (3.0) (0,0) circle (2.8);
+
+            % Anillo interior (Más delgado: radios de 1.5 a 1.7)
+            \filldraw[fill=grisAnillo, draw=black, very thick, even odd rule]
+            (0,0) circle (1.7) (0,0) circle (1.5);
+
+            % Flechas y etiquetas actualizadas a las nuevas dimensiones
+            % Radio 'a' apunta al borde del anillo interior (1.5)
+            \draw[-{Latex[length=3.5mm]}, very thick] (0,0) -- (60:1.5)
+            node[midway, left=1pt] {\Large $a$};
+
+            % Radio 'b' apunta al inicio del anillo exterior (2.8)
+            \draw[-{Latex[length=3.5mm]}, very thick] (0,0) -- (-30:2.8)
+            node[midway, above=2pt] {\Large $b$};
+        \end{tikzpicture}
     \end{figure}
 
 \end{frame}
@@ -58,8 +87,67 @@
     \end{enumerate}
 
     \begin{figure}[H]
+
         \centering
-        \includegraphics[width=0.4\textwidth]{fig/ayud5-img-p2}
+        \begin{tikzpicture}[scale=0.6, transform shape]
+            % Parámetros de geometría 3D simulada
+            \def\w{5}     % Ancho
+            \def\h{3.5}   % Altura total entre placas
+            \def\dh{1.75} % Altura del dieléctrico (d/2)
+            \def\dx{2.2}  % Profundidad en X
+            \def\dy{1.5}  % Profundidad en Y
+            \def\pt{0.15} % Grosor de la placa
+
+            % 1. PLACA INFERIOR
+            \filldraw[fill=placaAzul, draw=black, thick]
+            (0,0) rectangle (\w, \pt);
+            \filldraw[fill=placaAzul, draw=black, thick]
+            (\w,0) -- (\w+\dx, \dy) -- (\w+\dx, \dy+\pt) -- (\w, \pt) -- cycle;
+
+            % 2. DIELÉCTRICO (Mitad inferior)
+            % Cara frontal
+            \filldraw[fill=dielClaro, draw=black, thick]
+            (0,\pt) rectangle (\w, \pt+\dh);
+            % Cara lateral derecha
+            \filldraw[fill=dielOscuro, draw=black, thick]
+            (\w,\pt) -- (\w+\dx, \dy+\pt) -- (\w+\dx, \dy+\pt+\dh) -- (\w, \pt+\dh) -- cycle;
+            % Cara superior
+            \filldraw[fill=placaAzul, draw=black, thick]
+            (0,\pt+\dh) -- (\w, \pt+\dh) -- (\w+\dx, \dy+\pt+\dh) -- (\dx, \dy+\pt+\dh) -- cycle;
+
+            % 3. LÍNEAS DEL ESPACIO DE AIRE (Transparencia)
+            \draw[thick] (0, \pt+\dh) -- (0, \h);
+            \draw[thick] (\w, \pt+\dh) -- (\w, \h);
+            \draw[thick] (\w+\dx, \dy+\pt+\dh) -- (\w+\dx, \dy+\h);
+            \draw[thick] (\dx, \dy+\pt+\dh) -- (\dx, \dy+\h);
+
+            % 4. PLACA SUPERIOR
+            % Borde frontal
+            \filldraw[fill=placaAzul, draw=black, thick]
+            (0,\h) rectangle (\w, \h+\pt);
+            % Borde lateral
+            \filldraw[fill=placaAzul, draw=black, thick]
+            (\w,\h) -- (\w+\dx, \dy+\h) -- (\w+\dx, \dy+\h+\pt) -- (\w, \h+\pt) -- cycle;
+            % Cara superior
+            \filldraw[fill=dielClaro, draw=black, thick]
+            (0,\h+\pt) -- (\w, \h+\pt) -- (\w+\dx, \dy+\h+\pt) -- (\dx, \dy+\h+\pt) -- cycle;
+
+            % 5. ETIQUETAS Y COTAS
+            % Área A
+            \node at (\w/2 + \dx/2, \h+\pt + \dy/2) {\Large $A$};
+
+            % Cota d/2 (Izquierda)
+            \draw (0, 0) -- (-0.8, 0);
+            \draw (0, \pt+\dh) -- (-0.8, \pt+\dh);
+            \draw[{Latex[length=3mm]}-{Latex[length=3mm]}, thick]
+            (-0.5, 0) -- (-0.5, \pt+\dh) node[midway, left] {\Large $d/2$};
+
+            % Cota d (Derecha)
+            \draw (\w+\dx, \dy) -- (\w+\dx+0.8, \dy);
+            \draw (\w+\dx, \dy+\h+\pt) -- (\w+\dx+0.8, \dy+\h+\pt);
+            \draw[{Latex[length=3mm]}-{Latex[length=3mm]}, thick]
+            (\w+\dx+0.5, \dy) -- (\w+\dx+0.5, \dy+\h+\pt) node[midway, right] {\Large $d$};
+        \end{tikzpicture}
     \end{figure}
 
 \end{frame}
@@ -70,7 +158,50 @@
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.4\textwidth]{fig/ayud5-img-p3}
+        \begin{tikzpicture}[scale=0.55, transform shape]
+            % PLACAS
+            % Placa inferior
+            \filldraw[fill=placaAzul, draw=black, thick] (0,-0.3) rectangle (8,0);
+            % Placa superior
+            \filldraw[fill=placaAzul, draw=black, thick] (0,4) rectangle (8,4.3);
+
+            % DIELÉCTRICOS
+            % k1 (Izquierda)
+            \filldraw[fill=dielClaro, draw=black, thick] (0,0) rectangle (4,4);
+            \node at (2,2) {\Large $k_1$};
+
+            % k2 (Derecha Superior)
+            \filldraw[fill=dielMedio, draw=black, thick] (4,2) rectangle (8,4);
+            \node at (6,3) {\Large $k_2$};
+
+            % k3 (Derecha Inferior)
+            \filldraw[fill=dielClaro, draw=black, thick] (4,0) rectangle (8,2);
+            \node at (6,1) {\Large $k_3$};
+
+            % Línea divisoria central
+            \draw[dashed, thick] (4,-0.3) -- (4,4.3);
+
+            % ETIQUETAS Y COTAS
+            % Áreas
+            \node[above] at (2, 4.4) {\Large $A/2$};
+            \node[above] at (6, 4.4) {\Large $A/2$};
+
+            % Cota d (Izquierda)
+            \draw (0,0) -- (-1.2,0);
+            \draw (0,4) -- (-1.2,4);
+            \draw[{Latex[length=3mm]}-{Latex[length=3mm]}, thick]
+            (-0.9,0) -- (-0.9,4) node[midway, left] {\Large $d$};
+
+            % Cotas d/2 (Derecha)
+            \draw (8,0) -- (9.2,0);
+            \draw (8,2) -- (9.2,2);
+            \draw (8,4) -- (9.2,4);
+
+            \draw[{Latex[length=3mm]}-{Latex[length=3mm]}, thick]
+            (8.9,0) -- (8.9,2) node[midway, right] {\Large $d/2$};
+            \draw[{Latex[length=3mm]}-{Latex[length=3mm]}, thick]
+            (8.9,2) -- (8.9,4) node[midway, right] {\Large $d/2$};
+        \end{tikzpicture}
     \end{figure}
 
 \end{frame}

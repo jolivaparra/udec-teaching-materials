@@ -1,16 +1,16 @@
 \documentclass[10pt, aspectratio=169]{beamer}
 \usepackage{udec-slides}
-\ayud{1}{Ley de Coulomb}
+\slide{1}{Ley de Coulomb}
 
 \begin{document}
 \primeraDiapo
 
 \begin{frame}{Operaciones Vectoriales}{Repaso}
-    Dado dos vectores: $\vec{r}_1$, $\vec{r}_2$ se tiene lo siguiente.
+    Dado dos vectores: $\vv{r}_1$, $\vv{r}_2$ se tiene lo siguiente.
     \begin{boxTeoria}{Vector de Separación}
-        El vector $\vec{r}_{12}$, corresponde al vector que va desde $\vec{r}_1$ hasta $\vec{r}_2$ está dado por:
+        El vector $\vv{r}_{12}$, corresponde al vector que va desde $\vv{r}_1$ hasta $\vv{r}_2$ está dado por:
         \begin{equation*}
-            \vec{r}_{12} = \vec{r}_2 - \vec{r}_1
+            \vv{r}_{12} = \vv{r}_2 - \vv{r}_1
         \end{equation*}
     \end{boxTeoria}
 \end{frame}
@@ -18,16 +18,16 @@
 \begin{frame}{Operaciones Vectoriales}{Repaso}
     \vspace{-15pt}
     \begin{boxTeoria}{Norma de un Vector}
-        Dado $\vec{r} = r_x\hat{x} + r_y\hat{y}$ la norma del vector $\vec{r}$ está dada por:
+        Dado $\vv{r} = r_x\hat{x} + r_y\hat{y}$ la norma del vector $\vv{r}$ está dada por:
         \begin{equation*}
-            |\vec{r}| = r = \sqrt{r_x^2 + r_y^2}
+            |\vv{r}| = r = \sqrt{r_x^2 + r_y^2}
         \end{equation*}
     \end{boxTeoria}
 
     \begin{boxTeoria}{Vector Unitario}
         Un vector unitario es aquel que tiene norma 1. Para normalizar un vector basta dividirlo por su propia norma.
         \begin{equation*}
-            \hat{r} = \frac{\vec{r}}{|\vec{r}|}
+            \hat{r} = \frac{\vv{r}}{|\vv{r}|}
         \end{equation*}
     \end{boxTeoria}
 \end{frame}
@@ -50,9 +50,9 @@
 \begin{frame}{Ley de Coulomb}
     Establece que la fuerza entre dos cargas puntuales en reposo es directamente proporcional al producto de sus cargas e inversamente proporcional al cuadrado de la distancia que las separa.
     \begin{boxTeoria}{Expresión Vectorial}
-        La fuerza ejercida por la carga $q_1$ ubicada en $\vec{r}_1$ sobre $q_2$ ubicada en $\vec{r_2}$ se define como:
+        La fuerza ejercida por la carga $q_1$ ubicada en $\vv{r}_1$ sobre $q_2$ ubicada en $\vv{r_2}$ se define como:
         \begin{equation*}
-            \vec{F}_{12} = \frac{1}{4\pi\varepsilon_0} \frac{q_1\cdot q_2}{|\vec{r}_{12}|^2} \;\hat{r}_{12} \;[\unit{\N}]
+            \vv{F}_{12} = \frac{1}{4\pi\varepsilon_0} \frac{q_1\cdot q_2}{|\vv{r}_{12}|^2} \;\hat{r}_{12} \;[\unit{\N}]
         \end{equation*}
     \end{boxTeoria}
 
@@ -68,7 +68,7 @@
     \begin{boxTeoria}{Principio de Superposición}
         La fuerza neta que actúa sobre una carga puntual es la suma vectorial de las fuerzas ejercidas por cada una de las demás cargas del sistema.
         \begin{equation*}
-            \vec{F}_{R} = \vec{F}_{1} + \vec{F}_{2} + \dots + \vec{F}_{n}
+            \vv{F}_{R} = \vv{F}_{1} + \vv{F}_{2} + \dots + \vv{F}_{n}
         \end{equation*}
     \end{boxTeoria}
 
@@ -147,9 +147,9 @@
 
 \begin{frame}{Campo Eléctrico}
     \begin{boxTeoria}{Definición}
-        Si $\vec{F}$ es la fuerza ejercida sobre una carga de prueba $q_0$ ubicada en la posición $\vec{r}$, el campo eléctrico en dicho punto se define como el límite:
+        Si $\vv{F}$ es la fuerza ejercida sobre una carga de prueba $q_0$ ubicada en la posición $\vv{r}$, el campo eléctrico en dicho punto se define como el límite:
         \begin{equation*}
-            \vec{E}(\vec{r}) = \lim_{q_0 \to 0} \frac{\vec{F}}{q_0}
+            \vv{E}(\vv{r}) = \lim_{q_0 \to 0} \frac{\vv{F}}{q_0}
         \end{equation*}
     \end{boxTeoria}
 \end{frame}

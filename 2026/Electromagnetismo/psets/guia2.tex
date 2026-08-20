@@ -1,10 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage{udec-pset}
-\guia{2}{Campo Eléctrico}
-
-\definecolor{myred}{RGB}{200,50,50}
-\definecolor{myblue}{RGB}{50,50,200}
-\definecolor{mygreen}{RGB}{50,150,50}
+\doc{2}{Campo Eléctrico}
 
 \mostrarSoluciones
 
@@ -26,26 +22,25 @@
     \end{itemize}
 \end{boxTeoria}
 
-\begin{problema}[Distribución de Carga Lineal]
-    Considere un hilo delgado en forma de semicircunferencia de radio $R$ cargado con una densidad de carga lineal uniforme $\lambda$. Este sitúa su centro el origen. Determine, el vector campo eléctrico $\vec{E}$ generado por esta distribución en el punto $P$ ubicado en el origen.
+\problema[Distribución de Carga Lineal]
+Considere un hilo delgado en forma de semicircunferencia de radio $R$ cargado con una densidad de carga lineal uniforme $\lambda$. Este sitúa su centro el origen. Determine, el vector campo eléctrico $\vec{E}$ generado por esta distribución en el punto $P$ ubicado en el origen.
 
-    \begin{center}
-        \shorthandoff{>}
-        \begin{tikzpicture}[scale=2, >=stealth]
-            \draw[->, thin, gray] (-1.3, 0) -- (1.3, 0) node[right, black, scale=0.7] {$x$};
-            \draw[->, thin, gray] (0, -0.2) -- (0, 1.3) node[above, black, scale=0.7] {$y$};
+\begin{center}
+    \shorthandoff{>}
+    \begin{tikzpicture}[scale=2, >=stealth]
+        \draw[->, thin, gray] (-1.3, 0) -- (1.3, 0) node[right, black, scale=0.7] {$x$};
+        \draw[->, thin, gray] (0, -0.2) -- (0, 1.3) node[above, black, scale=0.7] {$y$};
 
-            \draw[ultra thick, UdeCPrincipal] (1,0) arc (0:180:1);
+        \draw[ultra thick, UdeCPrincipal] (1,0) arc (0:180:1);
 
-            \filldraw[black] (0,0) circle (1.2pt) node[below left, scale=0.8] {$P$};
+        \filldraw[black] (0,0) circle (1.2pt) node[below left, scale=0.8] {$P$};
 
-            \draw[dashed, red, thick] (0,0) -- (45:1) node[midway, above left, scale=0.8] {$R$};
+        \draw[dashed, red, thick] (0,0) -- (45:1) node[midway, above left, scale=0.8] {$R$};
 
-            \node[UdeCPrincipal, scale=0.9] at (135:1.2) {$\lambda$};
-        \end{tikzpicture}
-        \shorthandon{>}
-    \end{center}
-\end{problema}
+        \node[UdeCPrincipal, scale=0.9] at (135:1.2) {$\lambda$};
+    \end{tikzpicture}
+    \shorthandon{>}
+\end{center}
 
 \begin{solucion}
     Existen dos formas de abordar este ejercicio, primero es parametrizando la curva correspondiente llegando a: $\vec{r}_C(\theta) = R\cos(\theta)\hat{x} + R\sin(\theta)\hat{y}$, con intervalos $\theta\in[0, \pi]$ y diferencial de línea de $dl = Rd\theta$ y construir el diferencial de campo eléctrico.
@@ -107,16 +102,14 @@
 
 \end{solucion}
 
-\begin{problema}[Distribución de Carga Superficial]
+\problema[Distribución de Carga Superficial] Considere un plano infinito que coincide con el plano $xy$ ($z = 0$), el cual posee una densidad de carga superficial uniforme $\sigma$. Exprese la integral que permite calcular la magnitud del campo eléctrico que esta ejerce sobre una carga ubicada en $P=h\hat{z}$.
 
-    Considere un plano infinito que coincide con el plano $xy$ ($z = 0$), el cual posee una densidad de carga superficial uniforme $\sigma$. Exprese la integral que permite calcular la magnitud del campo eléctrico que esta ejerce sobre una carga ubicada en $P=h\hat{z}$.
-\end{problema}
 
 \begin{solucion}
     Primero, mediante coordenadas rectangulares vemos que todo punto del plano está ubicado en la superficie: $S: \vec{r}_S(x, y) = l\hat{x} + w\hat{y}$, con $x\in[-\infty, \infty]$, $y\in[-\infty, \infty]$.
-    \\
-    Por lo tanto, el vector separación entre el elemento diferencial del plano y el punto de interés es: $\vec{R} = \vec{r}_P - \vec{r}_S = h\hat{z} - l\hat{x} - w\hat{y}$
-    \\
+
+    Por lo tanto, el vector separación entre el elemento diferencial del plano y el punto de interés es: $\vec{R} = \vec{r}_P - \vec{r}_S = h\hat{z} - l\hat{x} - w\hat{y}$.
+
     La carga asociada a este elemento del plano está dada por: $dq = \sigma dS$, donde $dS = dldw$, así, el campo eléctrico ejercido por el plano hacia el punto $P$ es:
     \begin{equation}
         d\vec{E} = \frac{1}{4\pi\epsilon_0}\frac{dq}{|\vec{R}|^2}\hat{R}
@@ -142,15 +135,14 @@
 
 \end{solucion}
 
-\begin{problema}[Distribución de Carga Volumétrica]
-    Una esfera sólida de radio $a$ posee una densidad de carga volumétrica no uniforme definida por:
+\problema[Distribución de Carga Volumétrica]
+Una esfera sólida de radio $a$ posee una densidad de carga volumétrica no uniforme definida por:
 
-    \begin{equation*}
-        \rho(r) = \rho_0 \left( \frac{r - a}{a} \right)
-    \end{equation*}
+\begin{equation*}
+    \rho(r) = \rho_0 \left( \frac{r - a}{a} \right)
+\end{equation*}
 
-    donde $r$ es la distancia radial desde el centro de la esfera. Encontrar la intensidad del campo eléctrico en un punto situado a una distancia $R$ muy grande ($R \gg a$). ¿Qué cosas deben asumirse?
-\end{problema}
+donde $r$ es la distancia radial desde el centro de la esfera. Encontrar la intensidad del campo eléctrico en un punto situado a una distancia $R$ muy grande ($R \gg a$). ¿Qué cosas deben asumirse?
 
 \begin{solucion}
     Debido a que el punto que nos interesa calcular la intensidad de campo eléctrico esta muy alejado de la esfera, nos podemos ayudar de tratar a la carga total de la esfera como una \textbf{Carga Puntual} ejerciendo fuerza sobre este punto a distancia $R$.
@@ -190,6 +182,5 @@
         E = \frac{a^3\rho_0}{12R^2\epsilon_0}
     \end{align}
 \end{solucion}
-
 
 \end{document}
